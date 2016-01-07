@@ -9,6 +9,7 @@
     <meta name="description" content="{% block meta-description %}{% endblock %}">
     <meta name="author" content="{% block meta-author %}{% endblock %}">
     <meta name="keywords" content="{% block meta-keywords %}{% endblock %}">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css" crossorigin="anonymous">
     {% block extra-meta %}{% endblock %}
     {% if debug %}
     <link rel="stylesheet/less" type="text/css" media="all" href="{% static 'less/site.less' %}">
@@ -24,9 +25,17 @@
     {% endcompress %}
 </head>
 <body>
+    <div class="header">
+        {% include 'includes/header.html' %}
+    </div>
     <div class="container">
         {% block content %}{% endblock %}
     </div>
+    <div class="footer">
+        {% include 'includes/footer.html' %}
+    </div>
+{#    <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js" crossorigin="anonymous"></script>#}
+
     {% compress js %}
     <script src="{% static 'libs/jquery.js' %}"></script>
     <script src="{% static 'js/site.js' %}"></script>
