@@ -28,7 +28,11 @@
     <div class="header">
         {% include 'includes/header.html' %}
     </div>
-    <div class="container">
+    <div class="hero-unit">
+        {% block hero %}
+        {% endblock hero %}
+    </div>
+    <div class="">
         {% block content %}{% endblock %}
     </div>
     <div class="footer">
