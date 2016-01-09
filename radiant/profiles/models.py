@@ -22,7 +22,7 @@ class RadiantHuman(models.Model):
         return reverse('profiles_radianthuman_detail', kwargs={'pk': self.id})
 
     def process_content(self):
-        soup = BeautifulSoup(self.content)
+        soup = BeautifulSoup(self.content, 'html.parser')
         paragraphs = soup.findAll('p')
         break1 = 3
         section_one = paragraphs[:break1]

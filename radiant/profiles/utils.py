@@ -21,7 +21,7 @@ def insert_quote(paragraphs, quote):
         <div class='row'>
             <div class='col-md-12 post-quotation'></div>
         </div>
-    """)
+    """, 'html.parser')
 
     pre_quote_paragraphs = soup.find('div', {'class': 'pre-quotation'})
     post_quote_paragraphs = soup.find('div', {'class': 'post-quotation'})
