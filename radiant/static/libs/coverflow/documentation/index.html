@@ -1,0 +1,323 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>Simple 3D Coverflow Documentation</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+	</style>
+	<link rel="stylesheet" href="assets/blueprint-css/fwd.css" type="text/css">
+</head>
+
+<body>
+	<div class="container">
+	
+		<h3 class="center alt">&ldquo;Simple 3D Coverflow&rdquo; Documentation by FWDesign</h3>
+		
+		<hr>
+		
+		<h1 class="center">&ldquo;<span class="center alt">Simple 3D Coverflow</span>&rdquo;</h1>
+		
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 09/01/2014<br>
+					By:© FWD (FUTURE WEB DESIGN)<br>
+					Email: <a href="mailto:contact@webdesign-flash.ro">contact@webdesign-flash.ro</a>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing our script. If you have any questions that are beyond the scope of this help file, please feel free to email via our email. Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		<hr>
+		
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+			<li><a href="#important">IMPORTANT NOTES - read this before anything else</a></li>
+			<li><a href="#setupThumbnails">Setting up the thumbnails</a></li>
+			<li><a href="#instalationResponsiveOrFixed">How to install the coverflow with responsive / fixed width</a></li>
+			<li><a href="#instalationFluidWidth">How to install the coverflow with fluid width</a></li>
+			<li><a href="#config">Constructor parameters</a></li>
+			<li><a href="#categories">Adding categories</a></li>
+            <li><a href="#datalist">Adding thumbnails and media</a></li>
+			<li><a href="#api">API specifications</a></li>
+			<li><a href="#credits">Sources and Credits</a></li>
+		</ol>
+	
+		<hr>
+
+		<h3 id="important"><strong>A) IMPORTANT NOTES - make sure you read this!</strong> - <a href="#toc">top</a></h3>
+		<p>Before reading forward you should understand how this coverflow works. As you will read installing the coverflow into your html page is straight forward and relative simple. The coverflow is using &lt;ul&gt and &lt;li&gt html elements as the base for the categories (the coverflow supports one or more categories), this way if you like you can generate the content with php or asp from a database.</p>
+		<p>Each thumbnail has associated with it an action, when a thumbnail is pressed a new webpage can be opened or a lightbox with a video, image or iframe, the paths and other data for the image and video can be easily set.</p>
+		<p>Try to keep the thumbnails count under 50, this way the performance of the coverflow will be great, if you add more it will get slower especially on mobile. The coverflow also has a separate option for the mobile case, to limit the number of the thumbnails displayed, even though the pc version contains more than this max number, because the performance may vary greatly from the pc version, especially on older mobiles phones or tablets.</p>
+		<p class="red">The examples which we have used in the demo page can be found in the "demo" folder. There is also a "start" folder which contains the minimal settings for the coverflow. Please use these files for referece to copy and paste the html and javascript code into your page.</p>
+		<p>The server is character case sensitive so always use lower case characters!</p>
+		
+		<h3 id="setupThumbnails"><strong>B) Setting up the thumbnails</strong> - <a href="#toc">top</a></h3>
+		<p>Before you start using the coverflow you need to set the "thumbnailWidth" and "thumbnailHeight" properties in the coverflow constructor, these two properties represent the default thumbnails width and height. You can also assign individual width and height for each thumbnail by adding two extra attributes after the "data-thumbnail-path". These are "data-thumbnail-width" and "data-thumbnail-height" and if they are missing then the thumbnail will have the default width and height sizes mentioned before. Also the "thumbnailBorderSize" is subtracted from these values for the final size of the image, so your final image width for example will actually be "thumbnailWidth - thumbnailBorderSize".</p>
+		<p>For example for 400 and 266 width and height values, and the border size 10, the width and height of the image will actually be 390 and 256, while the whole thumbnail is 400x266.</p>
+		<p>The 3D setup is configured such that the center thumbnail will have the actual size, and the ones from the left and right will be scaled down. This is also the same for the 2D setup.</p>
+		<p>If you find it difficult to understand this rules save your images at the same size as we did in our example.</p>
+			
+		<h3 id="instalationResponsiveOrFixed"><strong>C) How to install the coverflow with responsive / fixed width</strong> - <a href="#toc">top</a></h3>
+        <ul>
+			<p class="red">Please note that in the html file which is used as reference we have used the "skin_black" skin, if you need another skin replace it by modifying the skin graphics path setting from the coverflow constructor "skinPath". All skins are located in the load folder along with the images and css files.</p>
+			<li>This display type allows the coverflow to be embedded in your html page in a &lt;div&gt element. This div element (the coverflow's parent) can be located anywhere inside the page based on the page layout.</li>
+        	<li>Before you start there is a start_responsive_or_fixed.html file in the download files in the "start" folder for the basic setup. This is a start template file which you can use to copy and paste the needed code this way you can make sure you are not making any mistake while setting up the coverflow. Please note that these files contain only a few thumbnails entries, one for each lightbox media type and two cateogries for simplicity, this way it is easier to copy paste the code. If only one category is needed then delete the second &lt;ul&gt tag with the attribute data-cat. Please open these html files with a text editor like notepad or preferably notepad++.</li>
+			
+			<li>Make sure that you copy and paste in the same folder with your html file the java and load folder.</li>
+			<li>The javascript and css files must be imported, in the head section of your html file add the code from the below image.</li>
+			<img src="assets/images/script.png"></img>
+			<li>Next step is to initialize the coverflow with javascript, in the head section add code from the below image. Please note that all parameters are described in the <a href="#config">constructor parameters</a> section</li>
+			<img src="assets/images/constructor.png"></img>
+			<li>You need a &lt;div&gt element into which the coverflow will be added as a child. This &lt;div&gt element (the coverflow's parent) can be located anywhere inside the page based on the page layout, so create a &lt;div&gt and set an id for it, the id is important because it is passed in the coverflow constructor, make sure it is unique. The div width and height and background color are set in the constructor, (example in the image below)</li>
+			<img src="assets/images/div.png"></img>
+			<li>There are three required and important parameters in the constructor (coverflowWidth, coverflowHeight, autoscale and skinPath), the width and height represents the maximum width and height of the parent &lt;div&gt and coverflow, so for example if you need the coverflow at a width of 940px and height of 538px just set that in the constructor (example in the image below).</li>
+			<img src="assets/images/required.png"></img>
+			<li>The autoscale is useful only if the layout is responsive or fluidwidth, this means that if you have a responsive layout and the layout width is less then the coverflow width specified in the constructor and you want to keep a correct ratio then set autoscale to yes otherwise set it to no, if autoscale is set to yes the parent &lt;div&gt and coverflow width and height will change based on the layout width this way a correct ratio is kept, if you don't want the height to change then set autoscale to no and only the coverflow width will be modified.</li>
+			<li>The "skinPath" is the path to the folder that contains all the skin graphics image files, for example "load/skin_black".</li>
+			<li>Next step is to add the in the body element an &lt;div&gt element which represents the coverflow datalist, this  &lt;div&gt element must have an unique id which is passed in the constructor. Inside this &lt;div&gt element the coverflow categories are constructed. This is best illustrated in the below image. To add categories just copy and paste  an  &lt;ul&gt element with an attribute <span class="boldLi">data-cat</span> (please note that in the below image the html code is minimized, to view the entire html code observe the start_responsive_or_fixed.html). Make sure you read the <a href="#datalist">coverflow datalist</a> section to understand how to add more cateogries, thumbnails and configure the coverflow datalist.</li>
+			<img src="assets/images/data.png"></img>
+			<li>These are all the steps needed to setup the coverflow, again all this code is located in the "start" folder in the four html files so you can copy and paste the code easily without errors. Please make sure to read the <a href="#config">constructor parameters</a> section to understand all the coverflow properties.</li>
+         </ul>   
+		 
+		 <h3 id="instalationFluidWidth"><strong>D) How to install the coverflow with fluid width</strong> - <a href="#toc">top</a></h3>
+		 <p>This display type allows the coverflow to be embedded in your html page and it will always fill the browser width. This div element (the coverflow's parent) can be located anywhere inside the page based on the page layout. Please follow the same rules as in the <a href="#instalationResponsiveOrFixed">How to install the coverflow with responsive / fixed width</a>. The only difference is that in the constructor the display type parameter must be set to fluidwidth like this:<span class="boldLi">displayType:"fluidwidth"</span>. Please note that there is a html file named start_fluid_width.html for the basic setup.</p>
+		          
+		<h3 id="config"><strong>E) Constructor parameters</strong> - <a href="#toc">top</a></h3>
+		<p>These parameters represent the possible settings for the coverflow, they are all visible in the below image and described below:</p>
+		<img src="assets/images/constructor.png"></img>
+		 <ol>
+			<h4><strong>Required settings:</strong></h4>
+        	<li><span class="boldLi">coverflowHolderDivId</span>:"myDiv" - the div id into which the coverflow will be added (this is also necessary if the <span class="boldLi">displayType</span> is set to fluidwidth).</li>
+			<li><span class="boldLi">coverflowDataListDivId</span>:"coverflowData" - the id of the &lt;div&gt element used as the datalist for the coverflow.</li>
+			<li><span class="boldLi">displayType</span>:"responsive" - the display type, this can be <span class="boldLi">responsive</span> or <span class="boldLi">fluidwidth</span>, all display types are explained and an example is provided for each one of them.</li>
+			<li><span class="boldLi">autoScale</span>:"yes" - this can be "yes" or "no", this is useful only if the layout is responsive or fluidwidth, this means that if you have a responsive layout and the layout width is less then the coverflow width specified in the constructor and you want to keep a correct ratio then set autoscale to yes otherwise set it to no, if autoscale is set to yes the parent &lt;div&gt and coverflow width and height will change based on the layout width this way a correct ratio is kept, if you don't want the height to change then set autoscale to "no" and only the coverflow width will be modified.</li>
+			<li><span class="boldLi">coverflowWidth</span>:940 - This represents the maximum coverflow width.</li>
+			<li><span class="boldLi">coverflowHeight</span>:538 - This represents the maximum coverflow height.</li>
+			<li><span class="boldLi">skinPath</span>:"load/skin_black" - this is the path to the skin graphics folder of the coverflow.</li>
+			<br><h4><strong>Main settings:</strong></h4>
+			<li><span class="boldLi">backgroundColor</span>:"#DDDDDD" - the coverflow background color.</li>
+			<li><span class="boldLi">backgroundImagePath</span>:"load/skin_black/background.jpg" - this image is used as background image for the entire coverflow.</li>
+			<li><span class="boldLi">backgroundRepeat</span>:"repeat-x" - this is used for the CSS background-repeat property of all of the three above background images, it can be any of the CSS values like "repeat-x", "repeat-y", "no-repeat" etc.</li>
+			<li><span class="boldLi">showDisplay2DAlways</span>:"no" - this can be "yes" or "no", you can set the coverflow to always display the 2D configuration even on browsers that support 3D if you want to.</li>
+			<li><span class="boldLi">coverflowStartPosition</span>:"center" - this is the start position of the thumbnails of the coverflow, it can be "left", "right", "center", "random" or the index of the thumbnail starting from 1.</li>
+			<li><span class="boldLi">coverflowTopology</span>:"dualsided" - this is the topology geometry for the thumbnails of the coverflow. It can be "onesided", "frontonesided", "dualsided", "crosssided", "acordeon" or "flipping". Each topology can be most easily understood by looking at the presets configurations.</li>
+			<li><span class="boldLi">coverflowXRotation</span>:0 - this is a rotation value used for the X angle of the 3D version of the coverflow.</li>
+			<li><span class="boldLi">coverflowYRotation</span>:0 - this is a rotation value used for the Y angle of the 3D version of the coverflow.</li>
+			<li><span class="boldLi">numberOfThumbnailsToDisplayLeftAndRight</span>:"all" - this represents the maximum number of thumbnails to be displayed on the left and right of the center.</li>
+			<li><span class="boldLi">infiniteLoop</span>:"yes" - this can be "yes" or "no", it enables the coverflow movement to flow continuously in an infinite loop in any direction. Please note that in this case you can't display all the thumbnails in the setting above, you must set a specific number..</li>
+			<li><span class="boldLi">rightClickContextMenu</span>:"developer" - this changes the appearance of the context menu. If "developer" the context menu will be the developer link "made by FWD". If "disabled" the context menu will be disabled completely. If "default" the context menu will be the browser default.</li>
+			<li><span class="boldLi">fluidWidthZIndex</span>:1000 - this is a z-index used for the "fluid-width" version of the coverflow so that you can remove conflicts with overlapping menus etc.</li>
+			<br><h4><strong>Thumbnail settings:</strong></h4>
+			<li><span class="boldLi">thumbnailWidth</span>:420 - this is the default width of the coverflow thumbnails. In case the data-thumbnail-width and data-thumbnail-height settings are not provided for a thumbnail, it's width and height will be these default values.</li>
+			<li><span class="boldLi">thumbnailHeight</span>:286 - this is the default height of the coverflow thumbnails. In case the data-thumbnail-width and data-thumbnail-height settings are not provided for a thumbnail, it's width and height will be these default values.</li>
+			<li><span class="boldLi">thumbnailXOffset3D</span>:85 - this is an offset used for the X axis space between the central thumbnail and the side ones on the 3D version of the coverflow.</li>
+			<li><span class="boldLi">thumbnailXSpace3D</span>:78 - this is a value used for the X axis space between the side thumbnails on the 3D version of the coverflow.</li>
+			<li><span class="boldLi">thumbnailZOffset3D</span>:200 - this is an offset used for the Z axis space between the central thumbnail and the side ones on the 3D version of the coverflow.</li>
+			<li><span class="boldLi">thumbnailZSpace3D</span>:93 - this is a value used for the Z axis space between the side thumbnails on the 3D version of the coverflow.</li>
+			<li><span class="boldLi">thumbnailYAngle3D</span>:70 - this is a value used for the Y angle of the side thumbnails on the 3D version of the coverflow.</li>
+			<li><span class="boldLi">thumbnailXOffset2D</span>:20 - this is an offset used for the X axis space between the central thumbnail and the side ones on the 2D version of the coverflow.</li>
+			<li><span class="boldLi">thumbnailXSpace2D</span>:30 - this is a value used for the X axis space between the side thumbnails on the 2D version of the coverflow.</li>
+			<li><span class="boldLi">thumbnailHoverOffset</span>:100 - this is a value used for the hover effect for the side thumbnails on the 3D version of the coverflow.</li>
+			<li><span class="boldLi">thumbnailBorderSize</span>:10 - the thumbnail border size in pixels.</li>
+			<li><span class="boldLi">thumbnailBackgroundColor</span>:"#666666" - the background color of the thumbnails.</li>
+			<li><span class="boldLi">thumbnailBorderColor1</span>:"#fcfdfd" - the upper border color of the thumbnails border. If these two values are different, they create a gradient effect, if they are the same then there is a single color.</li>
+			<li><span class="boldLi">thumbnailBorderColor2</span>:"#e4e4e4" - the lower border color of the thumbnails border. If these two values are different, they create a gradient effect, if they are the same then there is a single color.</li>
+			<li><span class="boldLi">transparentImages</span>:"no" - this can be "yes" or "no", used when you want to use png images with transparent backgrounds.</li>
+			<li><span class="boldLi">thumbnailsAlignment</span>:"center" - this can be "center", "top" or "bottom", used to align the thumbnails vertically.</li>
+			<li><span class="boldLi">maxNumberOfThumbnailsOnMobile</span>:13 - this is the maximum number of thumbnails to be displayed only on the mobile devices for performance reasons.</li>
+			<li><span class="boldLi">showThumbnailsGradient</span>:"yes" - this can be "yes" or "no", used to show or hide the thumbnails gradient.</li>
+			<li><span class="boldLi">thumbnailGradientDirection</span>:"left" - this can be "left" or "top", used for the direction the thumbnails gradient.</li>
+			<li><span class="boldLi">thumbnailGradientColor1</span>:"rgba(0, 0, 0, 0)" - this is the first color with transparency of the thumbnails gradient.</li>
+			<li><span class="boldLi">thumbnailGradientColor2</span>:"rgba(0, 0, 0, 1)" - this is the second color with transparency of the thumbnails gradient.</li>
+			<li><span class="boldLi">showText</span>:"yes" - this can be "yes" or "no", used to show or hide the thumbnails text.</li>
+			<li><span class="boldLi">textOffset</span>:10 - this is the distance from the text to the base of the center thumbnail.</li>
+			<li><span class="boldLi">showThumbnailBoxShadow:</span>:"yes" - this can be "yes" or "no", used to show an box shadow on the thumbnail if desired.</li>
+			<li><span class="boldLi">thumbnailBoxShadowCss</span>:"0px 2px 2px #111111" - this represents the CSS box-shadow property for the thumbnail.</li>
+			<li><span class="boldLi">showTooltip</span>:"yes" - this can be "yes" or "no", used to show or hide the thumbnails tooltip.</li>
+			<li><span class="boldLi">dynamicTooltip</span>:"yes" - this can be "yes" or "no", used to show the thumbnail tooltip dynamically following the mouse cursor or static above the thumbnail.</li>
+			<li><span class="boldLi">showReflection</span>:"yes" - this can be "yes" or "no", used to show or hide the thumbnails reflection.</li>
+			<li><span class="boldLi">reflectionHeight</span>:60 - this is the height of the thumbnails reflection.</li>
+			<li><span class="boldLi">reflectionDistance</span>:0 - this is the distance of the reflection to the thumbnail.</li>
+			<li><span class="boldLi">reflectionOpacity</span>:.2 - the opacity of the thumbnails reflection.</li>
+			<br><h4><strong>Controls settings:</strong></h4>
+			<li><span class="boldLi">slideshowDelay</span>:5000 - this is the slideshow delay in milliseconds - this means 5000 represents 5 seconds.</li>
+			<li><span class="boldLi">autoplay</span>:"no" - this can be "yes" or "no", it can enable the coverflow to start with the autoplay on or off.</li>
+			<li><span class="boldLi">disableNextAndPrevButtonsOnMobile</span>:"no" - this can be "yes" or "no", it shows or hides the next and prev buttons on the mobile devices, if you want them to be displayed only on the pc.</li>
+			<li><span class="boldLi">controlsMaxWidth</span>:700 - this represents the max widths of the controls and is used to scale the scrollbar at resize.</li>
+			<li><span class="boldLi">slideshowTimerColor</span>:"#FFFFFF" - this is the color of the slideshow timer display numbers.</li>
+			<li><span class="boldLi">controlsPosition</span>:"bottom" - This can be "bottom" or "top", it represents the position of the coverflow controls.</li>
+			<li><span class="boldLi">controlsOffset</span>:15 - This is the offset of the position of the coverflow controls.</li>
+			<li><span class="boldLi">showPrevButton</span>:"yes" - this can be "yes" or "no", it shows or hides the previous button of the coverflow.</li>
+			<li><span class="boldLi">showNextButton</span>:"yes" - this can be "yes" or "no", it shows or hides the next button of the coverflow.</li>
+			<li><span class="boldLi">showSlideshowButton</span>:"yes" - this can be "yes" or "no", it shows or hides the slideshow button of the coverflow.</li>
+			<li><span class="boldLi">showScrollbar</span>:"yes" - this can be "yes" or "no", used to show or hide the scrollbar.</li>
+			<li><span class="boldLi">disableScrollbarOnMobile</span>:"yes" - this can be "yes" or "no", used to disable the scrollbar only on mobile devices.</li>
+			<li><span class="boldLi">enableMouseWheelScroll</span>:"yes" - this can be "yes" or "no". Disables or enables the mouse wheel support for scrolling the coverflow.</li>
+			<li><span class="boldLi">scrollbarHandlerWidth</span>:200 - the width of the scrollbar handler.</li>
+			<li><span class="boldLi">scrollbarTextColorNormal</span>:"#000000" - the normal color of the scrollbar text.</li>
+			<li><span class="boldLi">scrollbarTextColorSelected</span>:"#FFFFFF" - the selected color of the scrollbar text.</li>
+			<li><span class="boldLi">addKeyboardSupport</span>:"yes" - this can be "yes" or "no", it adds keyboard navigation support for the coverflow, through the left and right arrows.</li>
+			<br><h4><strong>Categories settings:</strong></h4>
+			<li><span class="boldLi">showCategoriesMenu</span>:"yes" - this can be "yes" or "no", used to show or hide the coverflow categories menu.</li>
+			<li><span class="boldLi">startAtCategory</span>:1 - If there is more then one category you can specify at which one to start, please note that the count starts from 1.</li>
+			<li><span class="boldLi">categoriesMenuMaxWidth</span>:700 - this represents the max widths of the categories menu. In case the page width is smaller than the menu width, the menu will be scrolled.</li>
+			<li><span class="boldLi">categoriesMenuOffset</span>:700 - this represents the offset of the position of the categories menu.</li>
+			<li><span class="boldLi">categoryColorNormal</span>:"#999999" - the normal color of the category text.</li>
+			<li><span class="boldLi">categoryColorSelected</span>:"#FFFFFF" - the selected color of the category text.</li>
+			<br><h4><strong>Lightbox settings:</strong></h4>
+			<li><span class="boldLi">addLightBoxKeyboardSupport</span>:"yes" - this can be "yes" or "no", adds keyboard support to the lightbox.</li>
+			<li><span class="boldLi">showLightBoxNextAndPrevButtons</span>:"yes" - this can be "yes" or "no", hides or shows the lightbox next and prev buttons.</li>
+			<li><span class="boldLi">showLightBoxZoomButton</span>:"yes" - this can be "yes" or "no", hides or shows the lightbox zoom button.</li>
+			<li><span class="boldLi">showLightBoxInfoButton</span>:"yes" - this can be "yes" or "no", hides or shows the lightbox info button and info window.</li>
+			<li><span class="boldLi">showlightboxSlideShowButton</span>:"yes" - this can be "yes" or "no", hides or shows the lightbox slideshow button.</li>
+			<li><span class="boldLi">showLightBoxInfoWindowByDefault</span>:"no" - this can be "yes" or "no", opens the info window by default.</li>
+			<li><span class="boldLi">slideShowAutoPlay</span>:"yes" - this can be "yes" or "no", slideshow autoplay feature.</li>
+			<li><span class="boldLi">lightBoxVideoAutoPlay</span>:"no" - this can be "yes" or "no", vimeo and youtube autoplay feature.</li>
+			<li><span class="boldLi">lightBoxVideoWidth</span>:640 - this represents the width of the lightbox video.</li>
+			<li><span class="boldLi">lightBoxVideoHeight</span>:480 - this represents the height of the lightbox video.</li>
+			<li><span class="boldLi">lightBoxIframeWidth</span>:800 - this represents the width of the lightbox iframe.</li>
+			<li><span class="boldLi">lightBoxIframeHeight</span>:600 - this represents the height of the lightbox iframe.</li>
+			<li><span class="boldLi">lightboxBackgroundColor</span>:"#000000" -the lightbox main background color.</li>
+			<li><span class="boldLi">lightBoxInfoWindowBackgroundColor</span>:"#FFFFFF" -the lightbox description window background color.</li>
+			<li><span class="boldLi">lightBoxItemBorderColor1</span>:"#FFFFFF" - the lightbox image or video upper border color. If these two values are different, they create a gradient effect, if they are the same then there is a single color.</li>
+			<li><span class="boldLi">lightBoxItemBorderColor2</span>:"#FFFFFF" - the lightbox image or video lower border color. If these two values are different, they create a gradient effect, if they are the same then there is a single color.</li>
+			<li><span class="boldLi">lightBoxItemBackgroundColor</span>:"#FFFFFF" - the lightbox image or video background color.</li>
+			<li><span class="boldLi">lightBoxMainBackgroundOpacity</span>:.8 - the lightbox main background opacity, a number from 0 to 1.</li>
+			<li><span class="boldLi">lightBoxInfoWindowBackgroundOpacity</span>:.9 - the lightbox description window background opacity, a number from 0 to 1.</li>
+			<li><span class="boldLi">lightBoxBorderSize</span>:5 - the lightbox image or video border size.</li>
+			<li><span class="boldLi">lightBoxBorderRadius</span>:0 - the lightbox border radius in pixels.</li>
+			<li><span class="boldLi">lightBoxSlideShowDelay</span>:4000 - the lightbox slideshow delay in milliseconds - this means 4000 represents 4 seconds.</li>
+		</ol>
+       
+	    <h3 id="categories"><strong>F) Adding categories</strong> - <a href="#toc">top</a></h3>
+		<p>Adding categories is easy just copy and paste inside the datalist &lt;ul&gt element another &lt;ul&gt element with an attribute <span class="boldLi">data-cat</span>, this attribute is setting the button label. Inside the &lt;ul&gt element with the attribute <span class="boldLi">data-cat</span> thumbnails with images can be added (please read  <a href="#datalist">Adding thumbnails and media</a>). To remove the category just delete the &lt;ul&gt element with an attribute <span class="boldLi">data-cat</span> which you don't need. Please note that if the coverflow has only one category the combobox will be disabled/not visible. This is better illustrated in the below image, please note that we minified the html code, to view it maximized open any of the html files from the "start" folder provided in the download files.</p>
+		<img src="assets/images/data.png"></img>
+        
+        <h3 id="datalist"><strong>G) Adding thumbnails and media</strong> - <a href="#toc">top</a></h3>
+		<p>This section describes how to add a thumbnail and how to configure it so that it display videos, images, iframes or open links. Make sure you have opened any of the html files from the "start" folder provided, in a text editor for reference. First you need to know that each thumbnail is associated with an image, video, iframe or link. Please note that the &lt;li&gt with the attribute <span class="boldLi">data-info</span> which represents the lightbox description is optional, also the &lt;li&gt with the attribute <span class="boldLi">data-thumbnail-text</span> which represents the thumbnail description is optional if the <span class="boldLi">showText</span> and <span class="boldLi">showTooltip</span> options are set to "no". To add more thumbnails just copy paste a &lt;li&gt element like in the examples below in the category of your choosing.</p>
+		<p><b>Adding images:</b></p>
+		<p>To add an image add the code from the below image into the datalist &lt;ul&gt just like the image below.The first &lt;li&gt element represents the image path, the second &lt;li&gt element represents the thumbnails path, the third &lt;li&gt element represents the thumbnail description and the forth &lt;li&gt element represents the lightbox description. There are two thumbnail size settings - "data-thumbnail-width" and "data-thumbnail-height" - that are optional and if they are missing the default "thumbnailWidth" and "thumbnailHeight" values are used for the size of the thumbnails. Here is an example:</p>
+		<img src="assets/images/image.png"></img>
+		
+		<p><b>Adding videos from vimeo:</b></p>
+		To add a video from vimeo add the code from the below image into the datalist &lt;ul&gt just like the image below. The first &lt;li&gt element represents the video data as you can see you can set the video width and height and also the url of the video which you want to display, the second &lt;li&gt element represents the thumbnails path, the third &lt;li&gt element represents the thumbnail description and the forth &lt;li&gt element represents the lightbox description.</p>
+		<img src="assets/images/vimeo.png"></img>
+		
+		<p><b>Adding videos from youtube:</b></p>
+		To add a video from youtube add the code from the below image into the datalist &lt;ul&gt just like the image below. The first &lt;li&gt element represents the video data as you can see you can set the video width and height and also the url of the video from youtube which you want to display, the second &lt;li&gt element represents the thumbnails path, the third &lt;li&gt element represents the thumbnail description and the forth &lt;li&gt element represents the lightbox description.</p>
+		<img src="assets/images/youtube.png"></img>
+		
+		<p><b>Adding an iframe (html page):</b></p>
+		To add a html page (iframe) add the code from the below image into the datalist &lt;ul&gt just like the image below. The first &lt;li&gt element represents the iframe data as you can see you can set the iframe width and height and also the url of the html page which you want to display, the second &lt;li&gt element represents the thumbnails path, the third &lt;li&gt element represents the thumbnail description and the forth &lt;li&gt element represents the lightbox description.</p>
+		<img src="assets/images/iframe.png"></img>
+		
+		<p><b>Adding a link to open when a thumbnail is pressed:</b></p>
+		<p>To add a link to a thumbnail add the code from the below image into the datalist &lt;ul&gt just like the image below. The first &lt;li&gt element represents the link data as you can see you can add the url to open when the thumbnail is pressed and the url target, the second &lt;li&gt element represents the thumbnails path, the third &lt;li&gt element represents the thumbnail description and the forth &lt;li&gt element represents the lightbox description.</p>
+		<img src="assets/images/link.png"></img>
+		
+		<h3 id="api"><strong>H) API specifications:</strong> - <a href="#toc">top</a></h3>
+		
+		<p>The following lists represent all the public API functions and event listeners that you can use from the coverflow externally:</p>
+		 
+		<h4><strong>Public methods:</strong></h4>
+		
+		<table>
+			<tr class="firstTr">
+				<th class="firstTd">Function</th>
+				<th class="secondTd">Method</th>
+				<th class="thirdTd">Description</th>
+			</tr>
+			<tr>
+				<td><p class="mainProp">isAPIReady</p></td>
+				<td class="prop"><span class="inlineSpan">isAPIReady()</span>:Boolean</td>
+				<td class="lastCol">Specifies if the API functions are ready to use, possible values are <span class="mainProp">true</span> or <span class="mainProp">false</span>.</td>
+			</tr>
+			<tr>
+				<td><p class="mainProp">getCurrentCategoryId</p></td>
+				<td class="prop"><span class="inlineSpan">getCurrentCategoryId()</span>:Number</td>
+				<td class="lastCol">Get the current category id, this method returns a number between 0 and the number of categories - 1.</td>
+			</tr>
+			<tr>
+				<td><p class="mainProp">switchCategory</p></td>
+				<td class="prop"><span class="inlineSpan">switchCategory( Number )</span>:void</td>
+				<td class="lastCol">Set the category id, it will automatically switch to that category just like in the combobox selection. Accepts a parameter that represents a number between 0 and the number of categories - 1.</td>
+			</tr>
+			<tr>
+				<td><p class="mainProp">getCurrentThumbId</p></td>
+				<td class="prop"><span class="inlineSpan">getCurrentThumbId()</span>:Number</td>
+				<td class="lastCol">Get the current thumb id, this method returns a number between 0 and the number of thumbs - 1.</td>
+			</tr>
+			<tr>
+				<td><p class="mainProp">gotoThumb</p></td>
+				<td class="prop"><span class="inlineSpan">gotoThumb( Number )</span>:void</td>
+				<td class="lastCol">Set the thumb id, it will automatically go to that thumb. Accepts a parameter that represents a number between 0 and the number of thumbs - 1.</td>
+			</tr>
+			<tr>
+				<td><p class="mainProp">isSlideshowPlaying</p></td>
+				<td class="prop"><span class="inlineSpan">isSlideshowPlaying()</span>:Boolean</td>
+				<td class="lastCol">Specifies if the slideshow is playing, possible values are <span class="mainProp">true</span> or <span class="mainProp">false</span>.</td>
+			</tr>
+			<tr>
+				<td><p class="mainProp">startSlideshow</p></td>
+				<td class="prop"><span class="inlineSpan">startSlideshow()</span>:void</td>
+				<td class="lastCol">Starts the coverflow slideshow to play.</td>
+			</tr>
+			<tr>
+				<td><p class="mainProp">stopSlideshow</p></td>
+				<td class="prop"><span class="inlineSpan">stopSlideshow()</span>:void</td>
+				<td class="lastCol">Stops the coverflow playing slideshow.</td>
+			</tr>
+		</table>
+		
+		<h4><strong>Event listeners:</strong></h4>
+		
+		<table>
+			<tr class="firstTr">
+				<th class="firstTd">Event</th>
+				<th class="secondTd">Prefix</th>
+				<th class="thirdTd">Description</th>
+			</tr>
+			<tr>
+				<td><p class="mainProp">isAPIReady</p></td>
+				<td class="prop"><span class="inlineSpan">FWDSimple3DCoverflow.IS_API_READY</span></td>
+				<td class="lastCol">Dispatched when the coverflow instance API is actually available to use.</td>
+			</tr>
+			<tr>
+				<td><p class="mainProp">categoryChange</p></td>
+				<td class="prop"><span class="inlineSpan">FWDSimple3DCoverflow.CATEGORY_CHANGE</span></td>
+				<td class="lastCol">Dispatched when the coverflow category has changed. It has the current category id attached to it, you can access it like an attribute "event.id".</td>
+			</tr>
+			<tr>
+				<td><p class="mainProp">thumbChange</p></td>
+				<td class="prop"><span class="inlineSpan">FWDSimple3DCoverflow.THUMB_CHANGE</span></td>
+				<td class="lastCol">Dispatched when the coverflow thumb has changed. It has the current thumb id attached to it, you can access it like an attribute "event.id".</td>
+			</tr>
+		</table>
+		
+		<p>You can find an example using these API methods and events in the "start" folder at the "api_test.html" file.</p>
+		
+        <h3 id="credits"><strong>I) Sources and Credits:</strong> - <a href="#toc">top</a></h3>
+  
+        <p>This component was made by Mihai from FWD (FWDesign) <a href="http://www.webdesign-flash.ro">FUTURE WEB DESIGN</a>, for more information and support contact us at <a href="mailto:youremail@yourdomain.com">contact@webdesign-flash.ro</a></p>
+		
+		<p>Once again, thank you so much for purchasing this item. As I said at the beginning, I'd be glad to help you if you have any questions regarding this coverflow and I'll do my best to assist.</p> 
+		
+		<p class="append-bottom alt large"><strong>FWDesign</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+</html>
