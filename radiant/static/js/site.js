@@ -60,7 +60,7 @@
         }
     });
 
-    $('#video').on('click',function(){
+    $('video').on('click',function(){
         video.play();
     },false);
 

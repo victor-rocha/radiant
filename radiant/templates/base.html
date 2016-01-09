@@ -24,15 +24,15 @@
     <script src="{% static 'libs/modernizr.js' %}"></script>
     {% endcompress %}
 </head>
-<body>
-    <div class="header">
+<body class="{% block body_class %}{% endblock %}">
+    <div class="header container">
         {% include 'includes/header.html' %}
     </div>
-    <div class="hero">
+    <div class="hero-wrapper">
         {% block hero %}
         {% endblock hero %}
     </div>
-    <div class="">
+    <div class="content-wrapper">
         {% block content %}{% endblock %}
     </div>
     <div class="footer">

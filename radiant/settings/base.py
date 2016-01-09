@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     # External apps
     'compressor',
+    # internal apps
+    'radiant.profiles',
 ]
 
 MIDDLEWARE_CLASSES = [
