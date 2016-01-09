@@ -1,0 +1,9 @@
+{% load profiles_tags %}
+
+{% get_latest_episodes as episodes %}
+
+{% for episode in episodes %}
+    <div class="latest-episode">
+        {% include 'includes/video.html' with object=episode link=True %}
+    </div>
+{% endfor %}

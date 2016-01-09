@@ -8,6 +8,7 @@
     <div class="row page">
         <div class="col-md-3">
             <h3>Recent Episodes</h3>
+            {% include 'includes/latests_episodes.html' %}
         </div>
         <div class="col-md-6 article">
             {{ object.content|safe }}

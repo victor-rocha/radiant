@@ -16,7 +16,9 @@ class RadiantPage(AbstractRadiantModel):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('pages_radiantpage_detail', kwargs={'url': self.url})
+        if self.url:
+            return reverse('pages_radiantpage_detail', kwargs={'url': self.url})
+        return '/'
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
