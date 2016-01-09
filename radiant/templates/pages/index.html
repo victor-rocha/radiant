@@ -5,7 +5,23 @@
 {% endblock %}
 
 {% block content %}
-<div class="article">
+    <div class="row page">
+        <div class="col-md-3">
+            <h3>Recent Episodes</h3>
+        </div>
+        <div class="col-md-6 article">
+            {{ object.content|safe }}
+        </div>
+        <div class="col-md-3">
+            <h3>Mission Statement</h3>
+            <p>We're the Radiant Project.</p>
 
-</div>
+            <h3>Please follow & like us :)</h3>
+            <p>
+                <a href="https://www.facebook.com/theradiantproject"><i class="fa fa-4x fa-facebook-square"></i></a>
+                <a href="https://twitter.com/radiant_project"><i class="fa fa-4x fa-twitter-square"></i></a>
+                <a href="https://www.instagram.com/"><i class="fa fa-4x fa-instagram"></i></a>
+            </p>
+        </div>
+    </div>
 {% endblock content %}

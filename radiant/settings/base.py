@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'compressor',
     # internal apps
     'radiant.profiles',
+    'radiant.pages',
 ]
 
 MIDDLEWARE_CLASSES = [
