@@ -31,9 +31,57 @@ video {
 
 
 //Radiant Human Detail Page
+.youtube-wrapper {
+  position: relative;
+  padding-bottom: 53.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+}
+.youtube-wrapper,
+.youtube-wrapper iframe {
+  max-width: 1280px;
+  max-height: 720px;
+}
+.youtube-wrapper iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+}
 body.radiant-human p {
   color: white;
 }
 body.radiant-human hr {
   color: white;
+}
+.quotation-wrapper {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.col-quotation-right {
+  display: -webkit-flexbox;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  align-items: center;
+
+  font-size: 32px;
+  color: white;
+
+  .quotation:before {
+    content: '\f10d';
+  }
+  .quotation:after {
+    content: '\f10e';
+  }
 }

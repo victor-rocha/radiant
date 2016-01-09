@@ -3,21 +3,27 @@
 {% block body_class %}radiant-human{% endblock %}
 
 {% block hero %}
-    <div class="row">
-        <div class="col-md-6">
-            {% include 'includes/video.html' with mp4_video_url=object.mp4_url auto_play=True loop=True %}
-        </div>
-        <div class="col-md-6">
-            {{ object.process_content.0|safe }}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="youtube-wrapper">
+                    <iframe width="1280" height="720" src="{{ object.youtube_url }}" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="col-md-6">
+                {{ object.process_content.0|safe }}
+            </div>
         </div>
     </div>
-    <hr>
 {% endblock %}
 
 {% block content %}
-    <div class="row">
-        <div class="col-md-12">
-            {{ object.process_content.1|safe }}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                {{ object.process_content.1|safe }}
+            </div>
         </div>
     </div>
 {% endblock %}

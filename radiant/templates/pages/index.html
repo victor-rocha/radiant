@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block hero %}
-    {% include 'includes/video.html' with mp4_video_url='https://s3.amazonaws.com/radiantmedia/kuala_lumpur_timelapse.mp4' auto_play=True loop=True %}
+    {% include 'includes/video.html' with object=object auto_play=True loop=True %}
 {% endblock %}
 
 {% block content %}

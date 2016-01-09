@@ -1,4 +1,4 @@
 <video {% if auto_play %}autoplay{% endif %} {% if loop %}loop{% endif %}>
-    <source src="{{ mp4_video_url }}" type="video/mp4" media="all and (max-width:480px)">
-    <p>Your browser doesn't support HTML5 video. <a href="{{ mp4_video_url }}">Download this video instead.</a></p>
+    <source src="{{ object.mp4_url }}" type="video/mp4" media="all and (max-width:480px)">
+    <p>Your browser doesn't support HTML5 video. <a href="{{ object.mp4_url }}">Download this video instead.</a></p>
 </video>

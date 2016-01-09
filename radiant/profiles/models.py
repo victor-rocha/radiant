@@ -1,6 +1,9 @@
 from bs4 import BeautifulSoup
 
 from django.db import models
+from django.core.urlresolvers import reverse
+
+from .utils import insert_quote
 
 
 class RadiantHuman(models.Model):
@@ -15,12 +18,22 @@ class RadiantHuman(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('profiles_radianthuman_detail', kwargs={'pk': self.id})
+
     def process_content(self):
         soup = BeautifulSoup(self.content)
         paragraphs = soup.findAll('p')
+        break1 = 3
+        section_one = paragraphs[:break1]
+        quote = self.quote_set.first()
+        if quote:
+            section_two = insert_quote(paragraphs[break1:], quote.text)
+        else:
+            section_two = paragraphs[break1:]
         return [
-            ' '.join([paragraph.prettify() for paragraph in paragraphs[:4]]),
-            ' '.join([paragraph.prettify() for paragraph in paragraphs[4:-1]]),
+            ' '.join([paragraph.prettify() for paragraph in section_one]),
+            ' '.join([paragraph.prettify() for paragraph in section_two]),
         ]
 
 

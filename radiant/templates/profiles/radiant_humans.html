@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block body_class %}radiant-human{% endblock %}
+
+{% block hero %}
+    <div class="container">
+        {% for radiant_human in object_list %}
+            <p><a href="{{ radiant_human.get_absolute_url }}">{{ radiant_human }}</a></p>
+        {% endfor %}
+    </div>
+{% endblock %}
