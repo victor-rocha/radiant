@@ -7,6 +7,15 @@ from .utils import insert_quote
 
 
 class RadiantHuman(models.Model):
+    DRAFT = 0
+    LIVE = 1
+    UNRELEASED = 2
+
+    STATUS = [
+        (DRAFT, 'Draft'),
+        (UNRELEASED, 'Unreleased'),
+        (LIVE, 'Live'),
+    ]
     name = models.CharField(max_length=255)
     mp4_url = models.CharField(max_length=255, blank=True)
     webm_url = models.CharField(max_length=255, blank=True)
@@ -15,12 +24,18 @@ class RadiantHuman(models.Model):
     thumbnail = models.ImageField(blank=True)
     content = models.TextField(blank=True)
     slider_description = models.CharField(max_length=255, blank=True, null=True)
+    release_date = models.DateField(null=True, blank=True)
+    status = models.IntegerField(choices=STATUS, default=DRAFT)
 
     def __str__(self):
         return self.name
 
     def get_absolute_url(self):
         return reverse('profiles_radianthuman_detail', kwargs={'pk': self.id})
+
+    @property
+    def is_live(self):
+        return self.status == self.LIVE
 
     def process_content(self):
         soup = BeautifulSoup(self.content, 'html.parser')

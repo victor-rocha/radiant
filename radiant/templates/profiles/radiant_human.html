@@ -3,22 +3,31 @@
 {% block body_class %}radiant-human{% endblock %}
 
 {% block hero %}
-
     <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="youtube-wrapper">
-                    <iframe width="1280" height="720" src="{{ object.youtube_url }}" frameborder="0" allowfullscreen></iframe>
+        {% if object.is_live %}
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="youtube-wrapper">
+                        <iframe width="1280" height="720" src="{{ object.youtube_url }}" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    {{ object.process_content.0|safe }}
                 </div>
             </div>
-            <div class="col-md-6">
-                {{ object.process_content.0|safe }}
-            </div>
-        </div>
+        {% else %}
+            {# Let the user know that the episode will be aired soon #}
+            {% if object.thumbnail %}
+                <img src="{{ object.thumbnail.url }}"/>
+            {% else %}
+                <h2>This episode will be released on {{ object.release_date }} </h2>
+            {% endif %}
+        {% endif %}
     </div>
 {% endblock %}
 
 {% block content %}
+    {% if object.is_live %}
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -26,4 +35,5 @@
             </div>
         </div>
     </div>
+    {% endif %}
 {% endblock %}
