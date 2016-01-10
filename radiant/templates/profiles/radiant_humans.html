@@ -171,15 +171,15 @@
                 {% for radiant_human in object_list %}
                     {% if radiant_human.thumbnail %}
                         <ul>
-                            <li data-type="link" data-url="{{ radiant_human.get_absolute_url }}" data-target="_blank"></li>
+                            <li data-type="link" data-url="{{ radiant_human.get_absolute_url }}"></li>
                             <li data-thumbnail-path="{{ radiant_human.thumbnail.url }}"></li>
                             <li data-thumbnail-text="">
                                 <p class="largeLabel">{{ radiant_human.name }}</p>
                                 <p class="smallLabel">{{ radiant_human.slider_description }}</p>
                             </li>
                             <li data-info="">
-                                <p class="mediaDescriptionHeader">CUSTOM PRESS THUMBNAIL ACTION.</p>
-                                <p class="mediaDescriptionText">When a thumbnail is pressed the coverflow can open a browser window or the lightbox.</p>
+                                <p class="mediaDescriptionHeader">{{ radiant_human.name }}</p>
+                                <p class="mediaDescriptionText">{{ radiant_human.slider_description }}</p>
                             </li>
                         </ul>
                     {% endif %}
