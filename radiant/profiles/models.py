@@ -14,6 +14,7 @@ class RadiantHuman(models.Model):
     youtube_url = models.CharField(max_length=255, blank=True)
     thumbnail = models.ImageField(blank=True)
     content = models.TextField(blank=True)
+    slider_description = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
         return self.name
