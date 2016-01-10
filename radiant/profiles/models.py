@@ -3,10 +3,11 @@ from bs4 import BeautifulSoup
 from django.db import models
 from django.core.urlresolvers import reverse
 
+from radiant.common.models import AbstractRadiantModel
 from .utils import insert_quote
 
 
-class RadiantHuman(models.Model):
+class RadiantHuman(AbstractRadiantModel):
     DRAFT = 0
     LIVE = 1
     UNRELEASED = 2
@@ -16,13 +17,8 @@ class RadiantHuman(models.Model):
         (UNRELEASED, 'Unreleased'),
         (LIVE, 'Live'),
     ]
-    name = models.CharField(max_length=255)
-    mp4_url = models.CharField(max_length=255, blank=True)
-    webm_url = models.CharField(max_length=255, blank=True)
-    ogg_url = models.CharField(max_length=255, blank=True)
     youtube_url = models.CharField(max_length=255, blank=True)
     thumbnail = models.ImageField(blank=True)
-    content = models.TextField(blank=True)
     slider_description = models.CharField(max_length=255, blank=True, null=True)
     release_date = models.DateField(null=True, blank=True)
     status = models.IntegerField(choices=STATUS, default=DRAFT)

@@ -1,0 +1,8 @@
+<meta property='og:site_name' content='The Radiant Project'/>
+<meta property='og:title' content='{% firstof object.og_title 'Radiant Project' %}'/>
+<meta property='og:url' content='{{ request.get_full_path }}'/>
+<meta property='og:type' content='{% firstof object.og_type 'article' %}'/>
+<meta property='og:description' content='{{ object.og_description }}'/>
+{% if object.og_image %}
+<meta property='og:image' content='{{ object.og_image.url }}'/>
+{% endif %}
