@@ -22,8 +22,8 @@
                     coverflowDataListDivId:"coverflowData",
                     displayType:"fluidwidth",
                     autoScale:"no",
-                    coverflowWidth:940,
-                    coverflowHeight:650,
+                    coverflowWidth:900,
+                    coverflowHeight:600,
                     skinPath:"/static/libs/coverflow/start/load/skin_black",
 
                     //main settings
@@ -41,8 +41,8 @@
                     fluidWidthZIndex:1000,
 
                     //thumbnail settings
-                    thumbnailWidth:750,
-                    thumbnailHeight:500,
+                    thumbnailWidth:600,
+                    thumbnailHeight:400,
 
                     thumbnailXOffset3D:86,
                     thumbnailXSpace3D:78,
@@ -171,7 +171,7 @@
                 {% for radiant_human in object_list %}
                     {% if radiant_human.thumbnail %}
                         <ul>
-                            <li data-type="link" data-url="http://www.google.com" data-target="_blank"></li>
+                            <li data-type="link" data-url="{{ data_human.get_absolute_url }}" data-target="_blank"></li>
                             <li data-thumbnail-path="{{ radiant_human.thumbnail.url }}"></li>
                             <li data-thumbnail-text="">
                                 <p class="largeLabel">{{ radiant_human.name }}</p>
