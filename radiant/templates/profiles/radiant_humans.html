@@ -127,7 +127,7 @@
 
             coverflow.addListener(FWDSimple3DCoverflow.IS_API_READY, onApiReady);
             coverflow.addListener(FWDSimple3DCoverflow.THUMB_CHANGE, onThumbChange);
-            coverflow.addListener(FWDSimple3DCoverflow.CATEGORY_CHANGE, onCategoryChange);
+{#            coverflow.addListener(FWDSimple3DCoverflow.CATEGORY_CHANGE, onCategoryChange);#}
         });
 
         function gotoNextCategory()
@@ -168,126 +168,129 @@
 
             <!-- category  -->
             <ul data-cat="+ Category one">
-                <ul>
-                    <li data-type="link" data-url="http://www.google.com" data-target="_blank"></li>
-                    <li data-thumbnail-path="http://placehold.it/750x500"></li>
-                    <li data-thumbnail-text="">
-                        <p class="largeLabel">CUSTOM PRESS THUMBNAIL ACTION</p>
-                        <p class="smallLabel">When a thumbnail is pressed the coverflow can open a browser window or the lightbox.</p>
-                    </li>
-                    <li data-info="">
-                        <p class="mediaDescriptionHeader">CUSTOM PRESS THUMBNAIL ACTION.</p>
-                        <p class="mediaDescriptionText">When a thumbnail is pressed the coverflow can open a browser window or the lightbox.</p>
-                    </li>
-                </ul>
+                {% for radiant_human in object_list %}
+                    {% if radiant_human.thumbnail %}
+                        <ul>
+                            <li data-type="link" data-url="http://www.google.com" data-target="_blank"></li>
+                            <li data-thumbnail-path="{{ radiant_human.thumbnail.url }}"></li>
+                            <li data-thumbnail-text="">
+                                <p class="largeLabel">CUSTOM PRESS THUMBNAIL ACTION</p>
+                                <p class="smallLabel">When a thumbnail is pressed the coverflow can open a browser window or the lightbox.</p>
+                            </li>
+                            <li data-info="">
+                                <p class="mediaDescriptionHeader">CUSTOM PRESS THUMBNAIL ACTION.</p>
+                                <p class="mediaDescriptionText">When a thumbnail is pressed the coverflow can open a browser window or the lightbox.</p>
+                            </li>
+                        </ul>
+                    {% endif %}
+                {% endfor %}
+{#                <ul>#}
+{#                    <li data-type="media" data-url="http://placehold.it/750x500"></li>#}
+{#                    <li data-thumbnail-path="http://placehold.it/750x500"></li>#}
+{#                    <li data-thumbnail-text="">#}
+{#                        <p class="largeLabel">RESPONSIVE LAYOUT</p>#}
+{#                        <p class="smallLabel">The coverflow has responsive layout.</p>#}
+{#                    </li>#}
+{#                    <li data-info="">#}
+{#                        <p class="mediaDescriptionHeader">RESPONSIVE LAYOUT.</p>#}
+{#                        <p class="mediaDescriptionText">The coverflow has responsive layout, basically it has an adaptable layout which makes it the perfect candidate for any type of project.</p>#}
+{#                    </li>#}
+{#                </ul>#}
+{##}
+{#                <ul>#}
+{#                    <li data-type="media" data-width="640" data-height="420" data-url="http://vimeo.com/83759300"></li>#}
+{#                    <li data-thumbnail-path="http://placehold.it/750x500"></li>#}
+{#                    <li data-thumbnail-text="">#}
+{#                        <p class="largeLabel">2D FALLBACK FOR OLDER BROWSERS LIKE IE7/8</p>#}
+{#                        <p class="smallLabel">On a older browser that does not have 3D support the coverflow will display in a 2D format.</p>#}
+{#                    </li>#}
+{#                    <li data-info="">#}
+{#                        <p class="mediaDescriptionHeader">2D FALLBACK FOR OLDER BROWSERS LIKE IE7/8.</p>#}
+{#                        <p class="mediaDescriptionText">On a older browser that does not have 3D support the coverflow will display in a 2D format..</p>#}
+{#                    </li>#}
+{#                </ul>#}
+{##}
+{#                <ul>#}
+{#                    <li data-type="link" data-url="http://www.google.com" data-target="_blank"></li>#}
+{#                    <li data-thumbnail-path="http://placehold.it/750x500"></li>#}
+{#                    <li data-thumbnail-text="">#}
+{#                        <p class="largeLabel">GREAT PERFORMANCE ON MOBILE DEVICES</p>#}
+{#                        <p class="smallLabel">This coverflow is using the GPU (hardware acceleration).</p>#}
+{#                    </li>#}
+{#                </ul>#}
 
-                <ul>
-                    <li data-type="media" data-url="http://placehold.it/750x500"></li>
-                    <li data-thumbnail-path="http://placehold.it/750x500"></li>
-                    <li data-thumbnail-text="">
-                        <p class="largeLabel">RESPONSIVE LAYOUT</p>
-                        <p class="smallLabel">The coverflow has responsive layout.</p>
-                    </li>
-                    <li data-info="">
-                        <p class="mediaDescriptionHeader">RESPONSIVE LAYOUT.</p>
-                        <p class="mediaDescriptionText">The coverflow has responsive layout, basically it has an adaptable layout which makes it the perfect candidate for any type of project.</p>
-                    </li>
-                </ul>
-
-                <ul>
-                    <li data-type="media" data-width="640" data-height="420" data-url="http://vimeo.com/83759300"></li>
-                    <li data-thumbnail-path="http://placehold.it/750x500"></li>
-                    <li data-thumbnail-text="">
-                        <p class="largeLabel">2D FALLBACK FOR OLDER BROWSERS LIKE IE7/8</p>
-                        <p class="smallLabel">On a older browser that does not have 3D support the coverflow will display in a 2D format.</p>
-                    </li>
-                    <li data-info="">
-                        <p class="mediaDescriptionHeader">2D FALLBACK FOR OLDER BROWSERS LIKE IE7/8.</p>
-                        <p class="mediaDescriptionText">On a older browser that does not have 3D support the coverflow will display in a 2D format..</p>
-                    </li>
-                </ul>
-
-                <ul>
-                    <li data-type="link" data-url="http://www.google.com" data-target="_blank"></li>
-                    <li data-thumbnail-path="http://placehold.it/750x500"></li>
-                    <li data-thumbnail-text="">
-                        <p class="largeLabel">GREAT PERFORMANCE ON MOBILE DEVICES</p>
-                        <p class="smallLabel">This coverflow is using the GPU (hardware acceleration).</p>
-                    </li>
-                </ul>
-
-                <ul>
-                    <li data-type="media" data-width="640" data-height="420" data-url="http://www.youtube.com/watch?v=89rnIwCURC8"></li>
-                    <li data-thumbnail-path="http://placehold.it/750x500"></li>
-                    <li data-thumbnail-text="">
-                        <p class="largeLabel">VIMEO AND YOUTUBE SUPPORT</p>
-                        <p class="smallLabel">The coverflow lightbox can load and play videos from youtube or vimeo easily.</p>
-                    </li>
-                    <li data-info="">
-                        <p class="mediaDescriptionHeader">VIMEO AND YOUTUBE SUPPORT.</p>
-                        <p class="mediaDescriptionText">All you have to do is to include the link from YouTube or Vimeo video that you want to display and the lightbox will display and play your video. The size (width and height) of each video can be set easily.</p>
-                    </li>
-                </ul>
-                <ul>
-                    <li data-type="link" data-url="http://www.google.com" data-target="_blank"></li>
-                    <li data-thumbnail-path="http://placehold.it/750x500"></li>
-                    <li data-thumbnail-text="">
-                        <p class="largeLabel">CUSTOM PRESS THUMBNAIL ACTION</p>
-                        <p class="smallLabel">When a thumbnail is pressed the coverflow can open a browser window or the lightbox.</p>
-                    </li>
-                    <li data-info="">
-                        <p class="mediaDescriptionHeader">CUSTOM PRESS THUMBNAIL ACTION.</p>
-                        <p class="mediaDescriptionText">When a thumbnail is pressed the coverflow can open a browser window or the lightbox.</p>
-                    </li>
-                </ul>
-
-                <ul>
-                    <li data-type="media" data-url="http://placehold.it/750x500"></li>
-                    <li data-thumbnail-path="http://placehold.it/750x500"></li>
-                    <li data-thumbnail-text="">
-                        <p class="largeLabel">RESPONSIVE LAYOUT</p>
-                        <p class="smallLabel">The coverflow has responsive layout.</p>
-                    </li>
-                    <li data-info="">
-                        <p class="mediaDescriptionHeader">RESPONSIVE LAYOUT.</p>
-                        <p class="mediaDescriptionText">The coverflow has responsive layout, basically it has an adaptable layout which makes it the perfect candidate for any type of project.</p>
-                    </li>
-                </ul>
-
-                <ul>
-                    <li data-type="media" data-width="640" data-height="420" data-url="http://vimeo.com/83759300"></li>
-                    <li data-thumbnail-path="http://placehold.it/750x500"></li>
-                    <li data-thumbnail-text="">
-                        <p class="largeLabel">2D FALLBACK FOR OLDER BROWSERS LIKE IE7/8</p>
-                        <p class="smallLabel">On a older browser that does not have 3D support the coverflow will display in a 2D format.</p>
-                    </li>
-                    <li data-info="">
-                        <p class="mediaDescriptionHeader">2D FALLBACK FOR OLDER BROWSERS LIKE IE7/8.</p>
-                        <p class="mediaDescriptionText">On a older browser that does not have 3D support the coverflow will display in a 2D format..</p>
-                    </li>
-                </ul>
-
-                <ul>
-                    <li data-type="link" data-url="http://www.google.com" data-target="_blank"></li>
-                    <li data-thumbnail-path="http://placehold.it/750x500"></li>
-                    <li data-thumbnail-text="">
-                        <p class="largeLabel">GREAT PERFORMANCE ON MOBILE DEVICES</p>
-                        <p class="smallLabel">This coverflow is using the GPU (hardware acceleration).</p>
-                    </li>
-                </ul>
-
-                <ul>
-                    <li data-type="media" data-width="640" data-height="420" data-url="http://www.youtube.com/watch?v=89rnIwCURC8"></li>
-                    <li data-thumbnail-path="http://placehold.it/750x500"></li>
-                    <li data-thumbnail-text="">
-                        <p class="largeLabel">VIMEO AND YOUTUBE SUPPORT</p>
-                        <p class="smallLabel">The coverflow lightbox can load and play videos from youtube or vimeo easily.</p>
-                    </li>
-                    <li data-info="">
-                        <p class="mediaDescriptionHeader">VIMEO AND YOUTUBE SUPPORT.</p>
-                        <p class="mediaDescriptionText">All you have to do is to include the link from YouTube or Vimeo video that you want to display and the lightbox will display and play your video. The size (width and height) of each video can be set easily.</p>
-                    </li>
-                </ul>
+{#                <ul>#}
+{#                    <li data-type="media" data-width="640" data-height="420" data-url="http://www.youtube.com/watch?v=89rnIwCURC8"></li>#}
+{#                    <li data-thumbnail-path="http://placehold.it/750x500"></li>#}
+{#                    <li data-thumbnail-text="">#}
+{#                        <p class="largeLabel">VIMEO AND YOUTUBE SUPPORT</p>#}
+{#                        <p class="smallLabel">The coverflow lightbox can load and play videos from youtube or vimeo easily.</p>#}
+{#                    </li>#}
+{#                    <li data-info="">#}
+{#                        <p class="mediaDescriptionHeader">VIMEO AND YOUTUBE SUPPORT.</p>#}
+{#                        <p class="mediaDescriptionText">All you have to do is to include the link from YouTube or Vimeo video that you want to display and the lightbox will display and play your video. The size (width and height) of each video can be set easily.</p>#}
+{#                    </li>#}
+{#                </ul>#}
+{#                <ul>#}
+{#                    <li data-type="link" data-url="http://www.google.com" data-target="_blank"></li>#}
+{#                    <li data-thumbnail-path="http://placehold.it/750x500"></li>#}
+{#                    <li data-thumbnail-text="">#}
+{#                        <p class="largeLabel">CUSTOM PRESS THUMBNAIL ACTION</p>#}
+{#                        <p class="smallLabel">When a thumbnail is pressed the coverflow can open a browser window or the lightbox.</p>#}
+{#                    </li>#}
+{#                    <li data-info="">#}
+{#                        <p class="mediaDescriptionHeader">CUSTOM PRESS THUMBNAIL ACTION.</p>#}
+{#                        <p class="mediaDescriptionText">When a thumbnail is pressed the coverflow can open a browser window or the lightbox.</p>#}
+{#                    </li>#}
+{#                </ul>#}
+{##}
+{#                <ul>#}
+{#                    <li data-type="media" data-url="http://placehold.it/750x500"></li>#}
+{#                    <li data-thumbnail-path="http://placehold.it/750x500"></li>#}
+{#                    <li data-thumbnail-text="">#}
+{#                        <p class="largeLabel">RESPONSIVE LAYOUT</p>#}
+{#                        <p class="smallLabel">The coverflow has responsive layout.</p>#}
+{#                    </li>#}
+{#                    <li data-info="">#}
+{#                        <p class="mediaDescriptionHeader">RESPONSIVE LAYOUT.</p>#}
+{#                        <p class="mediaDescriptionText">The coverflow has responsive layout, basically it has an adaptable layout which makes it the perfect candidate for any type of project.</p>#}
+{#                    </li>#}
+{#                </ul>#}
+{##}
+{#                <ul>#}
+{#                    <li data-type="media" data-width="640" data-height="420" data-url="http://vimeo.com/83759300"></li>#}
+{#                    <li data-thumbnail-path="http://placehold.it/750x500"></li>#}
+{#                    <li data-thumbnail-text="">#}
+{#                        <p class="largeLabel">2D FALLBACK FOR OLDER BROWSERS LIKE IE7/8</p>#}
+{#                        <p class="smallLabel">On a older browser that does not have 3D support the coverflow will display in a 2D format.</p>#}
+{#                    </li>#}
+{#                    <li data-info="">#}
+{#                        <p class="mediaDescriptionHeader">2D FALLBACK FOR OLDER BROWSERS LIKE IE7/8.</p>#}
+{#                        <p class="mediaDescriptionText">On a older browser that does not have 3D support the coverflow will display in a 2D format..</p>#}
+{#                    </li>#}
+{#                </ul>#}
+{##}
+{#                <ul>#}
+{#                    <li data-type="link" data-url="http://www.google.com" data-target="_blank"></li>#}
+{#                    <li data-thumbnail-path="http://placehold.it/750x500"></li>#}
+{#                    <li data-thumbnail-text="">#}
+{#                        <p class="largeLabel">GREAT PERFORMANCE ON MOBILE DEVICES</p>#}
+{#                        <p class="smallLabel">This coverflow is using the GPU (hardware acceleration).</p>#}
+{#                    </li>#}
+{#                </ul>#}
+{##}
+{#                <ul>#}
+{#                    <li data-type="media" data-width="640" data-height="420" data-url="http://www.youtube.com/watch?v=89rnIwCURC8"></li>#}
+{#                    <li data-thumbnail-path="http://placehold.it/750x500"></li>#}
+{#                    <li data-thumbnail-text="">#}
+{#                        <p class="largeLabel">VIMEO AND YOUTUBE SUPPORT</p>#}
+{#                        <p class="smallLabel">The coverflow lightbox can load and play videos from youtube or vimeo easily.</p>#}
+{#                    </li>#}
+{#                    <li data-info="">#}
+{#                        <p class="mediaDescriptionHeader">VIMEO AND YOUTUBE SUPPORT.</p>#}
+{#                        <p class="mediaDescriptionText">All you have to do is to include the link from YouTube or Vimeo video that you want to display and the lightbox will display and play your video. The size (width and height) of each video can be set easily.</p>#}
+{#                    </li>#}
+{#                </ul>#}
             </ul>
             <!-- end  -->
         </ul>
