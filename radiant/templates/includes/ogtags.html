@@ -1,8 +1,8 @@
 <meta property='og:site_name' content='The Radiant Project'/>
-<meta property='og:title' content='{% firstof object.og_title 'Radiant Project' %}'/>
+<meta property='og:title' content='{% firstof object.og_title 'The Radiant Project' %}'/>
 <meta property='og:url' content='{{ request.build_absolute_uri }}'/>
 <meta property='og:type' content='{% firstof object.og_type 'article' %}'/>
-<meta property='og:description' content='{{ object.og_description }}'/>
+<meta property='og:description' content='{% firstof object.og_description '' %}'/>
 {% if object.og_image %}
 <meta property='og:image' content='{{ object.og_image.url }}'/>
 {% endif %}
