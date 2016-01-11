@@ -8,7 +8,7 @@
 {#    <link rel="stylesheet" type="text/css" media="all" href="{% static 'libs/coverflow/start/load/skin_classic_black.css' %}">#}
 {% endblock %}
 {% block extra-js %}
-    <script src="{% static 'libs/coverflow/start/java/FWDSimple3DCoverflow.js' %}"></script>
+    <script src="{% static 'libs/coverflow/java/FWDSimple3DCoverflow_uncompressed.js' %}"></script>
     <!-- Setup the coverflow (all settings are explained in detail in the documentation files) -->
     <script type="text/javascript">
         var coverflow;
@@ -36,7 +36,7 @@
                     coverflowXRotation:0,
                     coverflowYRotation:0,
                     numberOfThumbnailsToDisplayLeftAndRight:"all",
-                    infiniteLoop:"no",
+                    infiniteLoop:"yes",
                     rightClickContextMenu:"",
                     fluidWidthZIndex:1000,
 
@@ -147,13 +147,42 @@
 
         function onApiReady()
         {
-            coverflow.gotoThumb(0);
+            var initial_item = 0,
+                ev = {id: initial_item};
+            coverflow.gotoThumb(ev.id);
+{#            $(document).trigger('FWDSimple3DCoverflow.THUMB_CHANGE', [ev]);#}
+            setTimeout(function() {
+                onThumbChange(ev);
+            }, 1000);
             console.log("api ready");
         }
 
-        function onThumbChange(ev)
-        {
-{#            debugger;#}
+        var videos = {};
+        {% for radiant_human in object_list %}
+            var video = $('<video autoplay loop id="video-overlay"></video>'),
+                sources = $('<source src="' + "{{ radiant_human.mp4_url }}" + '" ' +
+                    'onclick="window.location="' + "'{{ radiant_human.get_absolute_url }}'" + ' type="video/mp4" media="all and (max-width:480px)">');
+            video.append(sources);
+            videos[{{ forloop.counter0 }}] = video;
+        {% endfor %}
+
+        function onThumbChange(ev) {
+            $('#video-overlay').remove();
+            setTimeout(function() {
+                var image = $("img[src$=" + "'" + coverflow.thumbsManagerDO.curDataListAr[coverflow.getCurrentThumbId()].thumbPath + "'" + "]:first"),
+                    video_overlay = videos[ev.id];
+                video_overlay.css({
+                        'height': image.height(),
+                        'width': image.width(),
+                        'position': 'absolute',
+                        'background': 'black',
+                        'z-index': 1000,
+                        'top': image.offset().top,
+                        'left': image.offset().left
+                });
+                $('body').append(video_overlay);
+                video_overlay[0].play();
+            }, 700);
             console.log("thumb id: " + ev.id);
         }
     </script>
@@ -171,7 +200,7 @@
                 {% for radiant_human in object_list %}
                     {% if radiant_human.thumbnail %}
                         <ul>
-                            <li data-type="link" data-url="{{ radiant_human.get_absolute_url }}"></li>
+                            <li data-type="media" data-url="{{ radiant_human.thumbnail.url }}" data-custom="victor rocha"></li>
                             <li data-thumbnail-path="{{ radiant_human.thumbnail.url }}"></li>
                             <li data-thumbnail-text="">
                                 <p class="largeLabel">{{ radiant_human.name }}</p>
