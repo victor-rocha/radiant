@@ -60,8 +60,10 @@
         }
     });
 
-    $('video').on('click',function(){
-        video.play();
-    },false);
-
+    $('.hero-wrapper').on('click', function() {
+        var $video = $(this).find('video');
+        $(this).toggleClass('fullscreen');
+        $video.attr('controls', 'controls');
+        //$video.first().play();
+    });
 })(jQuery);

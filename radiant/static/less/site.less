@@ -5,6 +5,9 @@ body {
   background: rgb(0, 0, 0);
   //padding: 0 20px;
 }
+.close {
+  display: none;
+}
 .navbar {
   background: black;
   color: white;
@@ -42,6 +45,27 @@ body {
 .hero-wrapper {
   max-height: 650px;
   overflow: hidden;
+  -webkit-transition: width 2s, height 4s; /* Safari */
+  transition: width 2s, height 4s;
+}
+.fullscreen {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 10;
+  max-height: 100%;
+
+  .close {
+    display: block;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    color: rgb(0, 0, 0);
+    font-size: 36px;
+    opacity: 0.5;
+  }
 }
 video {
   width:100%;
