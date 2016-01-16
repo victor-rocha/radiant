@@ -61,9 +61,20 @@
     });
 
     $('.hero-wrapper').on('click', function() {
-        var $video = $(this).find('video');
-        $(this).toggleClass('fullscreen');
-        $video.attr('controls', 'controls');
-        //$video.first().play();
+        var $this = $(this),
+            $video = $this.find('video');
+        if (!$this.hasClass('fullscreen')) {
+            $this.toggleClass('fullscreen');
+            $video.attr('controls', 'controls');
+            //$video.first().play();
+        } else {
+
+        }
+    });
+
+    $('.hero-wrapper .close').click(function() {
+        $('.hero-wrapper').removeClass('fullscreen');
+        event.preventDefault();
+        event.stopPropagation();
     });
 })(jQuery);
