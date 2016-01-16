@@ -38,29 +38,11 @@ body {
 .container {
   padding-top: 20px;
 }
-//.video-wrapper {
-//  width: 100%;
-//  /* whatever width you want */
-//  display: inline-block;
-//  position: relative;
-//}
-//.video-wrapper:after {
-//  padding-top: 56.25%;
-//  /* 16:9 ratio */
-//  display: block;
-//  content: '';
-//}
-//.video-wrapper video {
-//  position: absolute;
-//  top: 0;
-//  bottom: 0;
-//  right: 0;
-//  left: 0;
-//  /* fill parent */
-//  background-color: black;
-//  /* let's see it! */
-//  color: white;
-//}
+// TODO: Change this so that it works in all screen sizes
+.hero-wrapper {
+  max-height: 700px;
+  overflow: hidden;
+}
 video {
   width:100%;
   //max-width:500px;
@@ -81,6 +63,8 @@ video {
 }
 .content-wrapper {
   //background: rgb(238, 238, 238);
+  //background: black;
+  //margin-top: -200px;
 }
 .article {
   min-height: 400px;
