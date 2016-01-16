@@ -3,7 +3,7 @@
 */
 body {
   background: rgb(0, 0, 0);
-  padding: 0 20px;
+  //padding: 0 20px;
 }
 .navbar {
   background: black;
@@ -38,16 +38,49 @@ body {
 .container {
   padding-top: 20px;
 }
+//.video-wrapper {
+//  width: 100%;
+//  /* whatever width you want */
+//  display: inline-block;
+//  position: relative;
+//}
+//.video-wrapper:after {
+//  padding-top: 56.25%;
+//  /* 16:9 ratio */
+//  display: block;
+//  content: '';
+//}
+//.video-wrapper video {
+//  position: absolute;
+//  top: 0;
+//  bottom: 0;
+//  right: 0;
+//  left: 0;
+//  /* fill parent */
+//  background-color: black;
+//  /* let's see it! */
+//  color: white;
+//}
 video {
   width:100%;
   //max-width:500px;
   height:auto;
-  //max-height: 800px;
+  //max-height: 700px;
   cursor: pointer;
 }
 .page {
   margin: 40px auto;
-  color: white;
+  padding: 20px;
+  color: rgb(66, 66, 66) !important;
+}
+.page p {
+  color: rgb(66, 66, 66) !important;
+}
+.page h2 {
+  margin-bottom: 40px;
+}
+.content-wrapper {
+  background: rgb(238, 238, 238);
 }
 .article {
   min-height: 400px;
@@ -83,7 +116,7 @@ body.radiant-human p {
   color: white;
 }
 body.radiant-human hr {
-  color: white;
+  //color: white;
 }
 .quotation-wrapper {
   display: -webkit-flex;
@@ -106,7 +139,7 @@ body.radiant-human hr {
   align-items: center;
 
   font-size: 32px;
-  color: white;
+  //color: white;
 
   .quotation:before {
     content: '\f10d';
