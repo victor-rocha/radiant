@@ -147,12 +147,12 @@
 
         function onApiReady()
         {
-{#            var initial_item = 0,#}
-{#                ev = {id: initial_item};#}
-{#            coverflow.gotoThumb(ev.id);#}
-{#            setTimeout(function() {#}
-{#                onThumbChange(ev);#}
-{#            }, 1000);#}
+            var initial_item = {{ current_episodes_index }} - 1,
+                ev = {id: initial_item};
+            coverflow.gotoThumb(ev.id);
+            setTimeout(function() {
+                onThumbChange(ev);
+            }, 1000);
             console.log("api ready");
         }
 
