@@ -21,7 +21,7 @@
                     coverflowHolderDivId:"myDiv",
                     coverflowDataListDivId:"coverflowData",
                     displayType:"fluidwidth",
-                    autoScale:"no",
+                    autoScale:"yes",
                     coverflowWidth:900,
                     coverflowHeight:600,
                     skinPath:"/static/libs/coverflow/start/load/skin_black",
@@ -31,7 +31,7 @@
                     backgroundImagePath:"",
                     backgroundRepeat:"repeat-x",
                     showDisplay2DAlways:"no",
-                    coverflowStartPosition:"center",
+                    coverflowStartPosition: 3,  // this can either be "center", "left", or an index.
                     coverflowTopology:"dualsided",
                     coverflowXRotation:0,
                     coverflowYRotation:0,
@@ -147,12 +147,12 @@
 
         function onApiReady()
         {
-            var initial_item = 0,
-                ev = {id: initial_item};
-            coverflow.gotoThumb(ev.id);
-            setTimeout(function() {
-                onThumbChange(ev);
-            }, 1000);
+{#            var initial_item = 0,#}
+{#                ev = {id: initial_item};#}
+{#            coverflow.gotoThumb(ev.id);#}
+{#            setTimeout(function() {#}
+{#                onThumbChange(ev);#}
+{#            }, 1000);#}
             console.log("api ready");
         }
 
@@ -161,6 +161,8 @@
             var video = $('<video autoplay loop id="video-overlay" ' + 'onclick="window.location=' + "'{{ radiant_human.get_absolute_url }}'" + '"' + '></video>'),
                 sources = $('<source src="' + "{{ radiant_human.mp4_url }}" + '"' + 'type="video/mp4" media="all and (max-width:480px)">');
             video.append(sources);
+            console.log('pk is ' + {{ radiant_human.pk }});
+            console.log('index is ' + {{ forloop.counter0 }});
             videos[{{ forloop.counter0 }}] = video;
         {% endfor %}
 

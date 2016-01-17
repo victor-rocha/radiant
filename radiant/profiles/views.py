@@ -11,3 +11,9 @@ class RadiantHumanView(DetailView):
 class RadiantHumanListView(ListView):
     model = RadiantHuman
     template_name = 'profiles/radiant_humans.html'
+
+    def get_queryset(self):
+        qs = super(RadiantHumanListView, self).get_queryset()
+        return qs.exclude(status=RadiantHuman.DRAFT).order_by('release_date')
+
+    # def
