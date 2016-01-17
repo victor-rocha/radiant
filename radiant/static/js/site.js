@@ -60,7 +60,7 @@
         }
     });
 
-    $('.hero-wrapper').on('click', function() {
+    $('.video-wrapper').on('click', function() {
         var $this = $(this),
             $video = $this.find('video');
         if (!$this.hasClass('fullscreen')) {
@@ -72,8 +72,8 @@
         }
     });
 
-    $('.hero-wrapper .close').click(function() {
-        $('.hero-wrapper').removeClass('fullscreen');
+    $('.video-wrapper .close').click(function() {
+        $('.video-wrapper').removeClass('fullscreen');
         event.preventDefault();
         event.stopPropagation();
     });
