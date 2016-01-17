@@ -171,17 +171,19 @@
             setTimeout(function() {
                 var image = $("img[src$=" + "'" + coverflow.thumbsManagerDO.curDataListAr[coverflow.getCurrentThumbId()].thumbPath + "'" + "]:first"),
                     video_overlay = videos[ev.id];
-                video_overlay.css({
-                        'height': image.height(),
-                        'width': image.width(),
-                        'position': 'absolute',
-                        'background': 'black',
-                        'z-index': 1000,
-                        'top': image.offset().top,
-                        'left': image.offset().left
-                });
-                $('body').append(video_overlay);
-                video_overlay[0].play();
+                if (video_overlay.find('source').attr('src')) {
+                    video_overlay.css({
+                            'height': image.height(),
+                            'width': image.width(),
+                            'position': 'absolute',
+                            'background': 'black',
+                            'z-index': 1000,
+                            'top': image.offset().top,
+                            'left': image.offset().left
+                    });
+                    $('body').append(video_overlay);
+                    video_overlay[0].play();
+                }
             }, 700);
             console.log("thumb id: " + ev.id);
         }
@@ -203,7 +205,7 @@
                             <li data-type="media" data-url="{{ radiant_human.thumbnail.url }}"></li>
                             <li data-thumbnail-path="{{ radiant_human.thumbnail.url }}"></li>
                             <li data-thumbnail-text="">
-                                <p class="largeLabel">{{ radiant_human.name }} {{ radiant_human.release_date }}</p>
+                                <p class="largeLabel">{{ radiant_human.name }}</p>
                                 <p class="smallLabel">{{ radiant_human.slider_description }}</p>
                             </li>
                             <li data-info="">
