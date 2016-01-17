@@ -158,9 +158,13 @@
 
         var videos = {};
         {% for radiant_human in object_list %}
-            var video = $('<video autoplay loop id="video-overlay" ' + 'onclick="window.location=' + "'{{ radiant_human.get_absolute_url }}'" + '"' + '></video>'),
-                sources = $('<source src="' + "{{ radiant_human.mp4_url }}" + '"' + 'type="video/mp4" media="all and (max-width:480px)">');
-            video.append(sources);
+            {% if radiant_human.mp4_url %}
+                var video = $('<video autoplay loop id="video-overlay" ' + 'onclick="window.location=' + "'{{ radiant_human.get_absolute_url }}'" + '"' + '></video>'),
+                    sources = $('<source src="' + "{{ radiant_human.mp4_url }}" + '"' + 'type="video/mp4" media="all and (max-width:480px)">');
+                video.append(sources);
+            {% else %}
+                var video = '';
+            {% endif %}
             console.log('pk is ' + {{ radiant_human.pk }});
             console.log('index is ' + {{ forloop.counter0 }});
             videos[{{ forloop.counter0 }}] = video;
@@ -171,7 +175,7 @@
             setTimeout(function() {
                 var image = $("img[src$=" + "'" + coverflow.thumbsManagerDO.curDataListAr[coverflow.getCurrentThumbId()].thumbPath + "'" + "]:first"),
                     video_overlay = videos[ev.id];
-                if (video_overlay.find('source').attr('src')) {
+                if (video_overlay) {
                     video_overlay.css({
                             'height': image.height(),
                             'width': image.width(),
