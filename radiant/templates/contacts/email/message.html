@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body style='color:black;'>
+        <header>
+            <h1 style="font-size:14px; font-weight:normal">{{ full_name }} has sent you the following message:</h1>
+        </header>
+        <section>
+            {{ message|safe }}
+        </section>
+    </body>
+</html>

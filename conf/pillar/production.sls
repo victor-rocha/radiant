@@ -23,6 +23,7 @@ env:
 # Must be GPG encrypted.
 secrets:
   "SECRET_KEY": EorYFrGzRAqxR45QjaBhKsxBPA2olAWRUZzdCrXAMu4SpJUp0COHIOELFwIsvbYw
+  "SMTP_PASSWORD": 8qxJKrIZlOU7ixP06lBjxw
 
 # Private deploy key. Must be GPG encrypted.
 github_deploy_key: |-

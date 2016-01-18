@@ -22,7 +22,14 @@ ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
 
+RECIPIENTS = (
+    'radianthive@gmail.com',
+)
 # Application definition
+EMAIL_HOST = 'smtp.mandrillapp.com'
+EMAIL_HOST_USER = 'info@rochapps.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 INSTALLED_APPS = [
     'django.contrib.auth',
@@ -38,6 +45,7 @@ INSTALLED_APPS = [
     # internal apps
     'radiant.profiles',
     'radiant.pages',
+    'radiant.contacts',
 ]
 
 MIDDLEWARE_CLASSES = [

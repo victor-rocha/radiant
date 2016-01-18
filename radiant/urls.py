@@ -28,5 +28,6 @@ if settings.DEBUG:
 
 # catches everything, needs to come last
 urlpatterns += [
+    url(r'^', include('radiant.contacts.urls')),
     url(r'^', include('radiant.pages.urls'))
 ]

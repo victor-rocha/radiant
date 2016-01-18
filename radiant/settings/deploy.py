@@ -43,6 +43,9 @@ SESSION_COOKIE_HTTPONLY = True
 
 ALLOWED_HOSTS = [os.environ['DOMAIN']]
 
+# Email Password
+EMAIL_HOST_PASSWORD = os.environ.get('SMTP_PASSWORD', '')
+
 # Use template caching on deployed servers
 for backend in TEMPLATES:
     if backend['BACKEND'] == 'django.template.backends.django.DjangoTemplates':
