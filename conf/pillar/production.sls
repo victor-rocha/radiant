@@ -94,7 +94,6 @@ github_deploy_key: |-
 
 # Uncomment and update ssl_key and ssl_cert to enabled signed SSL/
 # Must be GPG encrypted.
-{% if 'balancer' in grains['roles'] %}
 ssl_key: |-
   -----BEGIN PGP MESSAGE-----
   Version: GnuPG v1.4.11 (GNU/Linux)
@@ -203,4 +202,3 @@ ssl_cert: |-
   pzQPjTU7C//utw9TP4Ss/1J+
   =VzGI
   -----END PGP MESSAGE-----
-{% endif %}
