@@ -11,11 +11,16 @@ body {
 .navbar {
   background: black;
   color: white;
+  border: none;
 
   .nav {
     display: -webkit-flex;
     display: flex;
-    margin-top: 65px;
+    margin-top: 55px;
+  }
+
+  .navbar-nav {
+    float: none !important;
   }
 
   .nav-item {
@@ -36,6 +41,30 @@ body {
   input {
     color: black;
     padding-left: 10px;
+  }
+  .row {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+@media (max-width:499px){
+  .navbar {
+    text-align: center;
+
+    .nav {
+      margin-top: 20px;
+    }
+    form {
+      margin-top: 20px;
+      display: inline-block;
+      float: none!important;
+    }
+  }
+  .quotation {
+    margin: 20px auto;
+  }
+  .page {
+    margin: 0 auto !important;
   }
 }
 .container {
