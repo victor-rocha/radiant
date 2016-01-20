@@ -1,6 +1,6 @@
 <video {% if auto_play %}autoplay{% endif %} {% if loop %}loop{% endif %} {%if link %}onclick="window.location = '{{ object.get_absolute_url }}'"{% endif %}>
     <source src="{{ object.mp4_url }}" type="video/mp4" media="all and (max-width:480px)">
-    <source src="{{ object.ogg_url }}" type="video/mp4" media="all and (max-width:480px)">
-    <source src="{{ object.webm_url }}" type="video/mp4" media="all and (max-width:480px)">
+    <source src="{{ object.ogg_url }}" type="video/ogg" media="all and (max-width:480px)">
+    <source src="{{ object.webm_url }}" type="video/webm" media="all and (max-width:480px)">
     <p>Your browser doesn't support HTML5 video. <a href="{{ object.mp4_url }}">Download this video instead.</a></p>
 </video>

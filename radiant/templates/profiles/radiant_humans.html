@@ -161,8 +161,8 @@
             {% if radiant_human.mp4_url %}
                 var video = $('<video autoplay loop id="video-overlay" ' + 'onclick="window.location=' + "'{{ radiant_human.get_absolute_url }}'" + '"' + '></video>'),
                     mp4_source = $('<source src="' + "{{ radiant_human.mp4_url }}" + '"' + 'type="video/mp4" media="all and (max-width:480px)">'),
-                    webm_source = $('<source src="' + "{{ radiant_human.webm_url }}" + '"' + 'type="video/mp4" media="all and (max-width:480px)">'),
-                    ogg_source = $('<source src="' + "{{ radiant_human.ogg_url }}" + '"' + 'type="video/mp4" media="all and (max-width:480px)">');
+                    webm_source = $('<source src="' + "{{ radiant_human.webm_url }}" + '"' + 'type="video/webm" media="all and (max-width:480px)">'),
+                    ogg_source = $('<source src="' + "{{ radiant_human.ogg_url }}" + '"' + 'type="video/ogg" media="all and (max-width:480px)">');
                 video.append(mp4_source);
                 video.append(webm_source);
                 video.append(ogg_source);
