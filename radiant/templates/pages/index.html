@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% block body_class %}homepage{% endblock %}
+
 {% block hero %}
     <div class="video-wrapper">
         {% include 'includes/video.html' with object=object auto_play=True loop=True %}
@@ -8,17 +10,19 @@
 {% endblock %}
 
 {% block content %}
-    <div class="row page">
-        <div class="col-md-9 article">
-            <h2>{{ object.title }}</h2>
-            {{ object.process_content|safe }}
+    <div class="social-wrapper">
+        {% include 'includes/social.html' %}
+    </div>
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-6 article col-md-offset-3">
+                <h2>{{ object.title }}</h2>
+                {{ object.process_content|safe }}
+            </div>
         </div>
-        <div class="col-md-3">
-            <h3>Mission Statement</h3>
-            <p>We're the Radiant Project.</p>
-            {% include 'includes/social.html' %}
-            <h3>Recent Episodes</h3>
-            {% include 'includes/latests_episodes.html' %}
-        </div>
+    </div>
+
+    <div class="row">
+        {% include 'includes/latests_episodes.html' %}
     </div>
 {% endblock content %}

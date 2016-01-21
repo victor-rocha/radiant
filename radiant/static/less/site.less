@@ -3,7 +3,16 @@
 */
 body {
   background: rgb(0, 0, 0);
+  font-size: 16px;
   //padding: 0 20px;
+}
+h2 {
+  //font-family: 'Vollkorn', serif;
+  font-size: 42px;
+  text-align: center;
+  font-weight: bolder;
+  margin-bottom: 40px;
+  margin-top: 40px;
 }
 .close {
   display: none;
@@ -79,6 +88,64 @@ body {
   -o-transition: all 1s ease;
   -ms-transition: all 1s ease;
   transition: all 1s ease;
+}
+body.homepage {
+  .content-wrapper {
+    background: url(http://stylegerms.com/wp-content/uploads/2013/06/wallpapers-backgrounds-popular-purple-filter-through-resolutions-room-space-50933.png) no-repeat center center fixed !important;
+    background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -webkit-background-size: cover;
+    color: white;
+    margin-bottom: 40px;
+  }
+  .social-wrapper {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    color: white !important;
+  }
+  .social-icon {
+    margin-left: -20px;
+    i {
+      color: white;
+      font-size: 100px;
+    }
+  }
+  .social-action {
+    text-align: center;
+    font-weight: bold;
+  }
+  #outer-circle {
+     background: #3b1a52;
+     border-radius: 50%;
+     height: 200px;
+     width: 200px;
+     //position: relative;
+     margin: auto auto;
+     padding: 1px;
+     font-size: 38px;
+     /*
+      Child elements with absolute positioning will be
+      positioned relative to this div
+     */
+   }
+  //#inner-circle {
+  //  position: absolute;
+  //  background: #a9aaab;
+  //  border-radius: 50%;
+  //  height: 100px;
+  //  width: 100px;
+  //  /*
+  //  Put top edge and left edge in the center
+  //  */
+  //  top: 50%;
+  //  left: 50%;
+  //  margin: -150px 0px 0px -150px;
+  //  /*
+  //  Offset the position correctly with
+  //  minus half of the width and minus half of the height
+  //  */
+  //}
 }
 .fullscreen {
   position: fixed;
