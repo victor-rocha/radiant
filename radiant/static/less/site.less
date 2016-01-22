@@ -4,7 +4,6 @@
 @transparent_black: rgba(0, 0, 0, 0.8);
 
 body {
-  background: url(http://stylegerms.com/wp-content/uploads/2013/06/wallpapers-backgrounds-popular-purple-filter-through-resolutions-room-space-50933.png) no-repeat center center fixed;
   font-size: 16px;
 }
 h2 {
@@ -12,11 +11,9 @@ h2 {
   font-size: 42px;
   text-align: center;
   font-weight: bolder;
-  margin-bottom: 40px;
-  margin-top: 40px;
 }
 .page-wrapper {
-  background: @transparent_black;
+  background: black;
 }
 .close {
   display: none;
@@ -27,21 +24,31 @@ h2 {
   border: none;
 
   .nav {
-    display: -webkit-flex;
-    display: flex;
-    margin-top: 55px;
+    //display: -webkit-flex;
+    //display: flex;
+    margin-top: 110px;
+    font-size: 32px;
+  }
+
+  .logo {
+    text-align: center;
   }
 
   .navbar-nav {
-    float: none !important;
+    //float: right !important;
+    //margin-right: 100px;
+    margin-left: 40px;
   }
 
   .nav-item {
-    flex: 1;
+    //flex: 1;
     text-align: center;
+    //flex: 1;
+    padding-left: 40px;
+    //border-right: 1px solid white;
   }
   a {
-    color: white !important;
+    color: #a6b9b7 !important;
   }
   form {
     margin-top: 65px;
@@ -101,33 +108,76 @@ body.homepage {
     -o-background-size: cover;
     -webkit-background-size: cover;
     color: white;
-    margin-bottom: 40px;
+
+    .article {
+      height: 600px;
+      overflow: hidden;
+      background: #f6b81f;
+      padding-left: 40px !important;
+      padding-right: 40px !important;
+      //color: rgb(90, 90, 90);
+      color: white;
+      font-size: 18px;
+      p {
+        margin: 20px;
+      }
+    }
+    .col-md-6 {
+      padding: 0;
+    }
+
+    .episode {
+      height: 300px;
+      padding: 1px;
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+    .next-episode {
+      background: #ec6423;
+    }
   }
   .social-wrapper {
     padding-top: 40px;
     padding-bottom: 40px;
     color: white !important;
+    background: rgba(0,0,0,0.9);
   }
   .social-icon {
-    margin-left: -20px;
+    margin-left: -10px;
     i {
       color: white;
-      font-size: 100px;
+      font-size: 60px;
+    }
+    .fa-facebook-square {
+
     }
   }
   .social-action {
     text-align: center;
     font-weight: bold;
+    font-size: 24px;
   }
-  #outer-circle {
+  .outer-circle {
      background: #3b1a52;
      border-radius: 50%;
-     height: 200px;
-     width: 200px;
+     height: 120px;
+     width: 120px;
      //position: relative;
      margin: auto auto;
      padding: 1px;
      font-size: 38px;
+
+     &.facebook {
+       background: #3b5998;
+     }
+    &.instagram {
+      background: #f93149;
+    }
+    &.twitter {
+      background: #58ccff;
+    }
      /*
       Child elements with absolute positioning will be
       positioned relative to this div

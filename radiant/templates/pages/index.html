@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load profiles_tags %}
+
 {% block body_class %}homepage{% endblock %}
 
 {% block hero %}
@@ -10,19 +12,25 @@
 {% endblock %}
 
 {% block content %}
-    <div class="social-wrapper">
-        {% include 'includes/social.html' %}
-    </div>
     <div class="content-wrapper">
+        {% get_latest_episodes as episodes %}
         <div class="row">
-            <div class="col-md-6 article col-md-offset-3">
+            <div class="col-md-6 article">
                 <h2>{{ object.title }}</h2>
-                {{ object.process_content|safe }}
+                {{ object.content|safe }}
+            </div>
+            <div class="col-md-6">
+                <div class="new-episode episode">
+                    <a href="{{ episodes.0.get_absolute_url }}"><img src="{{ episodes.0.thumbnail.url }}"/></a>
+                </div>
+                <div class="next-episode episode">
+                    <a href="{{ episodes.1.get_absolute_url }}"><img src="{{ episodes.1.thumbnail.url }}"/></a>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="row">
-        {% include 'includes/latests_episodes.html' %}
+    <div class="social-wrapper">
+        {% include 'includes/social.html' %}
     </div>
 {% endblock content %}

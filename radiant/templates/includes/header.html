@@ -1,13 +1,13 @@
 {% load static %}
 
 <nav class="navbar">
-  <div class="container">
+  <div class="">
     <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="row">
-          <div class="col-md-3 logo">
-              <a href="/"><img src="{% static 'images/radiant_logo.png' %}" height="120px" width="274"/></a>
+          <div class="col-md-4 logo">
+              <a href="/"><img src="{% static 'images/radiant_logo.png' %}" height="180"/></a>
           </div>
-          <div class="col-md-5">
+          <div class="col-md-8">
               <ul class="nav navbar-nav clearfix">
                 <li class="nav-item">
                   <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
@@ -23,12 +23,12 @@
     {#                </li>#}
               </ul>
           </div>
-          <div class="col-md-3">
-            <form class="form-inline pull-right">
-                <input type="text" placeholder="Search">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-          </div>
+{#          <div class="col-md-3">#}
+{#            <form class="form-inline pull-right">#}
+{#                <input type="text" placeholder="Search">#}
+{#                <button type="submit"><i class="fa fa-search"></i></button>#}
+{#            </form>#}
+{#          </div>#}
       </div>
   </div><!-- /.container-fluid -->
 </nav>
