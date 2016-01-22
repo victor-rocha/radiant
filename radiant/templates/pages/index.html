@@ -20,11 +20,21 @@
                 {{ object.content|safe }}
             </div>
             <div class="col-md-6">
-                <div class="new-episode episode">
-                    <a href="{{ episodes.0.get_absolute_url }}"><img src="{{ episodes.0.homepage_thumbnail.url }}"/></a>
+                <div class="new-episode episode row">
+                    <div class="col-md-6">
+                        <a href="{{ episodes.0.get_absolute_url }}"><img src="{{ episodes.0.homepage_thumbnail.url }}"/></a>
+                    </div>
+                    <div class="col-md-6">
+                        This is some text
+                    </div>
                 </div>
-                <div class="next-episode episode">
-                    <a href="{{ episodes.1.get_absolute_url }}"><img src="{{ episodes.1.homepage_thumbnail.url }}"/></a>
+                <div class="next-episode episode row">
+                    <div class="col-md-6">
+                        This is some text
+                    </div>
+                    <div class="col-md-6">
+                        <a href="{{ episodes.1.get_absolute_url }}"><img src="{{ episodes.1.homepage_thumbnail.url }}"/></a>
+                    </div>
                 </div>
             </div>
         </div>
