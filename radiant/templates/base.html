@@ -31,32 +31,34 @@
     {% endcompress %}
 </head>
 <body class="{% block body_class %}{% endblock %}">
-    <div class="header">
-        {% include 'includes/header.html' %}
-    </div>
-    {% if messages %}
-        <div class="messages">
-            {% for message in messages %}
-                <div {% if message.tags %} class="{{ message.tags }} bg-success text-center"{% endif %}>{{ message }}</div>
-            {% endfor %}
+    <div class="page-wrapper">
+        <div class="header">
+            {% include 'includes/header.html' %}
         </div>
-    {% endif %}
-    <div class="hero-wrapper">
-        {% block hero %}
-        {% endblock hero %}
-    </div>
-    <div class="">
-        {% block content %}{% endblock %}
-    </div>
-    <div class="footer">
-        {% include 'includes/footer.html' %}
-    </div>
-{#    <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js" crossorigin="anonymous"></script>#}
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div {% if message.tags %} class="{{ message.tags }} bg-success text-center"{% endif %}>{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <div class="hero-wrapper">
+            {% block hero %}
+            {% endblock hero %}
+        </div>
+        <div class="">
+            {% block content %}{% endblock %}
+        </div>
+        <div class="footer">
+            {% include 'includes/footer.html' %}
+        </div>
+{#        <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js" crossorigin="anonymous"></script>#}
 
-    {% compress js %}
-    <script src="{% static 'libs/jquery.js' %}"></script>
-    <script src="{% static 'js/site.js' %}"></script>
-    {% endcompress %}
-    {% block extra-js %}{% endblock %}
+        {% compress js %}
+        <script src="{% static 'libs/jquery.js' %}"></script>
+        <script src="{% static 'js/site.js' %}"></script>
+        {% endcompress %}
+        {% block extra-js %}{% endblock %}
+    </div>
 </body>
 </html>

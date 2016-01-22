@@ -1,10 +1,11 @@
 /*
 *   Site Styles
 */
+@transparent_black: rgba(0, 0, 0, 0.8);
+
 body {
-  background: rgb(0, 0, 0);
+  background: url(http://stylegerms.com/wp-content/uploads/2013/06/wallpapers-backgrounds-popular-purple-filter-through-resolutions-room-space-50933.png) no-repeat center center fixed;
   font-size: 16px;
-  //padding: 0 20px;
 }
 h2 {
   //font-family: 'Vollkorn', serif;
@@ -14,11 +15,14 @@ h2 {
   margin-bottom: 40px;
   margin-top: 40px;
 }
+.page-wrapper {
+  background: @transparent_black;
+}
 .close {
   display: none;
 }
 .navbar {
-  background: black;
+  background: none !important;
   color: white;
   border: none;
 
