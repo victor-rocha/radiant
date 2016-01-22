@@ -6,7 +6,7 @@ domain: radiant.rochapps.com
 
 repo:
   url: git@github.com:victor-rocha/radiant.git
-  branch: master
+  branch: homepage_v2
 
 # Addtional public environment variables to set for the project
 env:
