@@ -20,6 +20,7 @@ class RadiantHuman(AbstractRadiantModel):
     youtube_url = models.CharField(max_length=255, blank=True)
     thumbnail = models.ImageField(upload_to='radiant-human/', blank=True)
     homepage_thumbnail = models.ImageField(upload_to='radiant-human/', blank=True)
+    homepage_blurb = models.TextField(blank=True, null=True)
     slider_description = models.CharField(max_length=255, blank=True, null=True)
     release_date = models.DateField(null=True, blank=True)
     status = models.IntegerField(choices=STATUS, default=DRAFT)

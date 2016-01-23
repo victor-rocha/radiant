@@ -42,12 +42,12 @@
                         <a href="{{ episodes.0.get_absolute_url }}"><img src="{{ episodes.0.homepage_thumbnail.url }}"/></a>
                     </div>
                     <div class="col-md-6">
-                        This is some text
+                        {{ episodes.0.homepage_blurb|safe }}
                     </div>
                 </div>
                 <div class="next-episode episode row">
                     <div class="col-md-6">
-                        This is some text
+                        {{ episodes.1.homepage_blurb|safe }}
                     </div>
                     <div class="col-md-6">
                         <a href="{{ episodes.1.get_absolute_url }}"><img src="{{ episodes.1.homepage_thumbnail.url }}"/></a>
