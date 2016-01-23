@@ -11,6 +11,7 @@
 
 #floatingSocialShare{
     position: relative;
+    z-index: 10000;
 }
 
 #floatingSocialShare a{
@@ -118,20 +119,21 @@
 
     #floatingSocialShare{
         margin-top: 50px;
+        z-index: 10000;
     }
 
     #floatingSocialShare .top-left{
         top: auto;
         bottom: 0;
         width: 100%;
-        z-index: 999;
+        z-index: 999999;
     }
 
     #floatingSocialShare .top-right{
         top: auto;
         bottom: 0;
         width: 100%;
-        z-index: 999;
+        z-index: 999999;
     }
 
     #floatingSocialShare a{
