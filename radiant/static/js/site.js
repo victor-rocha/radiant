@@ -92,41 +92,52 @@
         $this.text(text == "Show Less" ? "Read More" : "Show Less")
     });
 
-    $('p').slice(0, 4).textillate({
-        in: {
-            // set the effect name
-            effect: 'bounceIn',
 
-            // set the delay factor applied to each consecutive character
-            delayScale: 1,
+    // animate text on page load
+    animateText('.article-inner-wrapper');
 
-            // set the delay between each character
-            delay: 30,
+    function animateText(elem) {
+        var $elem = $(elem);
+        options = {
+            in: {
+                // set the effect name
+                effect: 'bounceIn',
 
-            // set to true to animate all the characters at the same time
-            sync: false,
+                // set the delay factor applied to each consecutive character
+                delayScale: 1,
 
-            // randomize the character sequence
-            // (note that shuffle doesn't make sense with sync = true)
-            shuffle: true,
+                // set the delay between each character
+                delay: 20,
 
-            // reverse the character sequence
-            // (note that reverse doesn't make sense with sync = true)
-            reverse: false,
+                // set to true to animate all the characters at the same time
+                sync: false,
 
-            // callback that executes once the animation has finished
-            callback: function () {}
-        },
+                // randomize the character sequence
+                // (note that shuffle doesn't make sense with sync = true)
+                shuffle: true,
 
-        // out animation settings.
-        out: {
-            effect: 'bounceOutDown',
-            delayScale: 1.5,
-            delay: 50,
-            sync: false,
-            shuffle: false,
-            reverse: false,
-            callback: function () {}
-        }
-    });
+                // reverse the character sequence
+                // (note that reverse doesn't make sense with sync = true)
+                reverse: false,
+
+                // callback that executes once the animation has finished
+                callback: function () {}
+            },
+
+            // out animation settings.
+            out: {
+                effect: 'bounceOutDown',
+                delayScale: 1.5,
+                delay: 50,
+                sync: false,
+                shuffle: false,
+                reverse: false,
+                callback: function () {}
+            }
+        };
+
+        $elem.find('p').slice(0, 3).textillate(options);
+        $elem.find('h2').textillate(options);
+        $elem.toggleClass('hidden');
+    }
 })(jQuery);

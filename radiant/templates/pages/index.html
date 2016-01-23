@@ -25,15 +25,19 @@
         {% get_latest_episodes as episodes %}
         <div class="row">
             <div class="col-md-6 article">
-                <h2>{{ object.title }}</h2>
-                {{ object.split_content.0|safe }}
-                <div class="collapse" id="collapseExample">
-                    {{ object.split_content.1|safe }}
-                </div>
-                <div class="collapser">
-                    <a  class="" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                      Read more
-                    </a>
+                <div class="article-inner-wrapper hidden">
+                    <h2>{{ object.title }}</h2>
+                    <div>
+                        {{ object.split_content.0|safe }}
+                    </div>
+                    <div class="collapse" id="collapseExample">
+                        {{ object.split_content.1|safe }}
+                    </div>
+                    <div class="collapser">
+                        <a  class="" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                          Read more
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="col-md-6">
