@@ -27,7 +27,7 @@
                     skinPath:"/static/libs/coverflow/start/load/skin_black",
 
                     //main settings
-                    backgroundColor:"#000000",
+                    backgroundColor:"rgb(255, 255, 255)",
                     backgroundImagePath:"",
                     backgroundRepeat:"repeat-x",
                     showDisplay2DAlways:"no",
@@ -198,6 +198,16 @@
     </script>
 {% endblock %}
 {% block hero %}
+    <div class="sub-hero-wrapper">
+        <div class="page-title">
+            <div class="container">
+                <h2>Radiant Humans</h2>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
     <div class="">
         <!-- div used as a holder for the coverflow -->
         <div id="myDiv"></div>

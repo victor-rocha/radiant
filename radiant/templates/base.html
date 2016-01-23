@@ -21,11 +21,13 @@
     {% include 'includes/ogtags.html' %}
     {% block extra-meta %}{% endblock %}
     {% if debug %}
-    <link rel="stylesheet/less" type="text/css" media="all" href="{% static 'less/site.less' %}">
-    <script src="{% static 'libs/less.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'libs/social-plugin/src/jquery.floating-social-share.css' %}">
+        <link rel="stylesheet/less" type="text/css" media="all" href="{% static 'less/site.less' %}">
+        <script src="{% static 'libs/less.js' %}"></script>
     {% else %}
     {% compress css %}
-    <link rel="stylesheet" type="text/less" media="all" href="{% static 'less/site.less' %}">
+        <link rel="stylesheet" href="{% static 'libs/social-plugin/src/jquery.floating-social-share.css' %}">
+        <link rel="stylesheet" type="text/less" media="all" href="{% static 'less/site.less' %}">
     {% endcompress %}
     {% endif %}
     {% block extra-css %}{% endblock %}
@@ -63,7 +65,9 @@
         {% compress js %}
         <script src="{% static 'libs/jquery.js' %}"></script>
         <script src="{% static 'libs/bootstrap/js/bootstrap.js' %}"></script>
+        <script src="{% static 'libs/social-plugin/src/jquery.floating-social-share.js' %}"></script>
         <script src="{% static 'js/site.js' %}"></script>
+
         {% endcompress %}
         {% block extra-js %}{% endblock %}
     </div>

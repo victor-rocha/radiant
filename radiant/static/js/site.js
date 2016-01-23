@@ -77,4 +77,7 @@
     //    event.preventDefault();
     //    event.stopPropagation();
     //});
+    $("body").floatingSocialShare({
+        buttons: ["facebook", "twitter", "envelope"]
+    });
 })(jQuery);
