@@ -180,79 +180,22 @@ body.homepage {
     .episode {
       height: 300px;
       padding: 1px;
-      overflow: hidden;
-      img {
+
+      .new-episode,
+      .next-episode {
         height: 300px;
-        width: 100%;
+
+        img {
+          max-height: 100%;
+          height: 100%;
+          //width: 100%;
+        }
+      }
+      .episode-text {
+        min-width: 150px;
       }
     }
-    .next-episode {
-      //background: rgb(166, 166, 166);
-    }
   }
-  .social-wrapper {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    color: white !important;
-    background: rgba(0,0,0,0.9);
-    //background: rgba(90, 90, 90, 1);
-  }
-  .social-icon {
-    margin-left: -10px;
-    i {
-      color: white;
-      font-size: 60px;
-    }
-    .fa-facebook-square {
-
-    }
-  }
-  .social-action {
-    text-align: center;
-    font-weight: bold;
-    font-size: 24px;
-  }
-  .outer-circle {
-     background: #3b1a52;
-     border-radius: 50%;
-     height: 120px;
-     width: 120px;
-     //position: relative;
-     margin: auto auto;
-     padding: 1px;
-     font-size: 38px;
-
-     &.facebook {
-       background: #3b5998;
-     }
-    &.instagram {
-      background: @instagram;
-    }
-    &.twitter {
-      background: #58ccff;
-    }
-     /*
-      Child elements with absolute positioning will be
-      positioned relative to this div
-     */
-   }
-  //#inner-circle {
-  //  position: absolute;
-  //  background: #a9aaab;
-  //  border-radius: 50%;
-  //  height: 100px;
-  //  width: 100px;
-  //  /*
-  //  Put top edge and left edge in the center
-  //  */
-  //  top: 50%;
-  //  left: 50%;
-  //  margin: -150px 0px 0px -150px;
-  //  /*
-  //  Offset the position correctly with
-  //  minus half of the width and minus half of the height
-  //  */
-  //}
   .feature {
       background: @blue;
       color: rgb(255, 255, 255);
