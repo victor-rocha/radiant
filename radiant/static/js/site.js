@@ -85,4 +85,48 @@
         description: $('meta[property="og:description"]').attr("content"), // your description, default is current page's description
         media: $('meta[property="og:image"]').attr("content") // pinterest media
     });
+
+    $('.collapser a').click(function() {
+        var $this = $(this),
+            text = $this.text();
+        $this.text(text == "Show Less" ? "Read More" : "Show Less")
+    });
+
+    $('p').slice(0, 4).textillate({
+        in: {
+            // set the effect name
+            effect: 'bounceIn',
+
+            // set the delay factor applied to each consecutive character
+            delayScale: 1,
+
+            // set the delay between each character
+            delay: 30,
+
+            // set to true to animate all the characters at the same time
+            sync: false,
+
+            // randomize the character sequence
+            // (note that shuffle doesn't make sense with sync = true)
+            shuffle: true,
+
+            // reverse the character sequence
+            // (note that reverse doesn't make sense with sync = true)
+            reverse: false,
+
+            // callback that executes once the animation has finished
+            callback: function () {}
+        },
+
+        // out animation settings.
+        out: {
+            effect: 'bounceOutDown',
+            delayScale: 1.5,
+            delay: 50,
+            sync: false,
+            shuffle: false,
+            reverse: false,
+            callback: function () {}
+        }
+    });
 })(jQuery);
