@@ -37,7 +37,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="new-episode episode row">
+                <div class="new-episode episode row" onclick="window.location='{{ episodes.0.get_absolute_url }}'" >
                     <div class="col-md-6">
                         <a href="{{ episodes.0.get_absolute_url }}"><img src="{{ episodes.0.homepage_thumbnail.url }}"/></a>
                     </div>
@@ -45,7 +45,7 @@
                         {{ episodes.0.homepage_blurb|safe }}
                     </div>
                 </div>
-                <div class="next-episode episode row">
+                <div class="next-episode episode row" onclick="window.location='{{ episodes.0.get_absolute_url }}'">
                     <div class="col-md-6">
                         {{ episodes.1.homepage_blurb|safe }}
                     </div>
