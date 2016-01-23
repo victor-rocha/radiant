@@ -78,6 +78,11 @@
     //    event.stopPropagation();
     //});
     $("body").floatingSocialShare({
-        buttons: ["facebook", "twitter", "envelope"]
+        buttons: ["facebook", "twitter", "envelope"],
+        title: $('meta[property="og:title"]').attr("content"), // your title, default is current page's title
+        url: $('meta[property="og:url"]').attr("content"),  // your url, default is current page's url
+        text: "share with ", // the title of a tags
+        description: $('meta[property="og:description"]').attr("content"), // your description, default is current page's description
+        media: $('meta[property="og:image"]').attr("content") // pinterest media
     });
 })(jQuery);
