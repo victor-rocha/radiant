@@ -1,4 +1,4 @@
-<video {% if auto_play %}autoplay{% endif %} {% if loop %}loop{% endif %} {%if link %}onclick="window.location = '{{ object.get_absolute_url }}'"{% endif %}>
+<video {% if auto_play %}autoplay{% endif %} {% if loop %}loop{% endif %} {%if link %}onclick="window.location = '{{ object.get_absolute_url }}'"{% endif %} {% if debug %}src="{{ object.mp4_video.url }}"{% endif %}>
     {% if object.mp4_video %}
         <source src="{{ object.mp4_video.url }}" type="video/mp4" media="all">
     {% endif %}
