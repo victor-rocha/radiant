@@ -124,10 +124,6 @@
                     lightBoxBorderRadius:0,
                     lightBoxSlideShowDelay:4000
                 });
-
-            coverflow.addListener(FWDSimple3DCoverflow.IS_API_READY, onApiReady);
-            coverflow.addListener(FWDSimple3DCoverflow.THUMB_CHANGE, onThumbChange);
-{#            coverflow.addListener(FWDSimple3DCoverflow.CATEGORY_CHANGE, onCategoryChange);#}
         });
 
         function gotoNextCategory()
@@ -143,57 +139,6 @@
         function gotoPrevThumb()
         {
             coverflow.gotoThumb(coverflow.getCurrentThumbId() - 1);
-        }
-
-        function onApiReady()
-        {
-            var initial_item = {{ current_episodes_index }} - 1,
-                ev = {id: initial_item};
-            coverflow.gotoThumb(ev.id);
-            setTimeout(function() {
-                onThumbChange(ev);
-            }, 1000);
-            console.log("api ready");
-        }
-
-        var videos = {};
-        {% for radiant_human in object_list %}
-            {% if radiant_human.mp4_url %}
-                var video = $('<video autoplay loop id="video-overlay" ' + 'onclick="window.location=' + "'{{ radiant_human.get_absolute_url }}'" + '"' + '></video>'),
-                    mp4_source = $('<source src="' + "{{ radiant_human.mp4_url }}" + '"' + 'type="video/mp4" media="all">'),
-                    webm_source = $('<source src="' + "{{ radiant_human.webm_url }}" + '"' + 'type="video/webm" media="all">'),
-                    ogg_source = $('<source src="' + "{{ radiant_human.ogg_url }}" + '"' + 'type="video/ogg" media="all">');
-                video.append(mp4_source);
-                video.append(webm_source);
-                video.append(ogg_source);
-            {% else %}
-                var video = '';
-            {% endif %}
-            console.log('pk is ' + {{ radiant_human.pk }});
-            console.log('index is ' + {{ forloop.counter0 }});
-            videos[{{ forloop.counter0 }}] = video;
-        {% endfor %}
-
-        function onThumbChange(ev) {
-            $('#video-overlay').remove();
-            setTimeout(function() {
-                var image = $("img[src$=" + "'" + coverflow.thumbsManagerDO.curDataListAr[coverflow.getCurrentThumbId()].thumbPath + "'" + "]:first"),
-                    video_overlay = videos[ev.id];
-                if (video_overlay) {
-                    video_overlay.css({
-                            'height': image.height(),
-                            'width': image.width(),
-                            'position': 'absolute',
-                            'background': 'black',
-                            'z-index': 1000,
-                            'top': image.offset().top,
-                            'left': image.offset().left
-                    });
-                    $('body').append(video_overlay);
-                    video_overlay[0].play();
-                }
-            }, 700);
-            console.log("thumb id: " + ev.id);
         }
     </script>
 {% endblock %}
@@ -220,7 +165,7 @@
                 {% for radiant_human in object_list %}
                     {% if radiant_human.thumbnail %}
                         <ul>
-                            <li data-type="media" data-url="{{ radiant_human.thumbnail.url }}"></li>
+                            <li data-type="link" data-url="{{ radiant_human.get_absolute_url }}"></li>
                             <li data-thumbnail-path="{{ radiant_human.thumbnail.url }}"></li>
                             <li data-thumbnail-text="">
                                 <p class="largeLabel">{{ radiant_human.name }}</p>
