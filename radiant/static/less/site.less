@@ -2,6 +2,8 @@
 *   Site Styles
 */
 @transparent_black: rgba(0, 0, 0, 0.8);
+@instagram: #f93149;
+@yellow: #f6b81f;
 
 body {
   font-size: 16px;
@@ -26,8 +28,8 @@ h2 {
   .nav {
     //display: -webkit-flex;
     //display: flex;
-    margin-top: 110px;
-    font-size: 28px;
+    margin-top: 70px;
+    font-size: 20px;
   }
 
   .logo {
@@ -49,18 +51,7 @@ h2 {
   }
   a {
     color: #a6b9b7 !important;
-  }
-  form {
-    margin-top: 65px;
-  }
-  button {
-    background: #f78f1e;
-    padding-left: 8px;
-    padding-right: 8px;
-  }
-  input {
-    color: black;
-    padding-left: 10px;
+    font-family: 'Fjalla One', sans-serif;
   }
   .row {
     padding-left: 0;
@@ -99,6 +90,27 @@ h2 {
   -o-transition: all 1s ease;
   -ms-transition: all 1s ease;
   transition: all 1s ease;
+
+  .video-wrapper {
+    .play {
+      position: absolute;
+      left: 50%;
+      z-index: 10000;
+      top: 50%;
+      color: white;
+
+      i {
+        font-size: 110px;
+        color: white;
+      }
+
+      span {
+        //font-family: 'Fjalla One', sans-serif;
+        //font-size: 60px;
+        font-size: 18px;
+      }
+    }
+  }
 }
 body.homepage {
   .content-wrapper {
@@ -115,10 +127,9 @@ body.homepage {
     }
 
     .article {
-      max-height: 600px;
-      height: 600px;
+      min-height: 600px;
       overflow: hidden;
-      background: #f6b81f;
+      background: @yellow;
       padding-left: 40px !important;
       padding-right: 40px !important;
       //color: rgb(90, 90, 90);
@@ -126,6 +137,23 @@ body.homepage {
       font-size: 18px;
       p {
         margin: 20px;
+      }
+      .collapser {
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 40px;
+
+        a {
+          color: white;
+          font-weight: bold;
+          padding: 10px 25px;
+          border: 1px solid white;
+          text-decoration: none;
+
+          &:hover {
+            background-color: @instagram;
+          }
+        }
       }
     }
     .col-md-6 {
@@ -181,7 +209,7 @@ body.homepage {
        background: #3b5998;
      }
     &.instagram {
-      background: #f93149;
+      background: @instagram;
     }
     &.twitter {
       background: #58ccff;
@@ -208,6 +236,53 @@ body.homepage {
   //  minus half of the width and minus half of the height
   //  */
   //}
+  .feature {
+      background: rgb(53, 140, 180);
+      color: rgb(255, 255, 255);
+      text-align: center;
+      padding: 20px 40px 70px 40px;
+  }
+  .feature .wrap {
+      padding: 20px 0;
+      padding: 1.25rem 0;
+  }
+  .wrap {
+      margin: 0 auto;
+      width: 960px;
+
+      .btn {
+        padding: 20px 50px;
+        font-size: 20px;
+        background: @yellow;
+        //background: none;
+        border: 1px solid white;
+      }
+  }
+  .lg_title, .archive_title {
+      font-size: 120px;
+      font-size: 7rem;
+      line-height: 1.2;
+      margin-bottom: 0;
+      text-transform: uppercase;
+      font-family: 'Fjalla One', sans-serif;
+      font-weight: 300 !important;
+      padding-bottom: 20px;
+  }
+  .cursive-font {
+    font-family: 'Dawning of a New Day', cursive;
+    text-transform: lowercase;
+    font-size: 80px;
+  }
+  .nominate {
+    padding: 40px;
+    background: rgb(53, 140, 180);
+
+    h2 {
+      font-size: 60px;
+      line-height: 1.1;
+      color: white;
+    }
+  }
 }
 .fullscreen {
   position: fixed;
@@ -231,7 +306,7 @@ body.homepage {
     right: 30px;
     color: white;
     font-size: 36px;
-    text-shadow: 0 1px 5px #000000;
+    //text-shadow: 0 1px 5px #000000;
     opacity: 0.5;
     -webkit-transition: all 1s ease;
     -moz-transition: all 1s ease;
@@ -240,6 +315,16 @@ body.homepage {
     transition: all 1s ease;
   }
 }
+.fullscreen iframe,
+.fullscreen object,
+.fullscreen embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 video {
   width:100%;
   //max-width:500px;
@@ -270,9 +355,35 @@ video {
   margin-bottom: 20px;
 }
 .footer {
-  //color: white;
-  height: 150px;
-  background: white;
+  background: black;
+  padding: 100px 200px 80px 200px;
+  color: white;
+  .col-md-4{
+    display: flex;
+    justify-content: center; /* align horizontal */
+  }
+  i {
+    margin-right: 10px;
+  }
+  .email-list {
+    border: 1px solid white;
+    padding: 3px;
+    width: 200px;
+  }
+  .fa-angle-right {
+    float: right;
+    margin-top: -6px;
+  }
+  .centered {
+    //float: left;
+    //margin: auto auto;
+  }
+  .social {
+    padding-bottom: 80px;
+  }
+  a {
+    color: white;
+  }
 }
 
 

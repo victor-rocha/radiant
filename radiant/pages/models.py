@@ -24,6 +24,25 @@ class RadiantPage(AbstractRadiantModel):
             return reverse('pages_radiantpage_detail', kwargs={'url': self.url})
         return '/'
 
+    def split_content(self):
+        """Splits content into two separate objects, one for preview and the other for
+        the rest"""
+        soup = BeautifulSoup(self.content, 'html.parser')
+        paragraphs = soup.findAll('p')
+        break1 = 3
+        preview = paragraphs[:break1 - 1]
+        hidden_text = paragraphs[break1:]
+        last_preview_paragraph = paragraphs[break1 - 1]
+        new_tag = soup.new_tag('span', class_name='')
+        new_tag.string = "read more"
+        last_preview_paragraph.append(new_tag)
+        preview.append(last_preview_paragraph)
+        # import pdb; pdb.set_trace()
+        return [
+            ' '.join([paragraph.prettify() for paragraph in preview]),
+            ' '.join([paragraph.prettify() for paragraph in hidden_text]),
+        ]
+
     def process_content(self):
         soup = BeautifulSoup(self.content, 'html.parser')
         paragraphs = soup.findAll('p')

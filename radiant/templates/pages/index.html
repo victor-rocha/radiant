@@ -1,13 +1,22 @@
 {% extends 'base.html' %}
 
 {% load profiles_tags %}
+{% load static from staticfiles %}
 
 {% block body_class %}homepage{% endblock %}
 
+{% block extra-js %}
+<script src="{% static 'libs/parse-query.js' %}"></script>
+<script src="{% static 'js/bootstrap-youtube.js' %}"></script>
+{% endblock %}
+
 {% block hero %}
-    <div class="video-wrapper">
-        {% include 'includes/video.html' with object=object auto_play=True loop=True %}
+    <div id="youtube-wrapper" data-href="https://www.youtube.com/watch?v=TFZN1lMp5Hk">
         <div class="close">X</div>
+    </div>
+    <div class="video-wrapper" data-href="https://www.youtube.com/watch?v=TFZN1lMp5Hk">
+        {% include 'includes/video.html' with object=object auto_play=True loop=True %}
+        <div class="play"><i class="fa fa-play-circle-o"></i> <br><span>View Trailer</span></div>
     </div>
 {% endblock %}
 
@@ -17,7 +26,15 @@
         <div class="row">
             <div class="col-md-6 article">
                 <h2>{{ object.title }}</h2>
-                {{ object.content|safe }}
+                {{ object.split_content.0|safe }}
+                <div class="collapse" id="collapseExample">
+                    {{ object.split_content.1|safe }}
+                </div>
+                <div class="collapser">
+                    <a  class="" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                      Read more
+                    </a>
+                </div>
             </div>
             <div class="col-md-6">
                 <div class="new-episode episode row">
@@ -40,7 +57,11 @@
         </div>
     </div>
 
-    <div class="social-wrapper">
-        {% include 'includes/social.html' %}
+    <div class="feature">
+        <div class="wrap">
+            <h2 class="lg_title"><span class="cursive-font">Someone come to mind?</span></h2>
+            <h2 class="lg_title">nominate a Radiant Human</h2>
+            <a class="btn btn-warning" href="#subscribe_form">Show Me How</a>
+        </div>
     </div>
 {% endblock content %}

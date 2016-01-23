@@ -60,21 +60,21 @@
         }
     });
 
-    $('.hero-wrapper').on('click', function() {
-        var $this = $(this),
-            $video = $this.find('video');
-        if (!$this.hasClass('fullscreen')) {
-            $this.toggleClass('fullscreen');
-            $video.attr('controls', 'controls');
-            //$video.first().play();
-        } else {
-
-        }
-    });
-
-    $('.hero-wrapper .close').click(function() {
-        $('.hero-wrapper').removeClass('fullscreen');
-        event.preventDefault();
-        event.stopPropagation();
-    });
+    //$('.hero-wrapper').on('click', function() {
+    //    var $this = $(this),
+    //        $video = $this.find('video');
+    //    if (!$this.hasClass('fullscreen')) {
+    //        $this.toggleClass('fullscreen');
+    //        $video.attr('controls', 'controls');
+    //        //$video.first().play();
+    //    } else {
+    //
+    //    }
+    //});
+    //
+    //$('.hero-wrapper .close').click(function() {
+    //    $('.hero-wrapper').removeClass('fullscreen');
+    //    event.preventDefault();
+    //    event.stopPropagation();
+    //});
 })(jQuery);

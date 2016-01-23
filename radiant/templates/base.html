@@ -9,6 +9,9 @@
     <meta name="description" content="{% block meta-description %}{% endblock %}">
     <meta name="author" content="{% block meta-author %}{% endblock %}">
     <meta name="keywords" content="{% block meta-keywords %}{% endblock %}">
+    <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Dawning+of+a+New+Day' rel='stylesheet' type='text/css'>
+
     <link rel="icon" href="{% static 'images/cropped-radiant-32x32.png' %}" sizes="32x32" />
     <link rel="icon" href="{% static 'images/cropped-radiant-180x180.png' %}" sizes="180x180" />
     <link rel="icon" href="{% static 'images/cropped-radiant-192x192.png' %}" sizes="192x192" />
@@ -52,10 +55,14 @@
         <div class="footer">
             {% include 'includes/footer.html' %}
         </div>
-{#        <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js" crossorigin="anonymous"></script>#}
+
+        <div id="youtube-wrapper" data-href="https://www.youtube.com/watch?v=TFZN1lMp5Hk">
+            <div class="close">X</div>
+        </div>
 
         {% compress js %}
         <script src="{% static 'libs/jquery.js' %}"></script>
+        <script src="{% static 'libs/bootstrap/js/bootstrap.js' %}"></script>
         <script src="{% static 'js/site.js' %}"></script>
         {% endcompress %}
         {% block extra-js %}{% endblock %}
