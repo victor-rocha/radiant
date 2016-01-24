@@ -16,8 +16,8 @@
 
 #floatingSocialShare a{
     position: relative;
-    width: 50px;
-    height: 50px;
+    width: 44px;
+    height: 44px;
     line-height: 44px;
     display:list-item;
     list-style-type: none;
@@ -28,7 +28,7 @@
 
 #floatingSocialShare a:focus, #floatingSocialShare a:hover {
     color: #fff;
-    width:52px;
+    width:48px;
     opacity: 0.8;
     transition-duration: 0.3s;
     transition-property: right;
@@ -41,7 +41,7 @@
 
 #floatingSocialShare i{
     line-height: inherit;
-    font-size: 40px;
+    font-size: 32px;
     text-align: center;
 }
 
