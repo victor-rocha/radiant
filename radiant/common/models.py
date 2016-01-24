@@ -1,7 +1,9 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class AbstractRadiantModel(models.Model):
+    writer = models.ForeignKey(User, null=True, blank=True)
     name = models.CharField(max_length=255, help_text='e.g. Homepage')
     mp4_video = models.FileField(upload_to='radiant-human/videos/', max_length=255, blank=True)
     webm_video = models.FileField(upload_to='radiant-human/videos/', max_length=255, blank=True)

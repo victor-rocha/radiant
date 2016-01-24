@@ -10,6 +10,7 @@ class QuoteInline(admin.StackedInline):
 
 class RadiantPageAdmin(admin.ModelAdmin):
     inlines = [QuoteInline]
+    raw_id_fields = ('writer', )
 
 
 admin.site.register(RadiantPage, RadiantPageAdmin)

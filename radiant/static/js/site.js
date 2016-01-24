@@ -136,7 +136,7 @@
             }
         };
 
-        $elem.find('p').slice(0, 3).textillate(options);
+        $elem.find('p').textillate(options);
         $elem.find('h2').textillate(options);
         $elem.toggleClass('hidden');
     }

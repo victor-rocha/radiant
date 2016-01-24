@@ -27,6 +27,7 @@
             <div class="col-md-6 article">
                 <div class="article-inner-wrapper hidden">
                     <h2>{{ object.title }}</h2>
+                    <p class="byline text-center">By {{ object.writer.first_name }} {{ object.writer.last_name }}</p>
                     <div>
                         {{ object.split_content.0|safe }}
                     </div>
