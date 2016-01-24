@@ -59,24 +59,7 @@
             xhr.setRequestHeader('X-CSRFToken', csrftoken);
         }
     });
-
-    //$('.hero-wrapper').on('click', function() {
-    //    var $this = $(this),
-    //        $video = $this.find('video');
-    //    if (!$this.hasClass('fullscreen')) {
-    //        $this.toggleClass('fullscreen');
-    //        $video.attr('controls', 'controls');
-    //        //$video.first().play();
-    //    } else {
-    //
-    //    }
-    //});
-    //
-    //$('.hero-wrapper .close').click(function() {
-    //    $('.hero-wrapper').removeClass('fullscreen');
-    //    event.preventDefault();
-    //    event.stopPropagation();
-    //});
+    
     $("body").floatingSocialShare({
         buttons: ["facebook", "twitter", "envelope"],
         title: $('meta[property="og:title"]').attr("content"), // your title, default is current page's title
@@ -92,55 +75,6 @@
         $this.text(text == "Show Less" ? "Read More" : "Show Less");
         $('.hidden-episodes').toggleClass('hidden');
     });
-
-
-    // animate text on page load
-    //animateText('.article-inner-wrapper');
-
-    function animateText(elem) {
-        var $elem = $(elem);
-        options = {
-            in: {
-                // set the effect name
-                effect: 'bounceIn',
-
-                // set the delay factor applied to each consecutive character
-                delayScale: 1,
-
-                // set the delay between each character
-                delay: 20,
-
-                // set to true to animate all the characters at the same time
-                sync: false,
-
-                // randomize the character sequence
-                // (note that shuffle doesn't make sense with sync = true)
-                shuffle: true,
-
-                // reverse the character sequence
-                // (note that reverse doesn't make sense with sync = true)
-                reverse: false,
-
-                // callback that executes once the animation has finished
-                callback: function () {}
-            },
-
-            // out animation settings.
-            out: {
-                effect: 'bounceOutDown',
-                delayScale: 1.5,
-                delay: 50,
-                sync: false,
-                shuffle: false,
-                reverse: false,
-                callback: function () {}
-            }
-        };
-
-        $elem.find('p').textillate(options);
-        $elem.find('h2').textillate(options);
-        $elem.toggleClass('hidden');
-    }
 
     new WOW().init();
 })(jQuery);
