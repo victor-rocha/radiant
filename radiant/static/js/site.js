@@ -59,7 +59,7 @@
             xhr.setRequestHeader('X-CSRFToken', csrftoken);
         }
     });
-    
+
     $("body").floatingSocialShare({
         buttons: ["facebook", "twitter", "envelope"],
         title: $('meta[property="og:title"]').attr("content"), // your title, default is current page's title

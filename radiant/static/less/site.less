@@ -99,7 +99,7 @@ h2 {
     .play {
       position: absolute;
       left: 50%;
-      z-index: 10000;
+      z-index: 1;
       top: 50%;
       color: white;
 
@@ -277,17 +277,18 @@ body.homepage {
   .close {
     display: block;
     position: absolute;
+    z-index: 999;
     top: 30px;
     right: 30px;
     color: white;
     font-size: 36px;
-    //text-shadow: 0 1px 5px #000000;
-    opacity: 0.5;
+    font-weight: bolder;
     -webkit-transition: all 1s ease;
     -moz-transition: all 1s ease;
     -o-transition: all 1s ease;
     -ms-transition: all 1s ease;
     transition: all 1s ease;
+    opacity: 1;
   }
 }
 .fullscreen iframe,
