@@ -1,6 +1,6 @@
 <div class="social row">
     <div class="col-md-4">
-        <div class="subscribe-wrapper">
+        <div class="subscribe-wrapper" data-ng-controller="SubscribeCtrl as sb">
             <p class="text-center"><strong>Subscribe</strong></p>
             <form data-ng-submit="sb.subscribe()" class="subscribe-form" data-ng-hide="sb.subscribed" novalidate>
                 <input type="email" data-ng-model="sb.email"  size="25" placeholder="Email" required>
@@ -34,6 +34,6 @@
 </div>
 
 <div class="copyright">
-    <p class="text-center">Built by <a href="http://www.rochapps.com">RochApps</a></p>
-    <p class="text-center">&copy; {% now 'Y' %} Radiant Project</p>
+    <p class="text-center wow slideInLeft">Built by <a href="http://www.rochapps.com">RochApps</a></p>
+    <p class="text-center wow slideInRight">&copy; {% now 'Y' %} Radiant Project</p>
 </div>

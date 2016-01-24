@@ -25,6 +25,7 @@
     {% if debug %}
         <link rel="stylesheet" href="{% static 'libs/social-plugin/src/jquery.floating-social-share.css' %}">
         <link rel="stylesheet" href="{% static 'libs/textillate/assets/animate.css' %}">
+        <link rel="stylesheet" href="{% static 'libs/wow/css/libs/animate.css' %}">
         <link rel="stylesheet/less" type="text/css" media="all" href="{% static 'less/site.less' %}">
         <script src="{% static 'libs/less.js' %}"></script>
     {% else %}
@@ -57,7 +58,7 @@
         <div class="">
             {% block content %}{% endblock %}
         </div>
-        <div class="footer" data-ng-controller="SubscribeCtrl as sb">
+        <div class="footer">
             {% include 'includes/footer.html' %}
         </div>
 
@@ -73,6 +74,7 @@
         <script src="{% static 'libs/textillate/jquery.textillate.js' %}"></script>
         <script src="{% static 'libs/visible.js' %}"></script>
         <script src="{% static 'libs/social-plugin/src/jquery.floating-social-share.js' %}"></script>
+        <script src="{% static 'libs/wow/dist/wow.js' %}"></script>
         <script src="{% static 'js/site.js' %}"></script>
         {% endcompress %}
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>

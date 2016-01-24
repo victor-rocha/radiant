@@ -89,12 +89,13 @@
     $('.collapser a').click(function() {
         var $this = $(this),
             text = $this.text();
-        $this.text(text == "Show Less" ? "Read More" : "Show Less")
+        $this.text(text == "Show Less" ? "Read More" : "Show Less");
+        $('.hidden-episodes').toggleClass('hidden');
     });
 
 
     // animate text on page load
-    animateText('.article-inner-wrapper');
+    //animateText('.article-inner-wrapper');
 
     function animateText(elem) {
         var $elem = $(elem);
@@ -140,4 +141,6 @@
         $elem.find('h2').textillate(options);
         $elem.toggleClass('hidden');
     }
+
+    new WOW().init();
 })(jQuery);
