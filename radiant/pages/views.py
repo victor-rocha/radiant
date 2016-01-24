@@ -11,4 +11,5 @@ class RadiantPageView(DetailView):
         return get_object_or_404(RadiantPage, url=self.kwargs.get('url'))
 
     def get_template_names(self):
-        return ['pages/index.html']
+        template_name = 'pages/{0}'.format(self.object.template_name)
+        return [template_name]
