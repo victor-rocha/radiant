@@ -10,7 +10,7 @@ angular.module('radiant', [])
     .controller('SubscribeCtrl', ['$http', function($http) {
         var sb = this;
         sb.email = '';
-        sb.message = 'Press enter to subscribe.';
+        sb.message = '';
         sb.helper_error = false;
 
         sb.subscribe = function() {
