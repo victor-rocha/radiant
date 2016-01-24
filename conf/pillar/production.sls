@@ -15,19 +15,19 @@ env:
 # Uncomment and update username/password to enable HTTP basic auth
 # Password must be GPG encrypted.
 http_auth:
-  username: |-
+  "radiant": |-
     -----BEGIN PGP MESSAGE-----
     Version: GnuPG v1.4.11 (GNU/Linux)
 
-    hQEMA7kNQ0NxAq46AQf/ZigxZJCzejouVLRyHSCU8QrCN9IjPgJnp23mXBwepGFp
-    Mfm1NyW4l7Yw6AqGf5YsVvGrS9N5/VLC2VByeUmJUY5BdyFTazlgAlFfibQrU7K/
-    Svg/7VeN2DLB1YRSVHReK3i5tEMe+b3hR2okvyXiAPUuD7hj/6dhaMFiEjPkrt07
-    xoZnFPBNgHAEJP58IVrSjzLtmP+GOsDfAskRuCE8GuJFW3HbVmm/3KUwKRXmmdCx
-    xk8Zwcr1Efz3UgyaWceQKmLnV2HTAae7urByQEINsMZze8xfGInsGw1JHvjHP47r
-    Jx0+mz6WOagJYM4u+3/fMXMgoe670q6bNQgqPwZ1BdJBARtDjZLABNyW3Yq86A8d
-    KpBcAOrlNGfn3A6xd1yRnGAFoRS5bGKxzgh0xO8kIcFhT3Y/LwbH/XNzYrwxia6f
-    36E=
-    =4T8S
+    hQEMA7kNQ0NxAq46AQgAzdAKbmoRCwLsMggVVn2Oh4Ncr6elRh0h6gBseFj7jWIY
+    6tOH1Q8/1bH2XGRnLtF1xnecXJnkW3mSgNpNBHjNNqS/C6Y04VsnL92KQsqwCh9O
+    W8tBzaveQhQJoc+tRl/uGbxCym6Lj/hrm9Saw0m93dpyk5cG2uyTO/KP6BU89gCy
+    HJJFCYfilbCnc3GibbkyhRhskYtHOafP3y0eCqaMSvSgNJiHFtVJ0P3uc8sy1227
+    GRsSE+kbpi0PpqmuJNQOwShX1YKF4HdBE4sBcy4t76DwuUYPaE9nsz4PRd7mH8UF
+    Hnm3wWgXxYAMvqR67NsNxF1Zi+4lMveEhIrZJ31TrNJJAUU37oA/SqjZJWflZQvH
+    8gDuEJU0T9YNH2vT9sg91qYLbWjtEcUKXC2ENKSJP8VQOHjCuS1YNECYt8Mbx3Qf
+    PIgVuOQdLib75w==
+    =4wFQ
     -----END PGP MESSAGE-----
 
 # Private environment variables.
