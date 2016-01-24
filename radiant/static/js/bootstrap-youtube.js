@@ -24,7 +24,7 @@ $(document).ready(function () {
             if ($(this).attr('data-height')) {
                 vidHeight = parseInt($(this).attr('data-height'));
             }
-            var iFrameCode = '<iframe width="' + vidWidth + '" height="' + vidHeight + '" scrolling="no" allowtransparency="true" allowfullscreen="true" src="http://www.youtube.com/embed/' + queryVars['v'] + '?rel=0&wmode=transparent&showinfo=0&autoplay=1" frameborder="0"></iframe>';
+            var iFrameCode = '<iframe width="' + vidWidth + '" height="' + vidHeight + '" scrolling="no" allowtransparency="true" allowfullscreen="true" src="https://www.youtube.com/embed/' + queryVars['v'] + '?rel=0&wmode=transparent&showinfo=0&autoplay=1" frameborder="0"></iframe>';
 
             // Replace Modal HTML with iFrame Embed
             $('#youtube-wrapper .iframe-wrapper').html(iFrameCode);
