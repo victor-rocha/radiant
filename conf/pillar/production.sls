@@ -8,10 +8,6 @@ repo:
   url: git@github.com:victor-rocha/radiant.git
   branch: master
 
-# Addtional public environment variables to set for the project
-env:
-  FOO: BAR
-
 # Uncomment and update username/password to enable HTTP basic auth
 # Password must be GPG encrypted.
 http_auth:
@@ -33,8 +29,36 @@ http_auth:
 # Private environment variables.
 # Must be GPG encrypted.
 secrets:
-  "SECRET_KEY": EorYFrGzRAqxR45QjaBhKsxBPA2olAWRUZzdCrXAMu4SpJUp0COHIOELFwIsvbYw
-  "SMTP_PASSWORD": 8qxJKrIZlOU7ixP06lBjxw
+  "SECRET_KEY": |-
+    -----BEGIN PGP MESSAGE-----
+    Version: GnuPG v1.4.11 (GNU/Linux)
+
+    hQEMA7kNQ0NxAq46AQgAyGLrfaOyLHXSTFJExHAHVM0ofr+jJYOvJeTOVhcWU8Tf
+    xvK59uHwiZQcP7SmmKTUEd2gqUoKDdwurweqI5c6QZdMAKW29WkI8s1SxNESQxyP
+    CnjRvTgGp7Jglmld2a1183Wnd4d+CkSp1crtSd9BYNBkQ7GPv3/cdBLJVwuc5OZV
+    fY0A1ZltZCPpTKQr0UbPxddVeBd56QW1Q8CNSCyn1TpSHax7AuI8Y1xPTnS5TEFW
+    pc2DrWhCjSg/vpguF+IwSpgGj+ZNIhRWiLVY4vsuxO938uKi3sZ3BXfcbF8jg6c2
+    m7RU5bUFwKZZ9PW/SlClQRH+uPuNTLlfI0+zjmE+9NJ7Ae04mGxIemMEdg6dcXVJ
+    gT5hzf0ctPH9wRlme06vgWqXFkKIoVYG3O6lzQkT09tpJDBHD6249MnkoELvd8FQ
+    46E4p4wtLxW312c8MxD4UkBEP21lZKw/1lbxP+9vFhI7lk9R2dcU2P5hChlNJBPF
+    1kkXN3m3b/ZKS/I4
+    =Cn8c
+    -----END PGP MESSAGE-----
+
+  "SMTP_PASSWORD": |-
+    -----BEGIN PGP MESSAGE-----
+    Version: GnuPG v1.4.11 (GNU/Linux)
+
+    hQEMA7kNQ0NxAq46AQf/SrZ+Fi3LsiBfH/sX0LtuQt8Lmq9/QhLoZYxbS7zGksI4
+    Wt27fK1vqYIWxQ2dmTTN0sW2Tf7CVgxUB6ywuujL9y+I0c48JbwguWh4ZQlNTpr2
+    7ETCcKa6HFHFuk5eLVC2L2XTPNxMx6zhUD4zDgMcos9WLUP+W70OCEC/61jUwUCV
+    MueYakf1CMUdULt8ENtBxg1kPkX+jZQHqlG7hVETcFm9LXkHhODmCdiAtLZ0YdMn
+    eEtLTLnaYROQ+ffCfz50BNImtJ40N8Xn6Loi2dJB6LOlXM81lcyNtRUz65znlUBT
+    BgUvB3lqEnnpS2OFL5mNmqOUaKWHXV0jd5PlpnUrdtI7ARiIbnSOR0Kq4CG6etbg
+    W8Xixfz6ZHbn5yWRr+ouQ5m+yIl5YQmIq65vSoEF2HeONZs8tnAFUkSuOo0=
+    =legM
+    -----END PGP MESSAGE-----
+
 
 # Private deploy key. Must be GPG encrypted.
 github_deploy_key: |-
