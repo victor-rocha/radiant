@@ -14,10 +14,21 @@ env:
 
 # Uncomment and update username/password to enable HTTP basic auth
 # Password must be GPG encrypted.
-# http_auth:
-#   username: |-
-#    -----BEGIN PGP MESSAGE-----
-#    -----END PGP MESSAGE-----
+http_auth:
+  username: |-
+    -----BEGIN PGP MESSAGE-----
+    Version: GnuPG v1.4.11 (GNU/Linux)
+
+    hQEMA7kNQ0NxAq46AQf/ZigxZJCzejouVLRyHSCU8QrCN9IjPgJnp23mXBwepGFp
+    Mfm1NyW4l7Yw6AqGf5YsVvGrS9N5/VLC2VByeUmJUY5BdyFTazlgAlFfibQrU7K/
+    Svg/7VeN2DLB1YRSVHReK3i5tEMe+b3hR2okvyXiAPUuD7hj/6dhaMFiEjPkrt07
+    xoZnFPBNgHAEJP58IVrSjzLtmP+GOsDfAskRuCE8GuJFW3HbVmm/3KUwKRXmmdCx
+    xk8Zwcr1Efz3UgyaWceQKmLnV2HTAae7urByQEINsMZze8xfGInsGw1JHvjHP47r
+    Jx0+mz6WOagJYM4u+3/fMXMgoe670q6bNQgqPwZ1BdJBARtDjZLABNyW3Yq86A8d
+    KpBcAOrlNGfn3A6xd1yRnGAFoRS5bGKxzgh0xO8kIcFhT3Y/LwbH/XNzYrwxia6f
+    36E=
+    =4T8S
+    -----END PGP MESSAGE-----
 
 # Private environment variables.
 # Must be GPG encrypted.
