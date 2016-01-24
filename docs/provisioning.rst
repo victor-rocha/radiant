@@ -368,7 +368,7 @@ You can use the below OpenSSL commands to generate the key and signing request::
   # Make copy of the key with the passphrase
   cp radiant.key radiant.key.secure
   # Remove any passphrase
-  openssl rsa -in radiant.secure -out radiant.key
+  openssl rsa -in radiant.key.secure -out radiant.key
   # Generate signing request
   openssl req -nodes -sha256 -new -key radiant.key -out radiant.csr
 
