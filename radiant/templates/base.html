@@ -31,7 +31,9 @@
     {% else %}
         {% compress css %}
             <link rel="stylesheet" href="{% static 'libs/social-plugin/src/jquery.floating-social-share.css' %}">
-            <link rel="stylesheet" type="text/less" media="all" href="{% static 'less/site.less' %}">
+            <link rel="stylesheet" href="{% static 'libs/textillate/assets/animate.css' %}">
+            <link rel="stylesheet" href="{% static 'libs/wow/css/libs/animate.css' %}">
+            <link rel="stylesheet/less" type="text/css" media="all" href="{% static 'less/site.less' %}">
         {% endcompress %}
     {% endif %}
     {% block extra-css %}{% endblock %}
