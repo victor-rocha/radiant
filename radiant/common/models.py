@@ -1,5 +1,21 @@
+import datetime
+
 from django.db import models
 from django.contrib.auth.models import User
+
+
+class AbstractBaseModel(models.Model):
+    created_at = models.DateTimeField(blank=True, null=True)
+    updated_at = models.DateTimeField(blank=True, null=True)
+
+    def save(self, **kwargs):
+        if not self.created_at:
+            self.created_at = datetime.datetime.now()
+        self.updated_at = datetime.datetime.now()
+        super(AbstractBaseModel, self).save(self, **kwargs)
+
+    class Meta:
+        abstract = True
 
 
 class AbstractRadiantModel(models.Model):

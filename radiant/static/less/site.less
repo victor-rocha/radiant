@@ -359,6 +359,40 @@ video {
   a {
     color: white;
   }
+  .subscribe-form {
+    transition:0.5s linear all;
+    position: relative;
+    display: block;
+
+    i {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      color: black;
+      display: none;
+      font-size: 18px;
+    }
+  }
+  .subscribe-wrapper {
+    p {
+      margin-top: 10px;
+    }
+    .helper {
+      color: white;
+    }
+    .helper-error {
+      color: red;
+    }
+  }
+  .ng-pristine ~i.validation-pristine {color: black; display: inline; top: 10px; }
+  .ng-dirty.ng-valid ~ i.validation-ok { color:green; display:inline; }
+  .ng-dirty.ng-invalid ~ i.validation-ko { color:red; display:inline; }
+  input {
+    color: black;
+    padding-left: 10px;
+  }
+
+
 }
 
 

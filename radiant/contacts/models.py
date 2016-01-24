@@ -4,6 +4,8 @@ from django.core.mail import EmailMultiAlternatives
 from django.utils.html import strip_tags
 from django.template.loader import render_to_string
 
+from radiant.common.models import AbstractBaseModel
+
 
 class Contact(models.Model):
     full_name = models.CharField(max_length=255)
@@ -32,3 +34,10 @@ class Contact(models.Model):
         email.attach_alternative(html_content, "text/html")
         sent = email.send()
         return sent
+
+
+class Subscriber(AbstractBaseModel):
+    email = models.EmailField()
+
+    def __str__(self):
+        return self.email

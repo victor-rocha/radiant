@@ -1,7 +1,7 @@
 {% load compress %}
 {% load static from staticfiles %}
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en" class="no-js" data-ng-app="radiant">
 <head>
     <meta charset="utf-8">
     <title>{% block title %}The Radiant Project{% endblock %}</title>
@@ -57,7 +57,7 @@
         <div class="">
             {% block content %}{% endblock %}
         </div>
-        <div class="footer">
+        <div class="footer" data-ng-controller="SubscribeCtrl as sb">
             {% include 'includes/footer.html' %}
         </div>
 
@@ -74,8 +74,9 @@
         <script src="{% static 'libs/visible.js' %}"></script>
         <script src="{% static 'libs/social-plugin/src/jquery.floating-social-share.js' %}"></script>
         <script src="{% static 'js/site.js' %}"></script>
-
         {% endcompress %}
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+        <script src="{% static 'js/angular-app.js' %}"></script>
         {% block extra-js %}{% endblock %}
     </div>
 </body>

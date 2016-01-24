@@ -1,8 +1,9 @@
 from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy
-from django.views.generic import CreateView
+from django.http import HttpResponse, HttpResponseBadRequest
+from django.views.generic import CreateView, View
 
-from radiant.contacts.models import Contact
+from radiant.contacts.models import Contact, Subscriber
 
 
 class ContactView(CreateView):
@@ -14,3 +15,20 @@ class ContactView(CreateView):
     def form_valid(self, form):
         messages.success(self.request, 'Your email has been sent successfully.')
         return super(ContactView, self).form_valid(form)
+
+
+class SubscribeView(View):
+    model = Subscriber
+    http_method_names = ['post']
+
+    def post(self, *args, **kwargs):
+        email = self.request.POST.get('email', '')
+        if email:
+            subscribers = Subscriber.objects.filter(email=email)
+            if subscribers.exists():
+                msg = 'You are already a subscriber.'
+            else:
+                Subscriber(email=email).save()
+                msg = 'Thank you for subscribing!'
+            return HttpResponse(msg)
+        return HttpResponseBadRequest()

@@ -1,9 +1,15 @@
 <div class="social row">
     <div class="col-md-4">
-        <div class="">
+        <div class="subscribe-wrapper">
             <p class="text-center"><strong>Subscribe</strong></p>
-            <p class="email-list">Email <i class="fa fa-angle-right fa-2x"></i> </p>
-
+            <form data-ng-submit="sb.subscribe()" class="subscribe-form" data-ng-hide="sb.subscribed" novalidate>
+                <input type="email" data-ng-model="sb.email"  size="25" placeholder="Email" required>
+                <i class="fa fa-check validation-ok"></i>
+                <i class="fa fa-close validation-ko"></i>
+                <i class="fa fa-angle-right validation-pristine"></i>
+                <br>
+            </form>
+            <p data-ng-class="[helper, {'helper-error': sb.helper_error}]">{$ sb.message $}</p>
         </div>
     </div>
     <div class="col-md-4">
