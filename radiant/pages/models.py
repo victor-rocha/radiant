@@ -8,10 +8,10 @@ from radiant.profiles.utils import insert_quote
 
 
 class RadiantPage(AbstractRadiantModel):
-    title = models.CharField(max_length=255, blank=True, null=True)
-    youtube_url = models.CharField(max_length=255, blank=True, null=True)
+    youtube_url = models.CharField(max_length=255, blank=True, null=True,
+                                   help_text='Page name')
     url = models.CharField(verbose_name='URL', max_length=255,
-                           help_text='Once set, this shouldn\'t be changed.',
+                           help_text='e.g. contact/ (notice that this value shouldn\'t start with an /',
                            blank=True)
     template_name = models.CharField(max_length=255, default='index.html',
                                      help_text='Available templates: index.html, about.html, contact.html, radiant-humans.html')

@@ -10,7 +10,26 @@ class QuoteInline(admin.StackedInline):
 
 class RadiantPageAdmin(admin.ModelAdmin):
     inlines = [QuoteInline]
-    raw_id_fields = ('writer', )
+    readonly_fields = ('created_at', 'updated_at',)
+    fieldsets = (
+        (None, {
+            'fields': ('writer', 'name', 'content',)
+        }),
+        ('Media (Images/Video)', {
+            'fields': ('mp4_video', 'webm_video', 'ogg_video', 'youtube_url', ),
+        }),
+        ('Social Media', {
+            'fields': ('og_title', 'og_type', 'og_description', 'og_image'),
+        }),
+        ('Meta', {
+            'classes': ('collapse',),
+            'fields': ('created_at', 'updated_at'),
+        }),
+        ('Victor only', {
+            'classes': ('collapse',),
+            'fields': ('url', 'template_name', 'is_homepage'),
+        }),
+    )
 
 
 admin.site.register(RadiantPage, RadiantPageAdmin)

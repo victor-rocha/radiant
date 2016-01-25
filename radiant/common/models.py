@@ -12,13 +12,13 @@ class AbstractBaseModel(models.Model):
         if not self.created_at:
             self.created_at = datetime.datetime.now()
         self.updated_at = datetime.datetime.now()
-        super(AbstractBaseModel, self).save(self, **kwargs)
+        super(AbstractBaseModel, self).save(**kwargs)
 
     class Meta:
         abstract = True
 
 
-class AbstractRadiantModel(models.Model):
+class AbstractRadiantModel(AbstractBaseModel):
     writer = models.ForeignKey(User, null=True, blank=True)
     name = models.CharField(max_length=255, help_text='e.g. Homepage')
     mp4_video = models.FileField(upload_to='radiant-human/videos/', max_length=255, blank=True)
