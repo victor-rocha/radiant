@@ -14,7 +14,7 @@ class RadiantPage(AbstractRadiantModel):
                            help_text='Once set, this shouldn\'t be changed.',
                            blank=True)
     template_name = models.CharField(max_length=255, default='index.html',
-                                     help_text='Available templates: index.html, about.html, contact.html')
+                                     help_text='Available templates: index.html, about.html, contact.html, radiant-humans.html')
     is_homepage = models.BooleanField(default=False)
 
     def __str__(self):

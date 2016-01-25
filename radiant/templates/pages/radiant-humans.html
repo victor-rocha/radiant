@@ -1,0 +1,189 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% load profiles_tags %}
+
+{% block body_class %}radiant-human{% endblock %}
+
+{% block extra-css %}
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'libs/coverflow/start/load/skin_classic_black.css' %}">
+{#    <link rel="stylesheet" type="text/css" media="all" href="{% static 'libs/coverflow/start/load/skin_classic_black.css' %}">#}
+{% endblock %}
+{% block extra-js %}
+    {% released_episodes_count as current_episodes_index %}
+
+    <script src="{% static 'libs/coverflow/java/FWDSimple3DCoverflow_uncompressed.js' %}"></script>
+    <!-- Setup the coverflow (all settings are explained in detail in the documentation files) -->
+    <script type="text/javascript">
+        var coverflow;
+
+        FWDS3DCovUtils.onReady(function()
+        {
+            coverflow = new FWDSimple3DCoverflow(
+                {
+                    //required settings
+                    coverflowHolderDivId:"myDiv",
+                    coverflowDataListDivId:"coverflowData",
+                    displayType:"fluidwidth",
+                    autoScale:"yes",
+                    coverflowWidth:900,
+                    coverflowHeight:600,
+                    skinPath:"/static/libs/coverflow/start/load/skin_black",
+
+                    //main settings
+                    backgroundColor:"rgb(255, 255, 255)",
+                    backgroundImagePath:"",
+                    backgroundRepeat:"repeat-x",
+                    showDisplay2DAlways:"no",
+                    coverflowStartPosition: {{ current_episodes_index }},  // this can either be "center", "left", or an index.
+                    coverflowTopology:"dualsided",
+                    coverflowXRotation:0,
+                    coverflowYRotation:0,
+                    numberOfThumbnailsToDisplayLeftAndRight:"all",
+                    infiniteLoop:"yes",
+                    rightClickContextMenu:"",
+                    fluidWidthZIndex:1000,
+
+                    //thumbnail settings
+                    thumbnailWidth:600,
+                    thumbnailHeight:340,
+
+                    thumbnailXOffset3D:86,
+                    thumbnailXSpace3D:78,
+                    thumbnailZOffset3D:200,
+                    thumbnailZSpace3D:93,
+                    thumbnailYAngle3D:70,
+                    thumbnailXOffset2D:20,
+                    thumbnailXSpace2D:30,
+                    thumbnailHoverOffset:100,
+                    thumbnailBorderSize:0,
+                    thumbnailBackgroundColor:"#FFFFFF",
+                    thumbnailBorderColor1:"#FFFFFF",
+                    thumbnailBorderColor2:"#FFFFFF",
+                    transparentImages:"no",
+                    thumbnailsAlignment:"center",
+                    maxNumberOfThumbnailsOnMobile:13,
+                    showThumbnailsGradient:"yes",
+                    thumbnailGradientColor1:"rgba(0, 0, 0, 0)",
+                    thumbnailGradientColor2:"rgba(0, 0, 0, 1)",
+                    showText:"yes",
+                    textOffset:10,
+                    showThumbnailBoxShadow:"yes",
+                    thumbnailBoxShadowCss:"0px 2px 2px #111111",
+                    showTooltip:"no",
+                    dynamicTooltip:"yes",
+                    showReflection:"yes",
+                    reflectionHeight:60,
+                    reflectionDistance:0,
+                    reflectionOpacity:.4,
+
+                    //controls settings
+                    slideshowDelay:5000,
+                    autoplay:"no",
+                    disableNextAndPrevButtonsOnMobile:"no",
+                    controlsMaxWidth:700,
+                    slideshowTimerColor:"#FFFFFF",
+                    controlsPosition:"bottom",
+                    controlsOffset:15,
+                    showPrevButton:"no",
+                    showNextButton:"no",
+                    showSlideshowButton:"no",
+                    showScrollbar:"no",
+                    disableScrollbarOnMobile:"yes",
+                    enableMouseWheelScroll:"no",
+                    scrollbarHandlerWidth:200,
+                    scrollbarTextColorNormal:"#000000",
+                    scrollbarTextColorSelected:"#FFFFFF",
+                    addKeyboardSupport:"yes",
+
+                    //categories settings
+                    showCategoriesMenu:"no",
+                    startAtCategory:1,
+                    categoriesMenuMaxWidth:700,
+                    categoriesMenuOffset:25,
+                    categoryColorNormal:"#999999",
+                    categoryColorSelected:"#FFFFFF",
+
+                    //lightbox settings
+                    addLightBoxKeyboardSupport:"yes",
+                    showLightBoxNextAndPrevButtons:"yes",
+                    showLightBoxZoomButton:"yes",
+                    showLightBoxInfoButton:"yes",
+                    showLightBoxSlideShowButton:"yes",
+                    showLightBoxInfoWindowByDefault:"no",
+                    slideShowAutoPlay:"no",
+                    lightBoxVideoAutoPlay:"no",
+                    lightBoxVideoWidth:640,
+                    lightBoxVideoHeight:480,
+                    lightBoxIframeWidth:800,
+                    lightBoxIframeHeight:600,
+                    lightBoxBackgroundColor:"#000000",
+                    lightBoxInfoWindowBackgroundColor:"#FFFFFF",
+                    lightBoxItemBorderColor1:"#fcfdfd",
+                    lightBoxItemBorderColor2:"#e4FFe4",
+                    lightBoxItemBackgroundColor:"#333333",
+                    lightBoxMainBackgroundOpacity:.8,
+                    lightBoxInfoWindowBackgroundOpacity:.9,
+                    lightBoxBorderSize:0,
+                    lightBoxBorderRadius:0,
+                    lightBoxSlideShowDelay:4000
+                });
+        });
+
+        function gotoNextCategory()
+        {
+            coverflow.switchCategory(coverflow.getCurrentCategoryId() + 1);
+        }
+
+        function gotoNextThumb()
+        {
+            coverflow.gotoThumb(coverflow.getCurrentThumbId() + 1);
+        }
+
+        function gotoPrevThumb()
+        {
+            coverflow.gotoThumb(coverflow.getCurrentThumbId() - 1);
+        }
+    </script>
+{% endblock %}
+{% block hero %}
+    <div class="sub-hero-wrapper">
+        <div class="page-title">
+            <div class="container">
+                <h2>Radiant Humans</h2>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    {% get_episodes as object_list %}
+    <div class="">
+        <!-- div used as a holder for the coverflow -->
+        <div id="myDiv"></div>
+
+        <!-- coverflow data -->
+        <ul id="coverflowData" style="display: none;">
+
+            <!-- category  -->
+            <ul data-cat="+ Category one">
+                {% for radiant_human in object_list %}
+                    {% if radiant_human.thumbnail %}
+                        <ul>
+                            <li data-type="link" data-url="{{ radiant_human.get_absolute_url }}"></li>
+                            <li data-thumbnail-path="{{ radiant_human.thumbnail.url }}"></li>
+                            <li data-thumbnail-text="">
+                                <p class="largeLabel">{{ radiant_human.name }}</p>
+                                <p class="smallLabel">{{ radiant_human.slider_description }}</p>
+                            </li>
+                            <li data-info="">
+                                <p class="mediaDescriptionHeader">{{ radiant_human.name }}</p>
+                                <p class="mediaDescriptionText">{{ radiant_human.slider_description }}</p>
+                            </li>
+                        </ul>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <!-- end  -->
+        </ul>
+    </div>
+{% endblock %}

@@ -13,3 +13,13 @@ def get_latest_episodes():
     episodes = [episode for episode in live_episodes]
     episodes.append(unreleased_episode)
     return episodes
+
+
+@register.assignment_tag
+def get_episodes():
+    return RadiantHuman.objects.all()
+
+
+@register.assignment_tag
+def released_episodes_count():
+    return RadiantHuman.objects.filter(status=RadiantHuman.LIVE).count()
