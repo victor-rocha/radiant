@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load profiles_tags %}
+{% load static from staticfiles %}
+
+{% block body_class %}homepage{% endblock %}
+
+{% block extra-js %}
+    <script src="{% static 'libs/parse-query.js' %}"></script>
+    <script src="{% static 'js/bootstrap-youtube.js' %}"></script>
+{% endblock %}
+
+{% block hero %}
+    <div class="sub-hero-wrapper">
+        <div class="page-title">
+            <div class="container">
+                <h2>{{ object.name }}</h2>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="content-wrapper">
+        {{ object.content|safe }}
+    </div>
+{% endblock content %}
