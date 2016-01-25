@@ -44,21 +44,25 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 homepage-episodes">
                 <div class="episode clearfix" onclick="window.location='{{ episodes.0.get_absolute_url }}'" >
-                    <div class="new-episode pull-left">
-                        <img src="{{ episodes.0.homepage_thumbnail.url }}" class=" wow slideInRight" data-wow-duration="2s"/>
-                    </div>
-                    <div class="episode-text pull-left">
-                        {{ episodes.0.homepage_blurb|safe }}
+                    <div class="row">
+                        <div class="new-episode col-md-6">
+                            <img src="{{ episodes.0.homepage_thumbnail.url }}" class=" wow slideInRight" data-wow-duration="2s"/>
+                        </div>
+                        <div class="episode-text col-md-6">
+                            {{ episodes.1.homepage_blurb|safe }}
+                        </div>
                     </div>
                 </div>
                 <div class="episode clearfix" onclick="window.location='{{ episodes.0.get_absolute_url }}'">
-                    <div class="next-episode pull-right">
-                        <img src="{{ episodes.1.homepage_thumbnail.url }}" class=" wow slideInDown" data-wow-duration="2s"/>
-                    </div>
-                    <div class="episode-text pull-right">
-                        {{ episodes.1.homepage_blurb|safe }}
+                    <div class="row">
+                        <div class="next-text col-md-6">
+                            {{ episodes.0.homepage_blurb|safe }}
+                        </div>
+                        <div class="next-episode col-md-6">
+                            <img src="{{ episodes.1.homepage_thumbnail.url }}" class=" wow slideInDown" data-wow-duration="2s"/>
+                        </div>
                     </div>
                 </div>
                 <div class="hidden-episodes hidden">
