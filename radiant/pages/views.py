@@ -10,12 +10,12 @@ class RadiantPageView(DetailView):
 
     def get(self, *args, **kwargs):
         self.url = self.kwargs.get('url')
-        if not self.url.endswith('/'):
+        if self.url and not self.url.endswith('/'):
             return HttpResponsePermanentRedirect('{url}/'.format(url=self.url))
         return super(RadiantPageView, self).get(*args, **kwargs)
 
     def get_object(self, queryset=None):
-        return get_object_or_404(RadiantPage, url__icontains=self.url)
+        return get_object_or_404(RadiantPage, url=self.url)
 
     def get_template_names(self):
         template_name = 'index.html'
