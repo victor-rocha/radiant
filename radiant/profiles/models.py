@@ -33,6 +33,14 @@ class RadiantHuman(AbstractRadiantModel):
     def get_absolute_url(self):
         return reverse('profiles_radianthuman_detail', kwargs={'pk': self.id})
 
+    def has_homepage_image(self):
+        return self.homepage_thumbnail
+    has_homepage_image.boolean = True
+
+    def has_dropdown_image(self):
+        return self.dropdown_thubmain
+    has_dropdown_image.boolean = True
+
     @property
     def is_live(self):
         return self.status == self.LIVE
