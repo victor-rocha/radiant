@@ -25,7 +25,6 @@
 
 {% block content %}
     <div class="content-wrapper">
-        {% get_latest_episodes as episodes %}
         <div class="row">
             <div class="col-md-6 article">
                 <div class="article-inner-wrapper wow slideInLeft" data-wow-duration="2s">
@@ -45,7 +44,40 @@
                 </div>
             </div>
             <div class="col-md-6 homepage-episodes">
-
+                <div class="episode clearfix" onclick="window.location='{{ episodes.0.get_absolute_url }}'" >
+                    <div class="row">
+                        <div class="new-episode col-md-6">
+                            <img src="{{ live_episodes.0.homepage_thumbnail.url }}" class=" wow slideInRight" data-wow-duration="2s"/>
+                        </div>
+                        <div class="episode-text col-md-6">
+                            {{ live_episodes.0.homepage_blurb|safe }}
+                        </div>
+                    </div>
+                </div>
+                <div class="episode clearfix" onclick="window.location='{{ episodes.0.get_absolute_url }}'">
+                    <div class="row">
+                        <div class="next-text col-md-6">
+                            {{ past_episodes.0.homepage_blurb|safe }}
+                        </div>
+                        <div class="next-episode col-md-6">
+                            <img src="{{ past_episodes.0.homepage_thumbnail.url }}" class=" wow slideInDown" data-wow-duration="2s"/>
+                        </div>
+                    </div>
+                </div>
+                {% get_live_episodes as live_episodes %}
+                {% get_unreleased_episodes as unreleased_episodes %}
+                <div class="hidden-episodes hidden">
+                    {% for episode in live_episodes %}
+                        {% if forloop.counter > 0  and episode.dropdown_thumbnail %}
+                            <img src="{{ episode.dropdown_thumbnail.url }}" />
+                        {% endif %}
+                    {% endfor %}
+                    {% for episode in unreleased_episodes %}
+                        {% if forloop.counter > 0  and episode.dropdown_thumbnail %}
+                            <img src="{{ episode.dropdown_thumbnail.url }}" />
+                        {% endif %}
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>

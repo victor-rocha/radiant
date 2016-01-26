@@ -21,13 +21,13 @@ def get_episodes():
 
 
 @register.assignment_tag
-def past_released_episodes():
-    return RadiantHuman.objects.filter(status=RadiantHuman.LIVE)
+def get_live_episodes():
+    return RadiantHuman.objects.filter(status=RadiantHuman.LIVE).order_by('-release_date')
 
 
 @register.assignment_tag
-def upcoming_released_episodes():
-    return RadiantHuman.objects.filter(status=RadiantHuman.LIVE)
+def get_unreleased_episodes():
+    return RadiantHuman.objects.filter(status=RadiantHuman.UNRELEASED).order_by('release_date')
 
 
 @register.assignment_tag
