@@ -21,5 +21,15 @@ def get_episodes():
 
 
 @register.assignment_tag
+def past_released_episodes():
+    return RadiantHuman.objects.filter(status=RadiantHuman.LIVE)
+
+
+@register.assignment_tag
+def upcoming_released_episodes():
+    return RadiantHuman.objects.filter(status=RadiantHuman.LIVE)
+
+
+@register.assignment_tag
 def released_episodes_count():
     return RadiantHuman.objects.filter(status=RadiantHuman.LIVE).count()
