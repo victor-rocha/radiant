@@ -13,7 +13,7 @@ class RadiantPageAdmin(admin.ModelAdmin):
     readonly_fields = ('created_at', 'updated_at',)
     fieldsets = (
         (None, {
-            'fields': ('writer', 'name', 'content',)
+            'fields': ('writer', 'name', 'title', 'content',)
         }),
         ('Media (Images/Video)', {
             'fields': ('mp4_video', 'webm_video', 'ogg_video', 'youtube_url', ),
