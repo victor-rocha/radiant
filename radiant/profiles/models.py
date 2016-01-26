@@ -34,11 +34,11 @@ class RadiantHuman(AbstractRadiantModel):
         return reverse('profiles_radianthuman_detail', kwargs={'pk': self.id})
 
     def has_homepage_image(self):
-        return self.homepage_thumbnail
+        return True if self.homepage_thumbnail else False
     has_homepage_image.boolean = True
 
     def has_dropdown_image(self):
-        return self.dropdown_thubmain
+        return True if self.dropdown_thumbnail else False
     has_dropdown_image.boolean = True
 
     @property
