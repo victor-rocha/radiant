@@ -201,24 +201,45 @@ body.homepage {
     .episode {
       //height: 320px;
       padding: 1px;
+      display: flex;
+      cursor: pointer;
 
       .new-episode,
       .next-episode {
         //height: 320px;
-
+        flex-grow: 1;
         img {
           //max-height: 100%;
           height: auto;
           width: 100%;
+
+          &:hover {
+            -webkit-filter: opacity(.5);
+            filter: opacity(.5);
+          }
         }
       }
       .episode-text {
         //min-width: 150px;
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 22px;
       }
     }
-    .hidden-episodes img {
-      width: 50%;
-      float: left;
+    .hidden-episodes {
+      cursor: pointer;
+
+      img {
+        width: 50%;
+        float: left;
+
+        &:hover {
+          -webkit-filter: opacity(.5);
+          filter: opacity(.5);
+        }
+      }
     }
   }
   .feature {
