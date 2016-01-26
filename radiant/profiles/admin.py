@@ -27,10 +27,6 @@ class RadiantHumanAdmin(admin.ModelAdmin):
             'classes': ('collapse',),
             'fields': ('created_at', 'updated_at'),
         }),
-        ('Victor only', {
-            'classes': ('collapse',),
-            'fields': ('url', 'template_name', 'is_homepage'),
-        }),
     )
 
 
