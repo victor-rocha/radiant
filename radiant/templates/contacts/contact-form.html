@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 
-{% block hero %}
-{% endblock %}
+{% block body_class %}contact{% endblock %}
 
 {% block extra-js %}
 <script src="https://maps.googleapis.com/maps/api/js"></script>
@@ -43,11 +42,14 @@
 </script>
 {% endblock %}
 
+{% block hero %}
+    {% include 'includes/subnav.html' with subheader='Contact Us' %}
+{% endblock %}
+
 {% block content %}
     <div class="container">
         <div class="row page">
             <div class="col-md-7">
-                <h2>Contact Us</h2>
                 <p>Feel free to contact us with any questions, comments, nominations, or requests.</p>
                 <div class="contact-form">
                     <form method="post" action="{% url 'contact-us' %}">

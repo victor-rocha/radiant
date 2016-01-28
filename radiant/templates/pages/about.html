@@ -3,7 +3,7 @@
 {% load profiles_tags %}
 {% load static from staticfiles %}
 
-{% block body_class %}homepage{% endblock %}
+{% block body_class %}about{% endblock %}
 
 {% block extra-js %}
     <script src="{% static 'libs/parse-query.js' %}"></script>
@@ -11,13 +11,7 @@
 {% endblock %}
 
 {% block hero %}
-    <div class="sub-hero-wrapper">
-        <div class="page-title">
-            <div class="container">
-                <h2>{{ object.name }}</h2>
-            </div>
-        </div>
-    </div>
+    {% include 'includes/subnav.html' with subheader=object.name %}
 {% endblock %}
 
 {% block content %}
