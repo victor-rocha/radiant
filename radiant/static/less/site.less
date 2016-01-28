@@ -52,10 +52,20 @@ h2 {
     //flex: 1;
     padding-left: 40px;
     //border-right: 1px solid white;
+    min-width: 100px;
+    transition: all .2s ease-in-out;
+  }
+  .nav>li>a:focus, .nav>li>a:hover {
+      text-decoration: none;
+      background-color: transparent !important;
   }
   a {
-    color: #a6b9b7 !important;
+    color: white !important;
     font-family: 'Fjalla One', sans-serif;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
   .row {
     padding-left: 0;
@@ -121,15 +131,18 @@ h2 {
 }
 .hero-wrapper {
   .sub-hero-wrapper {
-    .page-title {
+    .page-subtitle {
       background: @blue;
       padding-bottom: 20px;
       h2 {
         color: white;
-        text-align: left;
-        font-size: 18px;
+        text-align: center;
+        font-size: 34px;
         margin: 0;
       }
+    }
+    .page-subtitle h2 {
+      font-family: 'Dawning of a New Day', cursive;
     }
   }
 
@@ -184,10 +197,7 @@ body.homepage {
           padding: 10px 25px;
           border: 1px solid white;
           text-decoration: none;
-
-          &:hover {
-            background-color: @instagram;
-          }
+          cursor: pointer;
         }
       }
     }
