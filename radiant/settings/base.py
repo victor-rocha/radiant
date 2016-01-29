@@ -19,7 +19,7 @@ PROJECT_ROOT = os.path.abspath(os.path.join(BASE_DIR, os.pardir))
 DEBUG = True
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('Victor Rocha', 'victor@rochapps.com'),
 )
 
 RECIPIENTS = (
