@@ -9,6 +9,7 @@ from radiant.profiles.utils import insert_quote
 
 class RadiantPage(AbstractRadiantModel):
     title = models.CharField(max_length=255, blank=True, null=True)
+    page_image = models.ImageField(upload_to='radiant-pages/', blank=True)
     youtube_url = models.CharField(max_length=255, blank=True, null=True,
                                    help_text='Page name')
     url = models.CharField(verbose_name='URL', max_length=255,

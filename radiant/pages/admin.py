@@ -16,7 +16,7 @@ class RadiantPageAdmin(admin.ModelAdmin):
             'fields': ('writer', 'name', 'title', 'content',)
         }),
         ('Media (Images/Video)', {
-            'fields': ('mp4_video', 'webm_video', 'ogg_video', 'youtube_url', ),
+            'fields': ('mp4_video', 'webm_video', 'ogg_video', 'youtube_url', 'page_image'),
         }),
         ('Social Media', {
             'fields': ('og_title', 'og_type', 'og_description', 'og_image'),
