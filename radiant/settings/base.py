@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'radiant.profiles',
     'radiant.pages',
     'radiant.contacts',
+    'sorl.thumbnail',
 ]
 
 MIDDLEWARE_CLASSES = [
