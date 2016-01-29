@@ -8,4 +8,6 @@ urlpatterns = patterns('',
         name='contact-us'),
     url('^subscribe/', SubscribeView.as_view(),
         name='subscribe'),
+    url('^nominate/', SubscribeView.as_view(),
+        name='subscribe'),
 )
