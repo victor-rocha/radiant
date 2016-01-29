@@ -163,9 +163,10 @@
             <ul data-cat="+ Category one">
                 {% for radiant_human in object_list %}
                     {% if radiant_human.thumbnail %}
+                        {% thumbnail radiant_human.thumbnail "1000x676" format='PNG' as im %}
                         <ul>
                             <li data-type="link" data-url="{{ radiant_human.get_absolute_url }}"></li>
-                            <li data-thumbnail-path="{{ radiant_human.thumbnail.url }}"></li>
+                            <li data-thumbnail-path="{{ im.url }}"></li>
                             <li data-thumbnail-text="">
                                 <p class="largeLabel">{{ radiant_human.name }}</p>
                                 <p class="smallLabel">{{ radiant_human.slider_description }}</p>
@@ -175,6 +176,7 @@
                                 <p class="mediaDescriptionText">{{ radiant_human.slider_description }}</p>
                             </li>
                         </ul>
+                        {% endthumbnail %}
                     {% endif %}
                 {% endfor %}
             </ul>
