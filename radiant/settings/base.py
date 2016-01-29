@@ -213,3 +213,5 @@ CELERYD_HIJACK_ROOT_LOGGER = False
 THUMBNAIL_QUALITY = 100
 
 THUMBNAIL_ENGINE = 'sorl.thumbnail.engines.wand_engine.Engine'
+
+THUMBNAIL_DEBUG = True
