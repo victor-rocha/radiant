@@ -163,7 +163,7 @@
             <ul data-cat="+ Category one">
                 {% for radiant_human in object_list %}
                     {% if radiant_human.thumbnail %}
-                        {% thumbnail radiant_human.thumbnail "1000x676" format='PNG' as im %}
+                        {% thumbnail radiant_human.thumbnail "750x507" format='PNG' as im %}
                         <ul>
                             <li data-type="link" data-url="{{ radiant_human.get_absolute_url }}"></li>
                             <li data-thumbnail-path="{{ im.url }}"></li>
