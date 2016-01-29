@@ -212,4 +212,4 @@ CELERYD_HIJACK_ROOT_LOGGER = False
 # THUMBNAILS
 THUMBNAIL_QUALITY = 100
 
-# THUMBNAIL_ENGINE = 'sorl.thumbnail.engines.wand_engine.Engine'
+THUMBNAIL_ENGINE = 'sorl.thumbnail.engines.wand_engine.Engine'
