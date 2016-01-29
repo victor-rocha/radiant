@@ -1,37 +1,26 @@
 {% load static %}
 
 <nav class="navbar">
-  <div class="">
     <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="row">
-          <div class="col-md-4 logo">
-              <a href="/"><img src="{% static 'images/radiant_logo.png' %}" height="140"/></a>
-          </div>
-          <div class="col-md-8">
-              <ul class="nav navbar-nav clearfix">
-                <li class="nav-item">
-                  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'profiles_radianthuman_detail' url='radiant-humans/' %}">Radiant Humans</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'profiles_radianthuman_detail' url='about-us/' %}">About us</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'contact-us' %}">Contact us</a>
-                </li>
-    {#                <li class="nav-item">#}
-    {#                  <a class="nav-link" href="#">About</a>#}
-    {#                </li>#}
-              </ul>
-          </div>
-{#          <div class="col-md-3">#}
-{#            <form class="form-inline pull-right">#}
-{#                <input type="text" placeholder="Search">#}
-{#                <button type="submit"><i class="fa fa-search"></i></button>#}
-{#            </form>#}
-{#          </div>#}
+  <div class="">
+      <div class="col-md-4 logo">
+          <a href="/"><img src="{% static 'images/radiant_logo.png' %}" height="140"/></a>
       </div>
-  </div><!-- /.container-fluid -->
+      <div class="col-md-8">
+          <ul class="nav navbar-nav clearfix">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'profiles_radianthuman_detail' url='radiant-humans/' %}">Radiant Humans</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'profiles_radianthuman_detail' url='about-us/' %}">About us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'contact-us' %}">Contact us</a>
+            </li>
+          </ul>
+      </div>
+  </div>
 </nav>

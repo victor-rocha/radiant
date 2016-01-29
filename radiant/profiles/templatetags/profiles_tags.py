@@ -1,3 +1,6 @@
+from urllib.parse import urlparse
+from urllib.parse import parse_qs
+
 from django import template
 
 from radiant.profiles.models import RadiantHuman
@@ -33,3 +36,11 @@ def get_unreleased_episodes():
 @register.assignment_tag
 def released_episodes_count():
     return RadiantHuman.objects.filter(status=RadiantHuman.LIVE).count()
+
+
+@register.filter
+def youtube_embed(url):
+    """Converts a regular youtube url into a embeddable one"""
+    parsed_url = urlparse(url)
+    qs = parse_qs(parsed_url.query)
+    return "https://www.youtube.com/embed/{video_id}?rel=0&wmode=transparent&showinfo=1&autohide=1".format(video_id=qs.get('v', [''])[0])
