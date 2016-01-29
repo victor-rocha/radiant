@@ -208,3 +208,6 @@ COMPRESS_PRECOMPILERS = (
 
 # If using Celery, tell it to obey our logging configuration.
 CELERYD_HIJACK_ROOT_LOGGER = False
+
+# THUMBNAILS
+THUMBNAIL_QUALITY = 100
