@@ -102,6 +102,7 @@ class TeamMember(AbstractBaseModel):
     role = models.IntegerField(choices=ROLES)
     thumbnail = models.ImageField(upload_to='team/', blank=True)
     blurb = models.TextField(blank=True)
+    website = models.CharField(max_length=255, blank=True)
     page = models.ForeignKey('pages.RadiantPage', null=True, blank=True)
     objects = TeamMemberManager()
 
