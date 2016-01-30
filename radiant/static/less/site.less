@@ -132,7 +132,7 @@ h2 {
 .hero-wrapper {
   .sub-hero-wrapper {
     .page-subtitle {
-      background: @blue;
+      background: @yellow;
       padding-bottom: 20px;
 
       h2 {
@@ -384,9 +384,14 @@ body.contact {
   }
 }
 body.about {
+  h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
   .cami-kate {
-    background: @yellow;
+    background: rgb(45, 45, 45);
     color: white;
+    padding: 40px;
 
     .image-wrapper {
       img {
@@ -397,6 +402,45 @@ body.about {
   .rest-team {
     background: rgb(45, 45, 45);
     height: 600px;
+    color: white;
+    padding: 20px;
+    background: @blue;
+
+    h2 {
+      color: white;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+    .editor-pictures {
+      margin-bottom: 40px;
+
+      img {
+        width: 200px;
+        height: 200px;
+      }
+    }
+    .web-developer {
+      img {
+        width: 200px;
+        height: 200px;
+      }
+      h2 {
+        text-align: left;
+        font-size: 28px;
+      }
+    }
+    .graphic-designer {
+      img {
+        width: 200px;
+        height: 200px;
+        float: right;
+      }
+      h2 {
+        text-align: right;
+        font-size: 28px;
+      }
+    }
   }
 }
 .fullscreen {

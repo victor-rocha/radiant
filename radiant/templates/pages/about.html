@@ -17,19 +17,53 @@
 {% block content %}
     <div class="cami-kate">
         <div class="container">
+            <h1 class="text-center">Meet the Radiant team</h1>
             <div class="row">
-                <div class="col-md-4 image-wrapper">
+                <div class="col-md-5 image-wrapper">
                     {% if object.page_image %}
                         <img src="{{ object.page_image.url }}" />
                     {% endif %}
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-7">
                     {{ object.content|safe }}
                 </div>
             </div>
         </div>
     </div>
     <div class="rest-team">
+        <div class="container">
+            <div class="row">
+                <h2 class="text-center">Editors</h2>
+                <div class="editor-pictures">
+                    {% for editor in object.editors.all %}
+                        {% if editor.thumbnail %}
+                            <img src="{{ editor.thumbnail.url }}" />
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
 
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 web-developer">
+                    <h2>Web Developer</h2>
+                    {% for developer in object.desginers.all %}
+                        {% if developer.thumbnail %}
+                            <img src="{{ developer.thumbnail.url }}" />
+                        {% endif %}
+                    {% endif %}
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4 graphic-designer clearfix">
+                    <h2>Graphic Designer</h2>
+                    {% for designer in object.desginers.all %}
+                        {% if designer.thumbnail %}
+                            <img src="{{ designer.thumbnail.url }}" />
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock content %}

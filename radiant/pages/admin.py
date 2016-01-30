@@ -1,6 +1,7 @@
 from django.contrib import admin
 
 from radiant.pages.models import RadiantPage, Quote
+from radiant.profiles.models import TeamMember
 
 
 class QuoteInline(admin.StackedInline):
@@ -8,8 +9,13 @@ class QuoteInline(admin.StackedInline):
     max_num = 1
 
 
+class MemberInline(admin.StackedInline):
+    model = TeamMember
+    extra = 2
+
+
 class RadiantPageAdmin(admin.ModelAdmin):
-    inlines = [QuoteInline]
+    inlines = [QuoteInline, MemberInline]
     readonly_fields = ('created_at', 'updated_at',)
     fieldsets = (
         (None, {

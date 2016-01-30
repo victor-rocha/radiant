@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from django.db import models
 from django.core.urlresolvers import reverse
 
-from radiant.common.models import AbstractRadiantModel
+from radiant.common.models import AbstractRadiantModel, AbstractBaseModel
 from .utils import insert_quote
 
 
@@ -68,3 +68,40 @@ class Quote(models.Model):
 
     def __str__(self):
         return self.text
+
+
+class TeamMemberManager(models.Manager):
+    def producers(self):
+        return self.filter(role=self.models.PRODUCERS)
+
+    def editors(self):
+        return self.filter(role=self.models.EDITORS)
+
+    def developers(self):
+        return self.filter(role=self.models.DEVELOPERS)
+
+    def designers(self):
+        return self.filter(role=self.models.PRODUCER)
+
+
+class TeamMember(AbstractBaseModel):
+    PRODUCERS = 1
+    EDITORS = 2
+    DEVELOPERS = 3
+    DESIGNERS = 4
+    ROLES = (
+        (PRODUCERS, 'Directors'),
+        (EDITORS, 'Editor'),
+        (DEVELOPERS, 'Developers'),
+        (DESIGNERS, 'Designer'),
+    )
+
+    name = models.CharField(max_length=255)
+    role = models.IntegerField(choices=ROLES)
+    thumbnail = models.ImageField(upload_to='team/', blank=True)
+    blurb = models.TextField(blank=True)
+    page = models.ForeignKey('pages.RadiantPage', null=True, blank=True)
+    objects = TeamMemberManager()
+
+    def __str__(self):
+        return self.name
