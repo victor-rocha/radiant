@@ -104,15 +104,6 @@
               "height": totalHeight
             });
         $targetElement.removeClass('hidden');
-        $targetElement
-            .css({
-              // Set height to prevent instant jumpdown when max height is removed
-              "height": $up.height(),
-              "max-height": 9999
-            })
-            .animate({
-              "height": totalHeight - $up.height()
-            });
 
         // fade out read-more
         $p.remove();
