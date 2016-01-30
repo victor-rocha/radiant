@@ -32,7 +32,7 @@ class RadiantPage(AbstractRadiantModel):
         the rest"""
         soup = BeautifulSoup(self.content, 'html.parser')
         paragraphs = soup.findAll('p')
-        break1 = 3
+        break1 = 4
         preview = paragraphs[:break1]
         hidden_text = paragraphs[break1:]
         return [

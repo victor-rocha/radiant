@@ -25,6 +25,7 @@ class AbstractRadiantModel(AbstractBaseModel):
     webm_video = models.FileField(upload_to='radiant-human/videos/', max_length=255, blank=True)
     ogg_video = models.FileField(upload_to='radiant-human/videos/', max_length=255, blank=True)
     content = models.TextField(blank=True)
+    mata_description = models.CharField(max_length=144, blank=True)
 
     # facebook metatags
     og_title = models.CharField('og:title', max_length=255, blank=True, null=True,

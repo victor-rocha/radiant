@@ -149,6 +149,33 @@ h2 {
 
 }
 
+.sidebar-box {
+  max-height: 550px;
+  position: relative;
+  overflow: hidden;
+}
+.sidebar-box .read-more {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 30px 0 20px 0;
+  /* "transparent" only works here because == rgba(0,0,0,0) */
+  background-image: linear-gradient(to bottom, transparent, #c3b397);
+}
+.toggle-btn-wrapper {
+  text-align: center;
+  margin-top: 10px;
+
+  a {
+    padding: 10px 20px;
+    color: #c3b397;
+    background: rgb(20, 20, 20);
+    z-index: 1000;
+
+  }
+}
 body.homepage {
   .content-wrapper {
     //background: url(http://stylegerms.com/wp-content/uploads/2013/06/wallpapers-backgrounds-popular-purple-filter-through-resolutions-room-space-50933.png) no-repeat center center fixed !important;
@@ -315,31 +342,25 @@ body.radiant-human {
       padding-left: 0;
       padding-right: 0;
     }
-  .youtube-wrapper, .youtube-wrapper iframe {
-      max-width: inherit;
-      max-height: inherit;
-  }
-
+    .youtube-wrapper, .youtube-wrapper iframe {
+        max-width: inherit;
+        max-height: inherit;
+    }
     .radiant-youtube {
       //background: black;
     }
     .film-strip {
       padding: 0;
-
       img {
         width: 100%;
       }
     }
-
     .article-inner-wrapper {
       background: #c3b397;
       padding-left: 40px;
       padding-right: 40px;
       padding-bottom: 40px;
       font-size: 18px;
-      max-height: 1550px;
-      overflow-y: scroll;
-
 
       .quotation {
         color: black;

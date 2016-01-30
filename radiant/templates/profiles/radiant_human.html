@@ -31,11 +31,7 @@
             <div class="col-md-8 article-inner-wrapper">
                 <h2>{{object.name }}</h2>
                 <p class="byline text-center">By {{ object.writer.first_name }} {{ object.writer.last_name }}</p>
-
-                <div class="article-wrapper">
-                    {{ object.process_content.0|safe }}
-                    {{ object.process_content.1|safe }}
-                </div>
+                {% include 'includes/read-more.html' with content=object.content button_text="Read More" %}
             </div>
             <div class="col-md-4 film-strip">
                 {% if object.filmstrip_image %}

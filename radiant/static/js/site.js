@@ -77,4 +77,37 @@
     });
 
     new WOW().init();
+
+    var $el, $ps, $p, $up, totalHeight;
+
+    $(".toggle-btn-wrapper .button").click(function() {
+        totalHeight = 0;
+        $up = $(".sidebar-box");
+
+        $el = $(this);
+        $p  = $el.parent();
+        $ps = $up.find("p:not('.read-more')");
+        // measure how tall inside should be by adding together heights of all inside paragraphs (except read-more paragraph)
+        $ps.each(function() {
+            totalHeight += $(this).outerHeight();
+        });
+
+        $up
+            .css({
+              // Set height to prevent instant jumpdown when max height is removed
+              "height": $up.height(),
+              "max-height": 9999
+            })
+            .animate({
+              "height": totalHeight
+            });
+
+        // fade out read-more
+        $p.remove();
+        $(".read-more").remove();
+
+        // prevent jump-down
+        return false;
+
+    });
 })(jQuery);
