@@ -78,13 +78,15 @@
 
     new WOW().init();
 
-    var $el, $ps, $p, $up, totalHeight;
+    var $el, $ps, $p, $up, $targetElement, totalHeight, targetSelector;
 
     $(".toggle-btn-wrapper .button").click(function() {
         totalHeight = 0;
         $up = $(".sidebar-box");
 
         $el = $(this);
+        targetSelector = $el.attr('data-toggle');
+        $targetElement = $(targetSelector);
         $p  = $el.parent();
         $ps = $up.find("p:not('.read-more')");
         // measure how tall inside should be by adding together heights of all inside paragraphs (except read-more paragraph)
@@ -100,6 +102,16 @@
             })
             .animate({
               "height": totalHeight
+            });
+        $targetElement.removeClass('hidden');
+        $targetElement
+            .css({
+              // Set height to prevent instant jumpdown when max height is removed
+              "height": $up.height(),
+              "max-height": 9999
+            })
+            .animate({
+              "height": totalHeight - $up.height()
             });
 
         // fade out read-more

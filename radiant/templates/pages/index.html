@@ -30,17 +30,8 @@
                 <div class="article-inner-wrapper wow slideInLeft" data-wow-duration="2s">
                     <h2>{{ object.name }}</h2>
                     <p class="byline text-center">By {{ object.writer.first_name }} {{ object.writer.last_name }}</p>
-                    <div>
-                        {{ object.split_content.0|safe }}
-                    </div>
-                    <div class="collapse" id="collapseExample">
-                        {{ object.split_content.1|safe }}
-                    </div>
-                    <div class="collapser">
-                        <a  class="" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                          Read more
-                        </a>
-                    </div>
+
+                    {% include 'includes/read-more.html' with content=object.content button_text='Read More' toggle_selector='.hidden-episodes' %}
                 </div>
             </div>
             {% get_live_episodes as live_episodes %}
