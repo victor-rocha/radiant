@@ -39,7 +39,7 @@
                         {% if editor.thumbnail %}
                             <img src="{{ editor.thumbnail.url }}" />
                         {% endif %}
-                    {% endif %}
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -52,7 +52,7 @@
                         {% if developer.thumbnail %}
                             <img src="{{ developer.thumbnail.url }}" />
                         {% endif %}
-                    {% endif %}
+                    {% endfor %}
                 </div>
                 <div class="col-md-4"></div>
                 <div class="col-md-4 graphic-designer clearfix">
@@ -61,7 +61,7 @@
                         {% if designer.thumbnail %}
                             <img src="{{ designer.thumbnail.url }}" />
                         {% endif %}
-                    {% endif %}
+                    {% endfor %}
                 </div>
             </div>
         </div>
