@@ -34,21 +34,23 @@
                     {% include 'includes/read-more.html' with content=object.content button_text='Read More' toggle_selector='.hidden-episodes' %}
                 </div>
             </div>
-            {% get_live_episodes as live_episodes %}
-            {% get_unreleased_episodes as unreleased_episodes %}
+            {% get_current_episode as current_episode %}
+            {% get_next_episode as next_episode %}
             <div class="col-md-6 homepage-episodes">
-                <div class="episode clearfix" onclick="window.location='{{ episodes.0.get_absolute_url }}'" >
+                {# NEWEST EPISODE#}
+                <div class="episode clearfix" onclick="window.location='{{ current_episode.get_absolute_url }}'" >
                     <div class="new-episode col-md-6">
-                        {% if live_episodes.0.homepage_thumbnail %}
-                            <img src="{{ live_episodes.0.homepage_thumbnail.url }}" class=" wow slideInRight" data-wow-duration="2s" alt="{{ live_episodes.0.name }}"/>
+                        {% if current_episode.homepage_thumbnail %}
+                            <img src="{{ current_episode.homepage_thumbnail.url }}" class=" wow slideInRight" data-wow-duration="2s" alt="{{ current_episode.name }}"/>
                         {% endif %}
                     </div>
                     <div class="episode-text col-md-6">
                         <div>
-                            {{ live_episodes.0.homepage_blurb|safe }}
+                            {{ current_episode.homepage_blurb|safe }}
                         </div>
                     </div>
                 </div>
+                {# NEXT EPISODE #}
                 <div class="episode clearfix" onclick="window.location='{{ episodes.0.get_absolute_url }}'">
                     <div class="episode-text col-md-6">
                         <div>
@@ -61,27 +63,19 @@
                         {% endif %}
                     </div>
                 </div>
+                {% get_episodes as episodes %}
+                {# THE REST OF EPISODES #}
                 <div class="hidden-episodes hidden">
                     <div class="col-md-6">
-                        {% for episode in live_episodes %}
-                            {% if forloop.counter > 0  and episode.dropdown_thumbnail and not forloop.counter|divisibleby:2 %}
-                                <a href="{{ episode.get_absolute_url }}"><img src="{{ episode.dropdown_thumbnail.url }}" alt="{{ episode.name }}"/></a>
-                            {% endif %}
-                        {% endfor %}
-                        {% for episode in unreleased_episodes %}
-                            {% if forloop.counter > 0  and episode.dropdown_thumbnail and not forloop.counter|divisibleby:2 %}
+                        {% for episode in episodes %}
+                            {% if episode.dropdown_thumbnail and not forloop.counter|divisibleby:2  and episode != current_episode and episode != next_episode %}
                                 <a href="{{ episode.get_absolute_url }}"><img src="{{ episode.dropdown_thumbnail.url }}" alt="{{ episode.name }}"/></a>
                             {% endif %}
                         {% endfor %}
                     </div>
                     <div class="col-md-6">
-                        {% for episode in live_episodes %}
-                            {% if forloop.counter > 0  and episode.dropdown_thumbnail and forloop.counter|divisibleby:2 %}
-                                <a href="{{ episode.get_absolute_url }}"><img src="{{ episode.dropdown_thumbnail.url }}" alt="{{ episode.name }}"/></a>
-                            {% endif %}
-                        {% endfor %}
-                        {% for episode in unreleased_episodes %}
-                            {% if forloop.counter > 0  and episode.dropdown_thumbnail and forloop.counter|divisibleby:2 %}
+                        {% for episode in episodes %}
+                            {% if episode.dropdown_thumbnail and forloop.counter|divisibleby:2  and episode != current_episode and episode != next_episode %}
                                 <a href="{{ episode.get_absolute_url }}"><img src="{{ episode.dropdown_thumbnail.url }}" alt="{{ episode.name }}"/></a>
                             {% endif %}
                         {% endfor %}
