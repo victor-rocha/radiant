@@ -51,15 +51,15 @@
                     </div>
                 </div>
                 {# NEXT EPISODE #}
-                <div class="episode clearfix" onclick="window.location='{{ episodes.0.get_absolute_url }}'">
+                <div class="episode clearfix" onclick="window.location='{{ next_episode.get_absolute_url }}'">
                     <div class="episode-text col-md-6">
                         <div>
-                            {{ unreleased_episodes.0.homepage_blurb|safe }}
+                            {{ next_episode.homepage_blurb|safe }}
                         </div>
                     </div>
                     <div class="next-episode col-md-6">
-                        {% if unreleased_episodes.0.homepage_thumbnail %}
-                            <img src="{{ unreleased_episodes.0.homepage_thumbnail.url }}" class=" wow slideInRight" data-wow-duration="2s" alt="{{ unreleased_episodes.0.name }}"/>
+                        {% if next_episode.homepage_thumbnail %}
+                            <img src="{{ next_episode.homepage_thumbnail.url }}" class=" wow slideInRight" data-wow-duration="2s" alt="{{ next_episode.name }}"/>
                         {% endif %}
                     </div>
                 </div>
