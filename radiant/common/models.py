@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 
 
 def get_upload_path(instance, filename):
-    return os.path.join('radiant-human/videos/', str(uuid4()), filename)
+    return os.path.join('videos/', str(uuid4()), filename)
 
 
 class AbstractBaseModel(models.Model):
