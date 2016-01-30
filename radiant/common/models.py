@@ -1,7 +1,13 @@
 import datetime
+import os
+from uuid import uuid4
 
 from django.db import models
 from django.contrib.auth.models import User
+
+
+def get_upload_path(instance, filename):
+    return os.path.join('radiant-human/videos/', str(uuid4()), filename)
 
 
 class AbstractBaseModel(models.Model):
@@ -21,9 +27,9 @@ class AbstractBaseModel(models.Model):
 class AbstractRadiantModel(AbstractBaseModel):
     writer = models.ForeignKey(User, null=True, blank=True)
     name = models.CharField(max_length=255, help_text='e.g. Homepage')
-    mp4_video = models.FileField(upload_to='radiant-human/videos/', max_length=255, blank=True)
-    webm_video = models.FileField(upload_to='radiant-human/videos/', max_length=255, blank=True)
-    ogg_video = models.FileField(upload_to='radiant-human/videos/', max_length=255, blank=True)
+    mp4_video = models.FileField(upload_to=get_upload_path, max_length=255, blank=True)
+    webm_video = models.FileField(upload_to=get_upload_path, max_length=255, blank=True)
+    ogg_video = models.FileField(upload_to=get_upload_path, max_length=255, blank=True)
     content = models.TextField(blank=True)
     mata_description = models.CharField(max_length=144, blank=True)
 
