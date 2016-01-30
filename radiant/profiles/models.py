@@ -71,29 +71,31 @@ class Quote(models.Model):
 
 
 class TeamMemberManager(models.Manager):
+    use_for_related_fields = True
+
     def producers(self):
-        return self.filter(role=self.models.PRODUCERS)
+        return self.filter(role=self.model.PRODUCER)
 
     def editors(self):
-        return self.filter(role=self.models.EDITORS)
+        return self.filter(role=self.model.EDITOR)
 
     def developers(self):
-        return self.filter(role=self.models.DEVELOPERS)
+        return self.filter(role=self.model.DEVELOPER)
 
     def designers(self):
-        return self.filter(role=self.models.PRODUCER)
+        return self.filter(role=self.model.PRODUCER)
 
 
 class TeamMember(AbstractBaseModel):
-    PRODUCERS = 1
-    EDITORS = 2
-    DEVELOPERS = 3
-    DESIGNERS = 4
+    PRODUCER = 1
+    EDITOR = 2
+    DEVELOPER = 3
+    DESIGNER = 4
     ROLES = (
-        (PRODUCERS, 'Directors'),
-        (EDITORS, 'Editor'),
-        (DEVELOPERS, 'Developers'),
-        (DESIGNERS, 'Designer'),
+        (PRODUCER, 'Director'),
+        (EDITOR, 'Editor'),
+        (DEVELOPER, 'Developer'),
+        (DESIGNER, 'Designer'),
     )
 
     name = models.CharField(max_length=255)

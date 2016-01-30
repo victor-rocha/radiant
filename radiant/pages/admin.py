@@ -11,7 +11,8 @@ class QuoteInline(admin.StackedInline):
 
 class MemberInline(admin.StackedInline):
     model = TeamMember
-    extra = 2
+    extra = 1
+    exclude = ['created_at', 'updated_at']
 
 
 class RadiantPageAdmin(admin.ModelAdmin):

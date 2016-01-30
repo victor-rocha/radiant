@@ -35,7 +35,7 @@
             <div class="row">
                 <h2 class="text-center">Editors</h2>
                 <div class="editor-pictures">
-                    {% for editor in object.editors.all %}
+                    {% for editor in object.teammember_set.editors %}
                         {% if editor.thumbnail %}
                             <img src="{{ editor.thumbnail.url }}" />
                         {% endif %}
@@ -48,7 +48,7 @@
             <div class="row">
                 <div class="col-md-4 web-developer">
                     <h2>Web Developer</h2>
-                    {% for developer in object.desginers.all %}
+                    {% for developer in object.teammember_set.developers %}
                         {% if developer.thumbnail %}
                             <img src="{{ developer.thumbnail.url }}" />
                         {% endif %}
@@ -57,7 +57,7 @@
                 <div class="col-md-4"></div>
                 <div class="col-md-4 graphic-designer clearfix">
                     <h2>Graphic Designer</h2>
-                    {% for designer in object.desginers.all %}
+                    {% for designer in object.teammember_set.designera %}
                         {% if designer.thumbnail %}
                             <img src="{{ designer.thumbnail.url }}" />
                         {% endif %}
