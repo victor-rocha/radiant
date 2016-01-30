@@ -160,7 +160,7 @@ h2 {
   left: 0;
   width: 100%;
   margin: 0;
-  padding: 30px 0 20px 0;
+  padding: 80px 0 20px 0;
   /* "transparent" only works here because == rgba(0,0,0,0) */
   background-image: linear-gradient(to bottom, transparent, #c3b397);
 }
@@ -384,14 +384,19 @@ body.contact {
   }
 }
 body.about {
-  .main_content_wrapper {
-    background: rgb(45, 45, 45);
+  .cami-kate {
+    background: @yellow;
     color: white;
+
     .image-wrapper {
       img {
         width: 100%;
       }
     }
+  }
+  .rest-team {
+    background: rgb(45, 45, 45);
+    height: 600px;
   }
 }
 .fullscreen {
