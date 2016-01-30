@@ -57,7 +57,7 @@
                 <div class="col-md-4"></div>
                 <div class="col-md-4 graphic-designer clearfix">
                     <h2>Graphic Designer</h2>
-                    {% for designer in object.teammember_set.designera %}
+                    {% for designer in object.teammember_set.designers %}
                         {% if designer.thumbnail %}
                             <img src="{{ designer.thumbnail.url }}" />
                         {% endif %}
