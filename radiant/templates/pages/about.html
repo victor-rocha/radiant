@@ -2,6 +2,7 @@
 
 {% load profiles_tags %}
 {% load static from staticfiles %}
+{% load thumbnail %}
 
 {% block body_class %}about{% endblock %}
 
@@ -20,7 +21,9 @@
             <div class="row">
                 <div class="col-md-5 image-wrapper">
                     {% if object.page_image %}
-                        <img src="{{ object.page_image.url }}" />
+                        {% thumbnail object.page_image "457x458" as im %}
+                            <img src="{{ im.url }}" />
+                        {% endthumbnail %}
                     {% endif %}
                 </div>
                 <div class="col-md-7">
@@ -36,13 +39,15 @@
                 <div class="editor-pictures">
                     {% for editor in object.teammember_set.editors %}
                         {% if editor.thumbnail %}
-                            {% if editor.website %}
-                                <a href="{{ editor.website }}">
+                            {% thumbnail editor.thumbnail "400x400" as im %}
+                                {% if editor.website %}
+                                    <a href="{{ editor.website }}">
+                                        <img src="{{ im.url }}" />
+                                    </a>
+                                {% else %}
                                     <img src="{{ editor.thumbnail.url }}" />
-                                </a>
-                            {% else %}
-                                <img src="{{ editor.thumbnail.url }}" />
-                            {% endif %}
+                                {% endif %}
+                            {% endthumbnail %}
                         {% endif %}
                     {% endfor %}
                 </div>
@@ -55,13 +60,15 @@
                     <h2>Web Developer</h2>
                     {% for developer in object.teammember_set.developers %}
                         {% if developer.thumbnail %}
-                            {% if developer.website %}
-                                <a href="{{ developer.website }}">
+                            {% thumbnail developer.thumbnail "400x400" as im %}
+                                {% if developer.website %}
+                                    <a href="{{ developer.website }}">
+                                        <img src="{{ im.url }}" />
+                                    </a>
+                                {% else %}
                                     <img src="{{ developer.thumbnail.url }}" />
-                                </a>
-                            {% else %}
-                                <img src="{{ developer.thumbnail.url }}" />
-                            {% endif %}
+                                {% endif %}
+                            {% endthumbnail %}
                         {% endif %}
                     {% endfor %}
                 </div>
@@ -70,13 +77,15 @@
                     <h2>Graphic Designer</h2>
                     {% for designer in object.teammember_set.designers %}
                         {% if designer.thumbnail %}
-                            {% if designer.website %}
-                                <a href="{{ designer.website }}">
+                            {% thumbnail designer.thumbnail "400x400" as im %}
+                                {% if designer.website %}
+                                    <a href="{{ designer.website }}">
+                                        <img src="{{ im.url }}" />
+                                    </a>
+                                {% else %}
                                     <img src="{{ designer.thumbnail.url }}" />
-                                </a>
-                            {% else %}
-                                <img src="{{ designer.thumbnail.url }}" />
-                            {% endif %}
+                                {% endif %}
+                            {% endthumbnail %}
                         {% endif %}
                     {% endfor %}
                 </div>
