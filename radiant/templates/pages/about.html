@@ -37,7 +37,13 @@
                 <div class="editor-pictures">
                     {% for editor in object.teammember_set.editors %}
                         {% if editor.thumbnail %}
-                            <img src="{{ editor.thumbnail.url }}" />
+                            {% if editor.website %}
+                                <a href="{{ editor.website }}">
+                                    <img src="{{ editor.thumbnail.url }}" />
+                                </a>
+                            {% else %}
+                                <img src="{{ editor.thumbnail.url }}" />
+                            {% endif %}
                         {% endif %}
                     {% endfor %}
                 </div>
@@ -50,7 +56,13 @@
                     <h2>Web Developer</h2>
                     {% for developer in object.teammember_set.developers %}
                         {% if developer.thumbnail %}
-                            <img src="{{ developer.thumbnail.url }}" />
+                            {% if developer.website %}
+                                <a href="{{ developer.website }}">
+                                    <img src="{{ developer.thumbnail.url }}" />
+                                </a>
+                            {% else %}
+                                <img src="{{ developer.thumbnail.url }}" />
+                            {% endif %}
                         {% endif %}
                     {% endfor %}
                 </div>
@@ -59,7 +71,13 @@
                     <h2>Graphic Designer</h2>
                     {% for designer in object.teammember_set.designers %}
                         {% if designer.thumbnail %}
-                            <img src="{{ designer.thumbnail.url }}" />
+                            {% if designer.website %}
+                                <a href="{{ designer.website }}">
+                                    <img src="{{ designer.thumbnail.url }}" />
+                                </a>
+                            {% else %}
+                                <img src="{{ designer.thumbnail.url }}" />
+                            {% endif %}
                         {% endif %}
                     {% endfor %}
                 </div>
