@@ -83,7 +83,7 @@ class TeamMemberManager(models.Manager):
         return self.filter(role=self.model.DEVELOPER)
 
     def designers(self):
-        return self.filter(role=self.model.PRODUCER)
+        return self.filter(role=self.model.DESIGNER)
 
 
 class TeamMember(AbstractBaseModel):
