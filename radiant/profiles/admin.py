@@ -17,7 +17,7 @@ class RadiantHumanAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {
             'fields': ('writer', 'name', 'title', 'content', 'homepage_blurb',
-                       'slider_description', 'release_date', 'status')
+                       'slider_description', 'release_date', 'status', 'ordering')
         }),
         ('Media (Images/Video)', {
             'fields': ('mp4_video', 'webm_video', 'ogg_video', 'youtube_url',
