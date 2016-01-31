@@ -39,7 +39,7 @@
                 <div class="editor-pictures">
                     {% for editor in object.teammember_set.editors %}
                         {% if editor.thumbnail %}
-                            {% thumbnail editor.thumbnail "400x400" as im %}
+                            {% thumbnail editor.thumbnail "400x400" crop="center" as im %}
                                 {% if editor.website %}
                                     <a href="{{ editor.website }}">
                                         <img src="{{ im.url }}" />
@@ -60,7 +60,7 @@
                     <h2>Web Developer</h2>
                     {% for developer in object.teammember_set.developers %}
                         {% if developer.thumbnail %}
-                            {% thumbnail developer.thumbnail "400x400" as im %}
+                            {% thumbnail developer.thumbnail "400x400" crop="center" as im %}
                                 {% if developer.website %}
                                     <a href="{{ developer.website }}">
                                         <img src="{{ im.url }}" />
@@ -77,7 +77,7 @@
                     <h2>Graphic Designer</h2>
                     {% for designer in object.teammember_set.designers %}
                         {% if designer.thumbnail %}
-                            {% thumbnail designer.thumbnail "400x400" as im %}
+                            {% thumbnail designer.thumbnail "400x400" crop="center" as im %}
                                 {% if designer.website %}
                                     <a href="{{ designer.website }}">
                                         <img src="{{ im.url }}" />
