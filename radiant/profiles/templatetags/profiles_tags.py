@@ -25,12 +25,18 @@ def get_episodes():
 
 @register.assignment_tag
 def get_current_episode():
-    return RadiantHuman.objects.filter(status=RadiantHuman.LIVE).order_by('-release_date').first()
+    live_episode = RadiantHuman.objects.filter(status=RadiantHuman.LIVE).order_by('-release_date').first()
+    if live_episode:
+        return RadiantHuman.objects.filter(status=RadiantHuman.LIVE).order_by('-release_date').first()
+    return RadiantHuman.objects.filter(status=RadiantHuman.UNRELEASED).order_by('release_date').first()
 
 
 @register.assignment_tag
 def get_next_episode():
-    return RadiantHuman.objects.filter(status=RadiantHuman.UNRELEASED).order_by('release_date').first()
+    live_episode = RadiantHuman.objects.filter(status=RadiantHuman.LIVE).order_by('-release_date').first()
+    if live_episode:
+        return RadiantHuman.objects.filter(status=RadiantHuman.UNRELEASED).order_by('release_date').first()
+    return RadiantHuman.objects.filter(status=RadiantHuman.UNRELEASED).order_by('release_date')[1]
 
 
 @register.assignment_tag
