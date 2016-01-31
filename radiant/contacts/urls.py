@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, url
 
-from radiant.contacts.views import ContactView, SubscribeView
+from radiant.contacts.views import ContactView, SubscribeView, NominateView
 
 
 urlpatterns = patterns('',
@@ -8,6 +8,6 @@ urlpatterns = patterns('',
         name='contact-us'),
     url('^subscribe/', SubscribeView.as_view(),
         name='subscribe'),
-    url('^nominate/', SubscribeView.as_view(),
+    url('^nominate/', NominateView.as_view(),
         name='nominate'),
 )
