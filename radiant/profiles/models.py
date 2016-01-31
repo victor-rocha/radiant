@@ -74,16 +74,16 @@ class TeamMemberManager(models.Manager):
     use_for_related_fields = True
 
     def producers(self):
-        return self.filter(role=self.model.PRODUCER)
+        return self.filter(role=self.model.PRODUCER).order_by('-id')
 
     def editors(self):
-        return self.filter(role=self.model.EDITOR)
+        return self.filter(role=self.model.EDITOR).order_by('-id')
 
     def developers(self):
-        return self.filter(role=self.model.DEVELOPER)
+        return self.filter(role=self.model.DEVELOPER).order_by('-id')
 
     def designers(self):
-        return self.filter(role=self.model.DESIGNER)
+        return self.filter(role=self.model.DESIGNER).order_by('-id')
 
 
 class TeamMember(AbstractBaseModel):
