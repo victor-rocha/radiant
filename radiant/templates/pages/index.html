@@ -51,7 +51,13 @@
                     </div>
                     <div class="episode-text col-md-6">
                         <div>
-                            {{ next_episode.homepage_blurb|safe }}
+                            {% if next_episode.get_absolute_url %}
+                                <a href="{{ next_episode.get_absolute_url }}">
+                                    <img src="{{ next_episode.blurb_image.url }}" class="wow slideInRight clickable" data-wow-duration="2s" alt="{{ next_episode.name }}"/>
+                                </a>
+                            {% else %}
+                                <img src="{{ next_episode.blurb_image.url }}" class="wow slideInRight" data-wow-duration="2s" alt="{{ next_episode.name }}"/>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -59,7 +65,13 @@
                 <div class="episode clearfix">
                     <div class="episode-text col-md-6">
                         <div>
-                            {{ current_episode.homepage_blurb|safe }}
+                            {% if current_episode.get_absolute_url %}
+                                <a href="{{ current_episode.get_absolute_url }}">
+                                    <img src="{{ current_episode.blurb_image.url }}" class="wow slideInRight clickable" data-wow-duration="2s" alt="{{ current_episode.name }}"/>
+                                </a>
+                            {% else %}
+                                <img src="{{ current_episode.blurb_image.url }}" class="wow slideInRight" data-wow-duration="2s" alt="{{ current_episode.name }}"/>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="next-episode col-md-6">
