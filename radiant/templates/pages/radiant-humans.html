@@ -162,8 +162,8 @@
             <!-- category  -->
             <ul data-cat="+ Category one">
                 {% for radiant_human in object_list %}
-                    {% if radiant_human.thumbnail %}
-                        {% thumbnail radiant_human.thumbnail "750x507" as im %}
+                    {% if radiant_human.slider_image %}
+                        {% thumbnail radiant_human.slider_image "750x507" as im %}
                         <ul>
                             {% if radiant_human.get_absolute_url %}
                                 <li data-type="link" data-url="{{ radiant_human.get_absolute_url }}"></li>
