@@ -41,7 +41,7 @@ def get_next_episode():
 
 @register.assignment_tag
 def released_episodes_count():
-    return RadiantHuman.objects.filter(status=RadiantHuman.LIVE).count()
+    return RadiantHuman.objects.filter(status=RadiantHuman.LIVE).count() or 1
 
 
 @register.filter

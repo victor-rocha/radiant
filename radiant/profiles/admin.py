@@ -12,7 +12,7 @@ class RadiantHumanAdmin(admin.ModelAdmin):
     inlines = [QuoteInline]
     readonly_fields = ('created_at', 'updated_at',)
     list_filter = ('status',)
-    list_display = ('name', 'release_date', 'status', 'has_homepage_image',
+    list_display = ('name', 'ordering', 'release_date', 'status', 'has_homepage_image',
                     'has_dropdown_image',)
     fieldsets = (
         (None, {
