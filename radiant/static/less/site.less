@@ -276,7 +276,10 @@ body.homepage {
       //height: 320px;
       padding: 1px;
       display: flex;
-      cursor: pointer;
+
+      .clickable {
+        cursor: pointer;
+      }
 
       .new-episode,
       .next-episode {
@@ -303,7 +306,9 @@ body.homepage {
       }
     }
     .hidden-episodes {
-      cursor: pointer;
+      .clickable {
+        cursor: pointer;
+      }
 
       img {
         width: 100%;

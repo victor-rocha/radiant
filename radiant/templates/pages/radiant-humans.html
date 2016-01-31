@@ -165,7 +165,11 @@
                     {% if radiant_human.thumbnail %}
                         {% thumbnail radiant_human.thumbnail "750x507" as im %}
                         <ul>
-                            <li data-type="link" data-url="{{ radiant_human.get_absolute_url }}"></li>
+                            {% if radiant_human.get_absolute_url %}
+                                <li data-type="link" data-url="{{ radiant_human.get_absolute_url }}"></li>
+                            {% else %}
+                                <li data-type="media" data-url="{{ im.url }}"></li>
+                            {% endif %}
                             <li data-thumbnail-path="{{ im.url }}"></li>
                             <li data-thumbnail-text="">
                                 <p class="largeLabel">{{ radiant_human.name }}</p>
