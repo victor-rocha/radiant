@@ -22,7 +22,7 @@ class RadiantHumanAdmin(admin.ModelAdmin):
         ('Media (Images/Video)', {
             'fields': ('mp4_video', 'webm_video', 'ogg_video', 'youtube_url',
                        'slider_image', 'homepage_thumbnail', 'dropdown_thumbnail',
-                       'filmstrip_image', 'homepage_blurb'),
+                       'filmstrip_image', 'blurb_image'),
         }),
         ('Social Media', {
             'fields': ('og_title', 'og_type', 'og_description', 'og_image'),
