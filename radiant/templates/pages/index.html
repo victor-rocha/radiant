@@ -29,9 +29,8 @@
             <div class="col-md-6 article">
                 <div class="article-inner-wrapper wow slideInLeft" data-wow-duration="2s">
                     <h2>{{ object.name }}</h2>
-                    <p class="byline text-center">By {{ object.writer.first_name }} {{ object.writer.last_name }}</p>
 
-                    {% include 'includes/read-more.html' with content=object.content button_text='Read More' toggle_selector='.hidden-episodes' %}
+                    {% include 'includes/read-more.html' with object=object content=object.content button_text='Read More' toggle_selector='.hidden-episodes' byline=True %}
                 </div>
             </div>
             {% get_current_episode as current_episode %}
