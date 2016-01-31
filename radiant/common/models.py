@@ -26,7 +26,9 @@ class AbstractBaseModel(models.Model):
 
 class AbstractRadiantModel(AbstractBaseModel):
     writer = models.ForeignKey(User, null=True, blank=True)
-    name = models.CharField(max_length=255, help_text='e.g. Homepage')
+    name = models.CharField('Tab\'s title', max_length=255, help_text='e.g. Homepage')
+    title = models.CharField(max_length=255, help_text='This is the title for articles, etc.',
+                             blank=True)
     mp4_video = models.FileField(upload_to=get_upload_path, max_length=255, blank=True)
     webm_video = models.FileField(upload_to=get_upload_path, max_length=255, blank=True)
     ogg_video = models.FileField(upload_to=get_upload_path, max_length=255, blank=True)

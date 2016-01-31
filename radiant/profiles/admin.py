@@ -16,7 +16,7 @@ class RadiantHumanAdmin(admin.ModelAdmin):
                     'has_dropdown_image',)
     fieldsets = (
         (None, {
-            'fields': ('writer', 'name', 'content', 'homepage_blurb',
+            'fields': ('writer', 'name', 'title', 'content', 'homepage_blurb',
                        'slider_description', 'release_date', 'status')
         }),
         ('Media (Images/Video)', {
