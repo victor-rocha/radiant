@@ -16,13 +16,13 @@ class RadiantHumanAdmin(admin.ModelAdmin):
                     'has_dropdown_image',)
     fieldsets = (
         (None, {
-            'fields': ('writer', 'name', 'title', 'content', 'homepage_blurb',
+            'fields': ('writer', 'name', 'title', 'content',
                        'slider_description', 'release_date', 'status', 'ordering')
         }),
         ('Media (Images/Video)', {
             'fields': ('mp4_video', 'webm_video', 'ogg_video', 'youtube_url',
-                       'thumbnail', 'homepage_thumbnail', 'dropdown_thumbnail',
-                       'filmstrip_image'),
+                       'slider_image', 'homepage_thumbnail', 'dropdown_thumbnail',
+                       'filmstrip_image', 'homepage_blurb'),
         }),
         ('Social Media', {
             'fields': ('og_title', 'og_type', 'og_description', 'og_image'),
