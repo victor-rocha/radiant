@@ -111,7 +111,11 @@ class TeamMember(AbstractBaseModel):
     blurb = models.TextField(blank=True)
     website = models.URLField(max_length=255, blank=True)
     page = models.ForeignKey('pages.RadiantPage', null=True, blank=True)
+    ordering = models.IntegerField(default=1)
     objects = TeamMemberManager()
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        ordering = ('ordering', )
