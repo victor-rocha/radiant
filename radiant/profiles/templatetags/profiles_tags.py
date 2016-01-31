@@ -20,7 +20,7 @@ def get_latest_episodes():
 
 @register.assignment_tag
 def get_episodes():
-    return RadiantHuman.objects.all().order_by('release_date', 'id')
+    return RadiantHuman.objects.all()
 
 
 @register.assignment_tag

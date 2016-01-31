@@ -27,6 +27,10 @@ class RadiantHuman(AbstractRadiantModel):
     slider_description = models.CharField(max_length=255, blank=True, null=True)
     release_date = models.DateField(null=True, blank=True)
     status = models.IntegerField(choices=STATUS, default=DRAFT)
+    ordering = models.IntegerField(default=1)
+
+    class Meta:
+        ordering = ('ordering', )
 
     def __str__(self):
         return self.name
