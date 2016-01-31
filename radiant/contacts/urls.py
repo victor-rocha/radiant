@@ -9,5 +9,5 @@ urlpatterns = patterns('',
     url('^subscribe/', SubscribeView.as_view(),
         name='subscribe'),
     url('^nominate/', SubscribeView.as_view(),
-        name='subscribe'),
+        name='nominate'),
 )
