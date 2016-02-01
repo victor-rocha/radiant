@@ -45,7 +45,11 @@ class Subscriber(AbstractBaseModel):
 
 class Nominee(AbstractBaseModel):
     radiant_nominee_name = models.CharField(max_length=255)
+    radiant_nominee_location = models.CharField(max_length=255)
     your_name = models.CharField(max_length=255)
     your_email = models.EmailField(max_length=255)
     description = models.TextField(blank=True)
     video = models.FileField(upload_to='radiant-human/videos/', max_length=255, blank=True)
+
+    def __str__(self):
+        return self.radiant_nominee_name

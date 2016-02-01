@@ -39,7 +39,7 @@ class NominateView(CreateView):
     model = Nominee
     fields = ['radiant_nominee_name', 'your_name', 'your_email', 'description',
               'video']
-    success_url = reverse_lazy('contact-us')
+    success_url = reverse_lazy('nominate')
 
     def form_valid(self, form):
         messages.success(self.request, 'Your nomination has been submitted')

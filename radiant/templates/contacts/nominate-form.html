@@ -24,7 +24,7 @@
             </div>
         </div>
     </div>
-    <form method="post" action="{% url 'nominate' %}" class="nominee-form">
+    <form method="post" action="{% url 'nominate' %}" class="nominee-form" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="container">
             <div class="row">
@@ -36,20 +36,20 @@
         <div class="file_upload">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-4 flex-vertical">
                         <div class="form-group">
-                            {{ form.video.errors }}
                             <label for="{{ form.video.id_for_label }}">Upload video</label>
+                            {{ form.video.errors }}
                             <input id="id_video" maxlength="255" name="video" type="file">
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 flex-vertical flex-horizontal">
                         <p>or</p>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            {{ form.description.errors }}
                             <label for="{{ form.description.id_for_label }}">Description:</label>
+                            {{ form.description.errors }}
                             <textarea class="form-control" cols="40" id="id_description" name="description" rows="10"></textarea>
                         </div>
                     </div>
@@ -58,24 +58,30 @@
         </div>
 
         <div class="container">
-            <div class="row">
-                {{ form.non_field_errors }}
-                <div class="form-group">
-                    {{ form.subject.errors }}
-                    <label for="{{ form.full_name.id_for_label }}">Full name:</label>
-                    <input class="form-control" id="id_full_name" maxlength="255" name="full_name" type="text">
+            <div class="row extra-fields">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="{{ form.radiant_nominee_name.id_for_label }}">Radiant Nominee Name</label>
+                        {{ form.radiant_nominee_name.errors }}
+                        <input class="form-control" id="id_radiant_nominee_name" maxlength="255" name="radiant_nominee_name" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.radiant_nominee_location.id_for_label }}">Radiant Nominee Location</label>
+                        {{ form.radiant_nominee_location.errors }}
+                        <input class="form-control" id="id_radiant_nominee_location" maxlength="255" name="radiant_nominee_location" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.your_name.id_for_label }}">Your Name</label>
+                        {{ form.your_name.errors }}
+                        <input class="form-control" id="id_your_name" maxlength="255" name="your_name" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.your_email.id_for_label }}">Your email</label>
+                        {{ form.your_email.errors }}
+                        <input class="form-control" id="id_your_email" maxlength="255" name="your_email" type="text">
+                    </div>
+                    <button type="submit" class="btn btn-warning">Submit</button>
                 </div>
-                <div class="form-group">
-                    {{ form.message.errors }}
-                    <label for="{{ form.email.id_for_label }}">Your email address:</label>
-                    <input class="form-control" id="id_email" maxlength="255" name="email" type="email">
-                </div>
-                <div class="form-group">
-                    {{ form.sender.errors }}
-                    <label for="{{ form.message.id_for_label }}">Your message:</label>
-                    <textarea class="form-control" cols="40" id="id_message" name="message" rows="10"></textarea>
-                </div>
-                <button type="submit" class="btn btn-warning">Submit</button>
             </div>
         </div>
     </form>

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from radiant.contacts.models import Contact, Subscriber
+from radiant.contacts.models import Contact, Subscriber, Nominee
 
 
 class ContactAdmin(admin.ModelAdmin):
@@ -10,3 +10,4 @@ class ContactAdmin(admin.ModelAdmin):
 
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(Subscriber)
+admin.site.register(Nominee)

@@ -19,6 +19,12 @@ h2 {
   text-align: center;
   font-weight: bolder;
 }
+.errorlist {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+  color: red;
+}
 .page-wrapper {
   background: black;
 }
@@ -433,9 +439,26 @@ body.nominate {
   .main_content_wrapper {
     background: rgb(45, 45, 45);
   }
+  .extra-fields {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
   .file_upload {
     background: @blue;
     padding: 40px;
+
+    .row {
+      display: flex;
+
+      .flex-vertical {
+        display: flex;
+        align-items: center;
+      }
+      .flex-horizontal {
+        display: flex;
+        justify-content: center;
+      }
+    }
   }
 }
 body.about {
