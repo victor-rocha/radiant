@@ -79,26 +79,6 @@ h2 {
     padding-right: 0;
   }
 }
-@media (max-width:499px){
-  .navbar {
-    text-align: center;
-
-    .nav {
-      margin-top: 20px;
-    }
-    form {
-      margin-top: 20px;
-      display: inline-block;
-      float: none!important;
-    }
-  }
-  .quotation {
-    margin: 20px auto;
-  }
-  .page {
-    margin: 0 auto !important;
-  }
-}
 .container {
   padding-top: 20px;
 }
@@ -740,7 +720,108 @@ body.radiant-human hr {
 }
 
 
-//CONATCT PAGE
+// CONTACT PAGE
 #map {
   color: black;
+}
+
+@media (max-width:499px){
+  .navbar {
+    text-align: center;
+
+    .nav {
+      margin-top: 20px;
+    }
+    form {
+      margin-top: 20px;
+      display: inline-block;
+      float: none!important;
+    }
+  }
+  .quotation {
+    margin: 20px auto;
+  }
+  .page {
+    margin: 0 auto !important;
+    padding: 0;
+  }
+  .footer {
+    padding: 0;
+  }
+  body.homepage  {
+    .content-wrapper {
+      .article {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+    }
+    .feature {
+        padding: 20px 0;
+    }
+    .feature .wrap {
+        padding: 0;
+    }
+    .wrap {
+        margin: 0 auto;
+        width: 100%;
+
+        .btn {
+          padding: 10px 20px;
+          font-size: 20px;
+        }
+    }
+    .lg_title, .archive_title {
+        font-size: 28px;
+        padding-bottom: 20px;
+    }
+    .cursive-font {
+      font-family: 'Dawning of a New Day', cursive;
+      text-transform: lowercase;
+      font-size: 22px;
+    }
+    .nominate {
+      padding: 0;
+
+      h2 {
+        margin-top: 0;
+        font-size: 28px;
+        line-height: 1.1;
+      }
+    }
+  }
+  body.about {
+    .cami-kate {
+      padding: 0;
+    }
+  }
+  body.about {
+    .rest-team {
+      .editor-pictures {
+          margin-bottom: 20px;
+          text-align: center;
+      }
+      .dev-design {
+        display: block;
+      }
+      .web-developer {
+        margin-right: 0;
+        text-align: center;
+        margin-bottom: 20px;
+        h2 {
+          text-align: center;
+        }
+      }
+      .graphic-designer {
+        text-align: center;
+
+        img {
+          float: none;
+        }
+
+        h2 {
+          text-align: center;
+        }
+      }
+    }
+  }
 }
