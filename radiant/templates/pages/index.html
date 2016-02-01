@@ -41,7 +41,7 @@
                 <div class="episode clearfix">
                     <div class="new-episode col-md-6">
                         {% if current_episode.homepage_thumbnail %}
-                            {% thumbnail current_episode.homepage_thumbnail "592x480" as im %}
+                            {% thumbnail current_episode.homepage_thumbnail "592x480" crop="center" as im %}
                                 {% if current_episode.get_absolute_url %}
                                     <a href="{{ current_episode.get_absolute_url }}">
                                         <img src="{{ im.url }}" class="wow slideInRight clickable" data-wow-duration="2s" alt="{{ current_episode.name }}"/>
@@ -54,7 +54,7 @@
                     </div>
                     <div class="episode-text col-md-6">
                         <div>
-                            {% thumbnail next_episode.blurb_image "592x480" as im %}
+                            {% thumbnail next_episode.blurb_image "592x480" crop="center" as im %}
                                 {% if next_episode.get_absolute_url %}
                                     <a href="{{ next_episode.get_absolute_url }}">
                                         <img src="{{ im.url }}" class="wow slideInRight clickable" data-wow-duration="2s" alt="{{ next_episode.name }}"/>
@@ -70,7 +70,7 @@
                 <div class="episode clearfix">
                     <div class="episode-text col-md-6">
                         <div>
-                            {% thumbnail current_episode.blurb_image "592x480" as im %}
+                            {% thumbnail current_episode.blurb_image "592x480" crop="center" as im %}
                                 {% if current_episode.get_absolute_url %}
                                     <a href="{{ current_episode.get_absolute_url }}">
                                         <img src="{{ im.url }}" class="wow slideInRight clickable" data-wow-duration="2s" alt="{{ current_episode.name }}"/>
@@ -83,7 +83,7 @@
                     </div>
                     <div class="next-episode col-md-6">
                         {% if next_episode.homepage_thumbnail %}
-                            {% thumbnail next_episode.homepage_thumbnail "592x480" as im %}
+                            {% thumbnail next_episode.homepage_thumbnail "592x480" crop="center" as im %}
                                 {% if next_episode.get_absolute_url %}
                                     <a href="{{ next_episode.get_absolute_url }}">
                                         <img src="{{ im.url }}" class="wow slideInRight clickable" data-wow-duration="2s" alt="{{ next_episode.name }}"/>
