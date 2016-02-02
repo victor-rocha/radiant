@@ -41,11 +41,21 @@
                         {% if editor.thumbnail %}
                             {% thumbnail editor.thumbnail "380x380" crop="center" as im %}
                                 {% if editor.website %}
-                                    <a href="{{ editor.website }}">
-                                        <img src="{{ im.url }}" />
-                                    </a>
+                                    <div class="img-wrapper">
+                                        <a href="{{ editor.website }}">
+                                            <img src="{{ im.url }}" />
+                                        </a>
+                                        <div class="img-overlay">
+                                            <p>{{ editor.name }}</p>
+                                        </div>
+                                    </div>
                                 {% else %}
-                                    <img src="{{ im.url }}" />
+                                    <div class="img-wrapper">
+                                        <img src="{{ im.url }}" />
+                                        <div class="img-overlay">
+                                            <p>{{ editor.name }}</p>
+                                        </div>
+                                    </div>
                                 {% endif %}
                             {% endthumbnail %}
                         {% endif %}
@@ -57,22 +67,36 @@
         <div class="container web">
             <div class="row">
               <div class="dev-design">
-                <div class="web-developer">
-                    <h2>Web Developer</h2>
-                    {% for developer in object.teammember_set.developers %}
-                        {% if developer.thumbnail %}
-                            {% thumbnail developer.thumbnail "380x380" crop="center" as im %}
-                                {% if developer.website %}
-                                    <a href="{{ developer.website }}">
-                                        <img src="{{ im.url }}" />
-                                    </a>
-                                {% else %}
-                                    <img src="{{ im.url }}" />
+                {% with developers=object.teammember_set.developers %}
+                    {% if developers %}
+                        <div class="web-developer">
+                            <h2>Web Developer</h2>
+                            {% for developer in developers %}
+                                {% if developer.thumbnail %}
+                                    {% thumbnail developer.thumbnail "380x380" crop="center" as im %}
+                                        {% if developer.website %}
+                                            <div class="img-wrapper">
+                                                <a href="{{ developer.website }}">
+                                                    <img src="{{ im.url }}" />
+                                                </a>
+                                                <div class="img-overlay">
+                                                    <p>{{ developer.name }}</p>
+                                                </div>
+                                            </div>
+                                        {% else %}
+                                            <div class="img-wrapper">
+                                                <img src="{{ im.url }}" />
+                                                <div class="img-overlay">
+                                                    <p>{{ developer.name }}</p>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    {% endthumbnail %}
                                 {% endif %}
-                            {% endthumbnail %}
-                        {% endif %}
-                    {% endfor %}
-                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
 
                 <div class="graphic-designer clearfix">
                     <h2>Graphic Designer</h2>
@@ -80,11 +104,21 @@
                         {% if designer.thumbnail %}
                             {% thumbnail designer.thumbnail "380x380" crop="center" as im %}
                                 {% if designer.website %}
-                                    <a href="{{ designer.website }}">
-                                        <img src="{{ im.url }}" />
-                                    </a>
+                                    <div class="img-wrapper">
+                                        <a href="{{ designer.website }}">
+                                            <img src="{{ im.url }}" />
+                                        </a>
+                                        <div class="img-overlay">
+                                            <p>{{ developer.name }}</p>
+                                        </div>
+                                    </div>
                                 {% else %}
-                                    <img src="{{ im.url }}" />
+                                    <div class="img-wrapper">
+                                        <img src="{{ im.url }}" />
+                                        <div class="img-overlay">
+                                            <p>{{ designer.name }}</p>
+                                        </div>
+                                    </div>
                                 {% endif %}
                             {% endthumbnail %}
                         {% endif %}

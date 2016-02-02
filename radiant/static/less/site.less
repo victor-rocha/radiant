@@ -464,6 +464,34 @@ body.about {
     min-height: 600px;
     color: white;
 
+    .img-wrapper{
+      position: relative;
+      display: inline-block;
+
+      &:hover .img-overlay {
+        position: absolute;
+        display: block;
+        background: rgba(0,0,0,0.4);
+        left:0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        color: white;
+
+        p {
+          text-align: center;
+          margin-top: 80px;
+          font-weight: bolder;
+          font-size: 20px;
+          font-family: 'Fjalla One', sans-serif;
+        }
+      }
+    }
+
+    .img-overlay {
+      display: none;
+    }
+
     .editors {
       padding-top: 140px;
       padding-bottom: 70px;
