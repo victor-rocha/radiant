@@ -18,7 +18,7 @@
         </div>
         <div class="close">X</div>
     </div>
-    <div class="video-wrapper" data-href="https://www.youtube.com/watch?v=TFZN1lMp5Hk">
+    <div class="video-wrapper" data-href="{{ object.youtube_url }}">
         {% include 'includes/video.html' with object=object auto_play=True loop=True %}
     </div>
     <div class="play"><i class="fa fa-play-circle-o"></i> <br><span>View Trailer</span></div>
