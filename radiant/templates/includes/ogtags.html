@@ -4,5 +4,5 @@
 <meta property='og:type' content='{% firstof object.og_type 'article' %}'/>
 <meta property='og:description' content='{% firstof object.og_description '' %}'/>
 {% if object.og_image %}
-<meta property='og:image' content='{{ object.og_image.url }}'/>
+<meta property='og:image' content='https://www.theradiantproject.com{{ object.og_image.url }}'/>
 {% endif %}
