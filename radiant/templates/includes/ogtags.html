@@ -1,6 +1,6 @@
 <meta property='og:site_name' content='The Radiant Project'/>
 <meta property='og:title' content='{% firstof object.og_title 'The Radiant Project' %}'/>
-<meta property='og:url' content='{{ request.build_absolute_uri }}'/>
+<meta property='og:url' content='https://www.theradiantproject.com{{ request.path }}'/>
 <meta property='og:type' content='{% firstof object.og_type 'article' %}'/>
 <meta property='og:description' content='{% firstof object.og_description '' %}'/>
 {% if object.og_image %}
