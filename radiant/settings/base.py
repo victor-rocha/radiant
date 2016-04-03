@@ -23,7 +23,7 @@ ADMINS = (
 )
 
 RECIPIENTS = (
-    'radianthive@gmail.com',
+    'info@theradiantproject.com',
 )
 # Application definition
 EMAIL_HOST = 'smtp.mandrillapp.com'
