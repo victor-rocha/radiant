@@ -58,7 +58,7 @@ secrets:
     oiypq5XkiPbWqeBMzHS2URrxCkIDhVV9dmmAGbFnCTp6av8JXNKhr1JKimzOayEh
     //umarZ0nFcLuATV8aUaNgBO
     =xUGC
-  -----END PGP MESSAGE-----
+    -----END PGP MESSAGE-----
 
 
 # Private deploy key. Must be GPG encrypted.
