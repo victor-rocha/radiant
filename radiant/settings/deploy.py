@@ -32,7 +32,7 @@ CACHES = {
 }
 
 EMAIL_SUBJECT_PREFIX = '[Radiant %s] ' % ENVIRONMENT.title()
-DEFAULT_FROM_EMAIL = 'noreply@%(DOMAIN)s' % os.environ
+DEFAULT_FROM_EMAIL = 'info@%(DOMAIN)s' % os.environ
 SERVER_EMAIL = DEFAULT_FROM_EMAIL
 
 COMPRESS_ENABLED = True

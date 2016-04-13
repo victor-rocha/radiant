@@ -24,13 +24,14 @@ class Contact(models.Model):
 
     def send_message(self):
         from_email = self.email
+        headers = {'Reply-to': from_email}
         to = settings.RECIPIENTS
         subject = "You got mail!"
         context = {'message': self.message, 'full_name': self.full_name}
         html_content = render_to_string('contacts/email/message.html', context)
         text_content = strip_tags(html_content)
 
-        email = EmailMultiAlternatives(subject, text_content, from_email, to)
+        email = EmailMultiAlternatives(subject, text_content, settings.DEFAULT_FROM_EMAIL, to, headers=headers)
         email.attach_alternative(html_content, "text/html")
         sent = email.send()
         return sent
